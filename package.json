@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/print",
   "description": "Colorful console logging",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "main": "dist/print.js",
   "module": "dist/print.m.js",
   "scripts": {
