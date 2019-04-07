@@ -1,5 +1,6 @@
 import { Log } from '@ianwalter/log'
 import chalk from 'chalk'
+import hasAnsi from 'has-ansi'
 
 const defaults = {
   types: ['debug', 'info', 'warn', 'error', 'log', 'success'],
@@ -21,14 +22,20 @@ export class Print {
     return new Log(Object.assign({ logger: this }, defaults, options))
   }
 
-  error (err) {
+  error (...messages) {
+    const [err, ...rest] = messages
     if (err instanceof Error) {
       const [_, ...lines] = err.stack.split('at')
       const at = chalk.gray('\n    at ')
       const stack = at + lines.map(toStackLine).join(at)
-      console.error('🚫 ', chalk.red.bold(err.message), stack)
+      if (hasAnsi(err.message)) {
+        const error = chalk.red.bold('Error:')
+        console.error('🚫 ', error, err.message, stack, ...rest)
+      } else {
+        console.error('🚫 ', chalk.red.bold(err.message), stack)
+      }
     } else {
-      console.error('🚫 ', chalk.red.bold(err))
+      console.error('🚫 ', chalk.red.bold(err), ...rest)
     }
   }
 

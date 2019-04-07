@@ -1,7 +1,9 @@
+const chalk = require('chalk')
 const { print } = require('.')
 
 print.error('Environment variables not set!')
 print.error(new Error('No assertions were executed.'))
+print.error(new Error(chalk.bold('Expected something else.')))
 print.warn('File was overwritten.')
 print.info('Done in 0.91s.')
 print.debug('Flaky test started.')
