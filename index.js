@@ -15,7 +15,7 @@ const toStackLines = line => {
   return chalk.gray(line.trimStart())
 }
 const toPaddedLines = full => line => `   ${full ? ' ' : ''}${line.trimStart()}`
-const toRest = (item, index, items) => {
+const toFmt = (item, index = 0, items) => {
   let [newline, ...rest] = item.split('\n')
 
   // Handle formatting an item with newlines.
@@ -42,48 +42,49 @@ export class Print {
   error (...messages) {
     const [err, ...rest] = messages
     if (err instanceof Error) {
+      const { message: msg } = err
       const [_, ...lines] = err.stack.split('at')
       const at = chalk.gray('\n    at ')
       const stack = at + lines.map(toStackLines).join(at)
       if (hasAnsi(err.message)) {
         const error = chalk.red.bold('Error:')
-        console.error('🚫 ', error, err.message, stack, ...rest.map(toRest))
+        console.error('🚫 ', error, toFmt(msg), stack, ...rest.map(toFmt))
       } else {
-        console.error('🚫 ', chalk.red.bold(err.message), stack)
+        console.error('🚫 ', chalk.red.bold(toFmt(msg)), stack)
       }
     } else {
-      console.error('🚫 ', chalk.red.bold(err), ...rest.map(toRest))
+      console.error('🚫 ', chalk.red.bold(toFmt(err)), ...rest.map(toFmt))
     }
   }
 
   success (...messages) {
-    const [message, ...rest] = messages
-    console.log('✅ ', chalk.green.bold(message), ...rest.map(toRest))
+    const [msg, ...rest] = messages
+    console.log('✅ ', chalk.green.bold(toFmt(msg)), ...rest.map(toFmt))
   }
 
   log (...messages) {
-    let [message, ...rest] = messages
-    if (hasEmoji(message) && message.length === 2) {
-      const [actual, ...messages] = rest
-      console.log(`${message} `, chalk.bold(actual), ...messages.map(toRest))
+    let [msg, ...rest] = messages
+    if (hasEmoji(msg) && msg.length === 2) {
+      const [actual, ...msgs] = rest
+      console.log(`${msg} `, chalk.bold(toFmt(actual)), ...msgs.map(toFmt))
     } else {
-      console.log('💬 ', chalk.bold(message), ...rest.map(toRest))
+      console.log('💬 ', chalk.bold(toFmt(msg)), ...rest.map(toFmt))
     }
   }
 
   warn (...messages) {
-    const [message, ...rest] = messages
-    console.warn('⚠️  ', chalk.yellow.bold(message), ...rest.map(toRest))
+    const [msg, ...rest] = messages
+    console.warn('⚠️  ', chalk.yellow.bold(toFmt(msg)), ...rest.map(toFmt))
   }
 
   info (...messages) {
-    const [message, ...rest] = messages
-    console.info('💁 ', chalk.blue.bold(message), ...rest.map(toRest))
+    const [msg, ...rest] = messages
+    console.info('💁 ', chalk.blue.bold(toFmt(msg)), ...rest.map(toFmt))
   }
 
   debug (...messages) {
-    const [message, ...rest] = messages
-    console.debug('🐛 ', chalk.magenta.bold(message), ...rest.map(toRest))
+    const [msg, ...rest] = messages
+    console.debug('🐛 ', chalk.magenta.bold(toFmt(msg)), ...rest.map(toFmt))
   }
 }
 
