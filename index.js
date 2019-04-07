@@ -1,6 +1,7 @@
 import { Log } from '@ianwalter/log'
 import chalk from 'chalk'
 import hasAnsi from 'has-ansi'
+import hasEmoji from 'has-emoji'
 
 const defaults = {
   types: ['debug', 'info', 'success', 'log', 'warn', 'error'],
@@ -61,8 +62,13 @@ export class Print {
   }
 
   log (...messages) {
-    const [message, ...rest] = messages
-    console.log('💬 ', chalk.bold(message), ...rest.map(toRest))
+    let [message, ...rest] = messages
+    if (hasEmoji(message) && message.length === 2) {
+      const [actual, ...messages] = rest
+      console.log(`${message} `, chalk.bold(actual), ...messages.map(toRest))
+    } else {
+      console.log('💬 ', chalk.bold(message), ...rest.map(toRest))
+    }
   }
 
   warn (...messages) {

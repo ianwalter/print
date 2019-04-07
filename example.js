@@ -10,4 +10,5 @@ print.debug('Flaky test started.', `
   Could be trouble.
 `)
 print.log('Request made to server.')
+print.log('🔑', chalk.cyan('$2b$12$HMJFAblrhBCGxTWv5BnIFe'))
 print.success('You did it!', 'Great job.')
