@@ -1,7 +1,7 @@
 const { print, chalk } = require('.')
 
 print.error('Environment variables not set!')
-print.error(new Error('No assertions were executed.'))
+print.error(new Error('No assertions were executed on that test.'))
 print.error(new Error(chalk.bold('Expected something else.')))
 print.warn('File was overwritten:', '\n', '/tmp/fakeFile.json')
 print.info('Done in 0.91s.')

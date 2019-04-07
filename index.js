@@ -7,15 +7,19 @@ const defaults = {
   types: ['debug', 'info', 'success', 'log', 'warn', 'error'],
   level: 'debug'
 }
-const toStackLines = line => {
-  if (line.includes('(')) {
-    const [ref, path] = line.trim().split(' ')
-    return `${chalk.bold(ref)} ${chalk.gray(path)}`
-  }
-  return chalk.gray(line.trimStart())
-}
+const atRE = /^\s+at\s(.*)/
+const refRE = /^\s+at\s(.*)\s(\(.*\))$/
 const toPaddedLines = full => line => `   ${full ? ' ' : ''}${line.trimStart()}`
-const toFmt = (item, index = 0, items) => {
+const at = toPaddedLines(true)(chalk.gray('at'))
+
+function toStackLines (line) {
+  if (line.match(refRE)) {
+    return line.replace(refRE, `${at} ${chalk.bold('$1')} ${chalk.gray('$2')}`)
+  } else if (line.match(atRE)) {
+    return line.replace(atRE, `${at} ${chalk.gray('$1')}`)
+  }
+}
+function toFmt (item, index = 0, items) {
   let [newline, ...rest] = item.split('\n')
 
   // Handle formatting an item with newlines.
@@ -43,10 +47,8 @@ export class Print {
     const [err, ...rest] = messages
     if (err instanceof Error) {
       const { message: msg } = err
-      const [_, ...lines] = err.stack.split('at')
-      const at = chalk.gray('\n    at ')
-      const stack = at + lines.map(toStackLines).join(at)
-      if (hasAnsi(err.message)) {
+      const stack = err.stack.split('\n').map(toStackLines).join('\n')
+      if (hasAnsi(msg)) {
         const error = chalk.red.bold('Error:')
         console.error('🚫 ', error, toFmt(msg), stack, ...rest.map(toFmt))
       } else {
