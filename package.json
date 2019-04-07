@@ -1,5 +1,7 @@
 {
   "name": "@ianwalter/print",
+  "description": "Colorful console logging",
+  "version": "0.0.0",
   "main": "dist/print.js",
   "module": "dist/print.m.js",
   "scripts": {
@@ -7,6 +9,25 @@
     "test": "node example.js"
   },
   "license": "SEE LICENSE IN LICENSE",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianwalter/print.git"
+  },
+  "keywords": [
+    "console",
+    "log",
+    "color",
+    "logger",
+    "logging"
+  ],
+  "author": "Ian Walter <public@iankwalter.com> (https://iankwalter.com)",
+  "bugs": {
+    "url": "https://github.com/ianwalter/print/issues"
+  },
+  "homepage": "https://github.com/ianwalter/print#readme",
   "dependencies": {
     "@ianwalter/log": "^3.0.0",
     "chalk": "^2.4.2"
