@@ -11,6 +11,7 @@ const atRE = /^\s+at\s(.*)/
 const refRE = /^\s+at\s(.*)\s(\(.*\))$/
 const toPaddedLines = full => line => `   ${full ? ' ' : ''}${line.trimStart()}`
 const at = toPaddedLines(true)(chalk.gray('at'))
+const byNotWhitespace = str => str && str.trim()
 
 function toStackLines (line) {
   if (line.match(refRE)) {
@@ -23,9 +24,8 @@ function toFmt (item, index = 0, items) {
   let [newline, ...rest] = item.split('\n')
 
   // Handle formatting an item with newlines.
-  if (rest.length && rest[0]) {
-    newline = newline.replace(' ', '') === '' ? '\n' : newline
-    return newline + rest.map(toPaddedLines(true)).join('\n')
+  if (rest.length && rest.some(item => item)) {
+    return (newline || '\n') + rest.map(toPaddedLines(true)).join('\n')
   }
 
   // Handle formatting an item that comes after a newline.
@@ -47,7 +47,8 @@ export class Print {
     const [err, ...rest] = messages
     if (err instanceof Error) {
       const { message: msg } = err
-      const stack = err.stack.split('\n').map(toStackLines).join('\n')
+      const stackLines = err.stack.split('\n').map(toStackLines)
+      const stack = '\n' + stackLines.filter(byNotWhitespace).join('\n')
       if (hasAnsi(msg)) {
         const error = chalk.red.bold('Error:')
         console.error('🚫 ', error, toFmt(msg), stack, ...rest.map(toFmt))
