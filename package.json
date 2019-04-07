@@ -1,0 +1,18 @@
+{
+  "name": "@ianwalter/print",
+  "main": "dist/print.js",
+  "module": "dist/print.m.js",
+  "scripts": {
+    "pretest": "dist",
+    "test": "node example.js"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "@ianwalter/log": "^3.0.0",
+    "chalk": "^2.4.2"
+  },
+  "devDependencies": {
+    "@ianwalter/dist": "^3.0.1",
+    "np": "^4.0.2"
+  }
+}
