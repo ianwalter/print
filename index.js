@@ -7,10 +7,9 @@ const defaults = {
   types: ['debug', 'info', 'success', 'log', 'warn', 'error'],
   level: 'debug'
 }
-const spaceRe = /^ +/
 const atRe = /^\s+at\s(.*)/
 const refRe = /^\s+at\s(.*)\s(\(.*\))$/
-const toPaddedLines = (s = '') => l => l && `   ${s}${l.replace(spaceRe, '')}`
+const toPaddedLines = (space = '') => line => line && `   ${space}${line}`
 const at = toPaddedLines(' ')(chalk.gray('at'))
 const byNotWhitespace = str => str && str.trim()
 
@@ -26,17 +25,18 @@ function toFmt (item, index = 0, items) {
 
   // Handle formatting an item with newlines.
   if (rest.length) {
-    return (newline || '\n') + rest.map(toPaddedLines(' ')).join('\n')
+    newline = newline ? newline + '\n' : '\n'
+    rest = rest.map(toPaddedLines(' '))
   }
 
   // Handle formatting an item that comes after a newline.
   const last = index > 0 && items[index - 1]
   const lastIsString = typeof last === 'string'
   if (lastIsString && last.replace(' ', '')[last.length - 1] === '\n') {
-    return toPaddedLines()(item)
+    newline = toPaddedLines()(newline)
   }
 
-  return item
+  return newline + rest.join('\n')
 }
 
 export class Print {
@@ -62,8 +62,8 @@ export class Print {
   }
 
   success (...messages) {
-    const [msg, ...rest] = messages
-    console.log('✅ ', chalk.green.bold(toFmt(msg)), ...rest.map(toFmt))
+    const [first, ...rest] = messages
+    console.log('✅ ', chalk.green.bold(toFmt(first)), ...rest.map(toFmt))
   }
 
   log (...messages) {
@@ -84,18 +84,18 @@ export class Print {
   }
 
   warn (...messages) {
-    const [msg, ...rest] = messages
-    console.warn('⚠️  ', chalk.yellow.bold(toFmt(msg)), ...rest.map(toFmt))
+    const [first, ...rest] = messages
+    console.warn('⚠️  ', chalk.yellow.bold(toFmt(first)), ...rest.map(toFmt))
   }
 
   info (...messages) {
-    const [msg, ...rest] = messages
-    console.info('💁 ', chalk.blue.bold(toFmt(msg)), ...rest.map(toFmt))
+    const [first, ...rest] = messages
+    console.info('💁 ', chalk.blue.bold(toFmt(first)), ...rest.map(toFmt))
   }
 
   debug (...messages) {
-    const [msg, ...rest] = messages
-    console.debug('🐛 ', chalk.magenta.bold(toFmt(msg)), ...rest.map(toFmt))
+    const [first, ...rest] = messages
+    console.debug('🐛 ', chalk.magenta.bold(toFmt(first)), ...rest.map(toFmt))
   }
 }
 
