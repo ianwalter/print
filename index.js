@@ -7,9 +7,10 @@ const defaults = {
   types: ['debug', 'info', 'success', 'log', 'warn', 'error'],
   level: 'debug'
 }
+const spaceRe = /^ +/
 const atRe = /^\s+at\s(.*)/
 const refRe = /^\s+at\s(.*)\s(\(.*\))$/
-const toPaddedLines = full => line => `   ${full ? ' ' : ''}${line.trimStart()}`
+const toPaddedLines = f => l => `   ${f ? ' ' : ''}${l.replace(spaceRe, '')}`
 const at = toPaddedLines(true)(chalk.gray('at'))
 const byNotWhitespace = str => str && str.trim()
 
