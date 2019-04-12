@@ -7,17 +7,17 @@ const defaults = {
   types: ['debug', 'info', 'success', 'log', 'warn', 'error'],
   level: 'debug'
 }
-const atRE = /^\s+at\s(.*)/
-const refRE = /^\s+at\s(.*)\s(\(.*\))$/
+const atRe = /^\s+at\s(.*)/
+const refRe = /^\s+at\s(.*)\s(\(.*\))$/
 const toPaddedLines = full => line => `   ${full ? ' ' : ''}${line.trimStart()}`
 const at = toPaddedLines(true)(chalk.gray('at'))
 const byNotWhitespace = str => str && str.trim()
 
 function toStackLines (line) {
-  if (line.match(refRE)) {
-    return line.replace(refRE, `${at} ${chalk.bold('$1')} ${chalk.gray('$2')}`)
-  } else if (line.match(atRE)) {
-    return line.replace(atRE, `${at} ${chalk.gray('$1')}`)
+  if (line.match(refRe)) {
+    return line.replace(refRe, `${at} ${chalk.bold('$1')} ${chalk.gray('$2')}`)
+  } else if (line.match(atRe)) {
+    return line.replace(atRe, `${at} ${chalk.gray('$1')}`)
   }
 }
 function toFmt (item, index = 0, items) {
