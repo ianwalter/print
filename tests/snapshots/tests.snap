@@ -2,6 +2,7 @@
 
 exports[`print 1`] = `
 "$ node tests/fixtures/example.js
+💁  Done in 0.91s.
 🐛  Flaky test started. 
     Make sure you check it out.
     Could be trouble.
