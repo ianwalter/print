@@ -5,6 +5,7 @@
   "main": "dist/print.js",
   "module": "dist/print.m.js",
   "scripts": {
+    "lint": "eslint index.js tests",
     "example": "node tests/fixtures/example.js",
     "pretest": "dist",
     "test": "bff"
@@ -38,6 +39,13 @@
   "devDependencies": {
     "@ianwalter/bff": "^2.8.0",
     "@ianwalter/dist": "^3.0.1",
+    "@ianwalter/eslint-config": "^1.1.2",
     "np": "^4.0.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@ianwalter"
+    ]
   }
 }
