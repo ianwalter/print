@@ -66,13 +66,20 @@ export class Print {
   }
 
   log (...messages) {
-    let [msg, ...rest] = messages
-    if (hasEmoji(msg) && msg.length === 2) {
-      const [actual, ...msgs] = rest
-      console.log(`${msg} `, chalk.bold(toFmt(actual)), ...msgs.map(toFmt))
-    } else {
-      console.log('💬 ', chalk.bold(toFmt(msg)), ...rest.map(toFmt))
+    let [first, ...rest] = messages
+    let prefix = '💬 '
+    const prefixIsEmoji = first && hasEmoji(first) && first.length === 2
+    if (!first || prefixIsEmoji) {
+      const [actual, ...actualRest] = rest
+      if (!first) {
+        prefix = '   '
+      } else if (prefixIsEmoji) {
+        prefix = `${first} `
+      }
+      first = chalk.bold(toFmt(actual))
+      rest = actualRest
     }
+    console.log(prefix, chalk.bold(toFmt(first)), ...rest.map(toFmt))
   }
 
   warn (...messages) {

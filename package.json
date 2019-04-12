@@ -5,8 +5,9 @@
   "main": "dist/print.js",
   "module": "dist/print.m.js",
   "scripts": {
+    "example": "node tests/fixtures/example.js",
     "pretest": "dist",
-    "test": "node example.js"
+    "test": "bff"
   },
   "license": "SEE LICENSE IN LICENSE",
   "files": [
@@ -35,6 +36,7 @@
     "has-emoji": "^1.0.0"
   },
   "devDependencies": {
+    "@ianwalter/bff": "^2.8.0",
     "@ianwalter/dist": "^3.0.1",
     "np": "^4.0.2"
   }
