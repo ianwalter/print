@@ -10,8 +10,8 @@ const defaults = {
 const spaceRe = /^ +/
 const atRe = /^\s+at\s(.*)/
 const refRe = /^\s+at\s(.*)\s(\(.*\))$/
-const toPaddedLines = f => l => `   ${f ? ' ' : ''}${l.replace(spaceRe, '')}`
-const at = toPaddedLines(true)(chalk.gray('at'))
+const toPaddedLines = (s = '') => l => l && `   ${s}${l.replace(spaceRe, '')}`
+const at = toPaddedLines(' ')(chalk.gray('at'))
 const byNotWhitespace = str => str && str.trim()
 
 function toStackLines (line) {
@@ -25,8 +25,8 @@ function toFmt (item, index = 0, items) {
   let [newline, ...rest] = item.split('\n')
 
   // Handle formatting an item with newlines.
-  if (rest.length && rest.some(item => item)) {
-    return (newline || '\n') + rest.map(toPaddedLines(true)).join('\n')
+  if (rest.length) {
+    return (newline || '\n') + rest.map(toPaddedLines(' ')).join('\n')
   }
 
   // Handle formatting an item that comes after a newline.
@@ -77,7 +77,7 @@ export class Print {
       } else if (prefixIsEmoji) {
         prefix = `${first} `
       }
-      first = chalk.bold(toFmt(actual))
+      first = actual
       rest = actualRest
     }
     console.log(prefix, chalk.bold(toFmt(first)), ...rest.map(toFmt))
