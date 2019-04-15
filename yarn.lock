@@ -977,15 +977,15 @@ elegant-spinner@^1.0.1:
   resolved "https://registry.yarnpkg.com/elegant-spinner/-/elegant-spinner-1.0.1.tgz#db043521c95d7e303fd8f345bedc3349cfb0729e"
   integrity sha1-2wQ1IcldfjA/2PNFvtwzSc+wcp4=
 
-emoji-regex@^6.5.1:
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-6.5.1.tgz#9baea929b155565c11ea41c6626eaa65cef992c2"
-  integrity sha512-PAHp6TxrCy7MGMFidro8uikr+zlJJKJ/Q6mm2ExZ7HwkyR9lSVFfE3kt36qcwa24BQL7y0G9axycGjK1A/0uNQ==
-
 emoji-regex@^7.0.1:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
   integrity sha512-CwBLREIQ7LvYFB0WyRvwhq5N5qPhc6PMjD6bYggFlI5YyDgl+0vxq5VHbMOFqLg7hfWzmu8T5Z1QofhmTIhItA==
+
+emoji-regex@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
+  integrity sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
 
 end-of-stream@^1.1.0:
   version "1.4.1"
@@ -1569,11 +1569,11 @@ has-ansi@^3.0.0:
     ansi-regex "^3.0.0"
 
 has-emoji@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/has-emoji/-/has-emoji-1.0.0.tgz#24f4da4aa08fc79fe1710b0ade31fde7aead2d6c"
-  integrity sha512-ILqOY8xHhXncSMaksD3jyGx+SxhjT/IStZFZTGj1ytullKfHLTgviIWUxTUjw+ve+lnt397S9aWaxdAfp1niXQ==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/has-emoji/-/has-emoji-1.1.0.tgz#8b9a13c1fedb92099fccc171628869a9dbab4091"
+  integrity sha512-5V4f0i0shdp6BzSE5WLBKh0EJky6wAo+b1pRS2Azm8cyJCekNxXhhAQJopYto3iMluh5rKD9n+vjQLZb7iR6+g==
   dependencies:
-    emoji-regex "^6.5.1"
+    emoji-regex "^8.0.0"
 
 has-flag@^2.0.0:
   version "2.0.0"
