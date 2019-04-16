@@ -45,20 +45,25 @@ export class Print {
   }
 
   error (...messages) {
-    const [err, ...rest] = messages
-    if (err instanceof Error) {
-      const { message: msg } = err
-      const stackLines = err.stack.split('\n').map(toStackLines)
-      const stack = '\n' + stackLines.filter(byNotWhitespace).join('\n')
-      if (hasAnsi(msg)) {
-        const error = chalk.red.bold('Error:')
-        console.error('🚫 ', error, toFmt(msg), stack, ...rest.map(toFmt))
+    console.error('🚫 ', ...messages.reduce((acc, err, index) => {
+      if (err instanceof Error) {
+        if (hasAnsi(err.message)) {
+          if (index === 0) {
+            acc.push(chalk.red.bold('Error:'))
+          }
+          acc.push(toFmt(err.message))
+        } else {
+          acc.push(chalk.red.bold(toFmt(err.message)))
+        }
+        const stackLines = err.stack.split('\n').map(toStackLines)
+        acc.push('\n' + stackLines.filter(byNotWhitespace).join('\n'))
+      } else if (index === 0) {
+        acc.push(chalk.red.bold(toFmt(err)))
       } else {
-        console.error('🚫 ', chalk.red.bold(toFmt(msg)), stack)
+        acc.push(toFmt(err))
       }
-    } else {
-      console.error('🚫 ', chalk.red.bold(toFmt(err)), ...rest.map(toFmt))
-    }
+      return acc
+    }, []))
   }
 
   success (...messages) {
