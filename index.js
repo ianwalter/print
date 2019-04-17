@@ -3,6 +3,10 @@ import chalk from 'chalk'
 import hasAnsi from 'has-ansi'
 import hasEmoji from 'has-emoji'
 
+// Stop chalk from disabling itself.
+chalk.enabled = true
+chalk.level = chalk.level || 2
+
 const defaults = {
   types: ['debug', 'info', 'success', 'log', 'warn', 'error'],
   level: 'debug'
@@ -43,9 +47,9 @@ function toSpacedString (acc, msg, idx, src) {
   if (endsWithANewline(msg)) {
     return `${acc}${msg}`
   } else if (idx === src.length - 1) {
-    return `${acc}${msg.toString()}\n`
+    return `${acc}${msg}\n`
   }
-  return `${acc}${msg.toString()} `
+  return `${acc}${msg} `
 }
 
 export class Print {
