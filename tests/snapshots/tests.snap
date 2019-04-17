@@ -2,15 +2,42 @@
 
 exports[`print 1`] = `
 "$ node tests/fixtures/example.js
-💁  Done in 0.91s.
-🐛  Flaky test started. 
+🚫  [31m[1mEnvironment variables not set![22m[39m
+🚫  [31m[1mNo assertions were executed on that test.[22m[39m 
+    [90mat[39m [1mObject.<anonymous>[22m [90m(/Users/iwalter/ianwalter/print/tests/fixtures/example.js:5:13)[39m
+    [90mat[39m [1mModule._compile[22m [90m(internal/modules/cjs/loader.js:816:30)[39m
+    [90mat[39m [1mObject.Module._extensions..js[22m [90m(internal/modules/cjs/loader.js:827:10)[39m
+    [90mat[39m [1mModule.load[22m [90m(internal/modules/cjs/loader.js:685:32)[39m
+    [90mat[39m [1mFunction.Module._load[22m [90m(internal/modules/cjs/loader.js:620:12)[39m
+    [90mat[39m [1mFunction.Module.runMain[22m [90m(internal/modules/cjs/loader.js:877:12)[39m
+    [90mat[39m [90minternal/main/run_main_module.js:21:11[39m
+🚫  [31m[1mError:[22m[39m [1mExpected something else.[22m 
+    [90mat[39m [1mObject.<anonymous>[22m [90m(/Users/iwalter/ianwalter/print/tests/fixtures/example.js:6:13)[39m
+    [90mat[39m [1mModule._compile[22m [90m(internal/modules/cjs/loader.js:816:30)[39m
+    [90mat[39m [1mObject.Module._extensions..js[22m [90m(internal/modules/cjs/loader.js:827:10)[39m
+    [90mat[39m [1mModule.load[22m [90m(internal/modules/cjs/loader.js:685:32)[39m
+    [90mat[39m [1mFunction.Module._load[22m [90m(internal/modules/cjs/loader.js:620:12)[39m
+    [90mat[39m [1mFunction.Module.runMain[22m [90m(internal/modules/cjs/loader.js:877:12)[39m
+    [90mat[39m [90minternal/main/run_main_module.js:21:11[39m
+🚫  [31m[1mTimeout reached:[22m[39m [31m[1mpromise cancelled[22m[39m 
+    [90mat[39m [1mObject.<anonymous>[22m [90m(/Users/iwalter/ianwalter/print/tests/fixtures/example.js:7:33)[39m
+    [90mat[39m [1mModule._compile[22m [90m(internal/modules/cjs/loader.js:816:30)[39m
+    [90mat[39m [1mObject.Module._extensions..js[22m [90m(internal/modules/cjs/loader.js:827:10)[39m
+    [90mat[39m [1mModule.load[22m [90m(internal/modules/cjs/loader.js:685:32)[39m
+    [90mat[39m [1mFunction.Module._load[22m [90m(internal/modules/cjs/loader.js:620:12)[39m
+    [90mat[39m [1mFunction.Module.runMain[22m [90m(internal/modules/cjs/loader.js:877:12)[39m
+    [90mat[39m [90minternal/main/run_main_module.js:21:11[39m
+⚠️   [33m[1mFile was overwritten:[22m[39m 
+    /tmp/fakeFile.json
+💁  [34m[1mDone in 0.91s.[22m[39m
+🐛  [35m[1mFlaky test started.[22m[39m 
     Make sure you check it out.
     Could be trouble.
-💬  Request made to server.
-🔑  $2b$12$HMJFAblrhBCGxTWv5BnIFe
-    export default () => {
-      console.log('Hello World!')
-    }
-
-✅  You did it! Great job."
+💬  [1mRequest made to server.[22m
+🔑  [1m[36m$2b$12$HMJFAblrhBCGxTWv5BnIFe[39m[22m
+    [1mexport default () => {[22m
+[1m      console.log('Hello World!')[22m
+[1m    }[22m
+[1m[22m
+✅  [32m[1mYou did it![22m[39m Great job."
 `;
