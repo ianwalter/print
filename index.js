@@ -9,9 +9,10 @@ const defaults = {
 }
 const atRe = /^\s+at\s(.*)/
 const refRe = /^\s+at\s(.*)\s(\(.*\))$/
-const toPaddedLines = (space = '') => line => line && `   ${space}${line}`
-const at = toPaddedLines(' ')(chalk.gray('at'))
+const toPaddedLine = line => line && `    ${line}`
+const at = toPaddedLine(chalk.gray('at'))
 const byNotWhitespace = str => str && str.trim()
+const endsWithANewline = msg => msg.replace(' ', '')[msg.length - 1] === '\n'
 
 function toStackLines (line) {
   if (line.match(refRe)) {
@@ -20,23 +21,31 @@ function toStackLines (line) {
     return line.replace(atRe, `${at} ${chalk.gray('$1')}`)
   }
 }
-function toFmt (item, index = 0, items) {
-  let [newline, ...rest] = item.split('\n')
+function toFmt (message, index = 0, messages) {
+  let [newline, ...rest] = message.split('\n')
 
   // Handle formatting an item with newlines.
   if (rest.length) {
     newline = newline ? newline + '\n' : '\n'
-    rest = rest.map(toPaddedLines(' '))
+    rest = rest.map(toPaddedLine)
   }
 
   // Handle formatting an item that comes after a newline.
-  const last = index > 0 && items[index - 1]
-  const lastIsString = typeof last === 'string'
-  if (lastIsString && last.replace(' ', '')[last.length - 1] === '\n') {
-    newline = toPaddedLines()(newline)
+  const previous = index > 0 && messages[index - 1]
+  const lastIsString = typeof previous === 'string'
+  if (lastIsString && endsWithANewline(previous)) {
+    newline = toPaddedLine(newline)
   }
 
   return newline + rest.join('\n')
+}
+function toSpacedString (acc, msg, idx, src) {
+  if (endsWithANewline(msg)) {
+    return `${acc}${msg}`
+  } else if (idx === src.length - 1) {
+    return `${acc}${msg.toString()}\n`
+  }
+  return `${acc}${msg.toString()} `
 }
 
 export class Print {
@@ -44,8 +53,12 @@ export class Print {
     return new Log(Object.assign({ logger: this }, defaults, options))
   }
 
+  write (...messages) {
+    process.stdout.write(messages.reduce(toSpacedString, ''))
+  }
+
   error (...messages) {
-    console.error('🚫 ', ...messages.reduce((acc, err, index) => {
+    this.write('🚫 ', ...messages.reduce((acc, err, index) => {
       if (err instanceof Error) {
         if (hasAnsi(err.message)) {
           if (index === 0) {
@@ -68,7 +81,7 @@ export class Print {
 
   success (...messages) {
     const [first, ...rest] = messages
-    console.log('✅ ', chalk.green.bold(toFmt(first)), ...rest.map(toFmt))
+    this.write('✅ ', chalk.green.bold(toFmt(first)), ...rest.map(toFmt))
   }
 
   log (...messages) {
@@ -85,22 +98,22 @@ export class Print {
       first = actual
       rest = actualRest
     }
-    console.log(prefix, chalk.bold(toFmt(first)), ...rest.map(toFmt))
+    this.write(prefix, chalk.bold(toFmt(first)), ...rest.map(toFmt))
   }
 
   warn (...messages) {
     const [first, ...rest] = messages
-    console.warn('⚠️  ', chalk.yellow.bold(toFmt(first)), ...rest.map(toFmt))
+    this.write('⚠️  ', chalk.yellow.bold(toFmt(first)), ...rest.map(toFmt))
   }
 
   info (...messages) {
     const [first, ...rest] = messages
-    console.info('💁 ', chalk.blue.bold(toFmt(first)), ...rest.map(toFmt))
+    this.write('💁 ', chalk.blue.bold(toFmt(first)), ...rest.map(toFmt))
   }
 
   debug (...messages) {
     const [first, ...rest] = messages
-    console.debug('🐛 ', chalk.magenta.bold(toFmt(first)), ...rest.map(toFmt))
+    this.write('🐛 ', chalk.magenta.bold(toFmt(first)), ...rest.map(toFmt))
   }
 }
 
