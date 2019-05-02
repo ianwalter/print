@@ -26,7 +26,7 @@ function toStackLines (line) {
   }
 }
 function toFmt (message, index = 0, messages) {
-  let [newline, ...rest] = message.split('\n')
+  let [newline, ...rest] = message ? message.split('\n') : []
 
   // Handle formatting an item with newlines.
   if (rest.length) {
@@ -41,7 +41,7 @@ function toFmt (message, index = 0, messages) {
     newline = toPaddedLine(newline)
   }
 
-  return newline + rest.join('\n')
+  return (newline || '') + rest.join('\n')
 }
 function toSpacedString (acc, msg, idx, src) {
   if (endsWithANewline(msg)) {
