@@ -27,7 +27,7 @@ const user = {
   details: {
     firstName: 'Jack',
     lastName: 'River',
-    registered: new Date(),
+    registered: new Date('2019-06-21T00:13:54.246Z'),
     address: {
       address: '1 Test St',
       apt: '201a',
