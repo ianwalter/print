@@ -29,7 +29,7 @@ function toStackLines (line) {
 }
 function toFmt (message, index = 0, messages) {
   message = typeof message === 'object'
-    ? '\n' + chromafi(message, { indent: 2, lineNumberPad: 0 })
+    ? '\n' + chromafi(message, { tabsToSpaces: 2, lineNumberPad: 0 })
     : typeof message === 'string' ? message : util.inspect(message)
   let [newline, ...rest] = message ? message.split('\n') : []
 
