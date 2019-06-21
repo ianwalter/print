@@ -18,3 +18,29 @@ print.log(false, `export default () => {
 }
 `)
 print.success('You did it!', 'Great job.')
+print.debug('Total tests run:', 1)
+
+const user = {
+  id: 321,
+  enabled: true,
+  email: 'jack@river.com',
+  details: {
+    firstName: 'Jack',
+    lastName: 'River',
+    registered: new Date('2019-06-21T00:13:54.246Z'),
+    address: {
+      address: '1 Test St',
+      apt: '201a',
+      city: 'Red Hook',
+      state: 'VI',
+      phoneNumbers: [
+        '617-555-5555',
+        '860-555-5555'
+      ]
+    }
+  },
+  fullName () {
+    return `${this.details.firstName} ${this.details.lastName}`
+  }
+}
+print.warn('User not found', user)

@@ -1,5 +1,5 @@
 # @ianwalter/print
-> Colorful console logging
+> Colorful Node.js logging
 
 [![npm page][npmImage]][npmUrl]
 

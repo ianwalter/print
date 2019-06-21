@@ -1,7 +1,9 @@
-import { Log } from '@ianwalter/log'
-import chalk from 'chalk'
-import hasAnsi from 'has-ansi'
-import hasEmoji from 'has-emoji'
+const util = require('util')
+const chromafi = require('chromafi')
+const { Log } = require('@ianwalter/log')
+const chalk = require('chalk')
+const hasAnsi = require('has-ansi')
+const hasEmoji = require('has-emoji')
 
 // Stop chalk from disabling itself.
 chalk.enabled = true
@@ -26,6 +28,9 @@ function toStackLines (line) {
   }
 }
 function toFmt (message, index = 0, messages) {
+  message = typeof message === 'object'
+    ? '\n' + chromafi(message, { tabsToSpaces: 2, lineNumberPad: 0 })
+    : typeof message === 'string' ? message : util.inspect(message)
   let [newline, ...rest] = message ? message.split('\n') : []
 
   // Handle formatting an item with newlines.
@@ -52,7 +57,7 @@ function toSpacedString (acc, msg, idx, src) {
   return `${acc}${msg} `
 }
 
-export class Print {
+class Print {
   constructor (options = {}) {
     return new Log(Object.assign({ logger: this }, defaults, options))
   }
@@ -121,6 +126,4 @@ export class Print {
   }
 }
 
-export const print = new Print()
-
-export { chalk }
+module.exports = { Print, print: new Print(), chalk }
