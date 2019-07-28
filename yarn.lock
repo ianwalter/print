@@ -1437,7 +1437,7 @@ has-ansi@^3.0.0:
   dependencies:
     ansi-regex "^3.0.0"
 
-has-emoji@^1.0.0:
+has-emoji@^1.0.0, has-emoji@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/has-emoji/-/has-emoji-1.1.0.tgz#8b9a13c1fedb92099fccc171628869a9dbab4091"
   integrity sha512-5V4f0i0shdp6BzSE5WLBKh0EJky6wAo+b1pRS2Azm8cyJCekNxXhhAQJopYto3iMluh5rKD9n+vjQLZb7iR6+g==
