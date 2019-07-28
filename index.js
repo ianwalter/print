@@ -31,7 +31,7 @@ function toStackLines (line) {
 function toFmt (message, index = 0, messages) {
   message = typeof message === 'object'
     ? '\n' + chromafi(
-      clone(message, { circulars: false }), 
+      clone(message, { circulars: false }),
       { tabsToSpaces: 2, lineNumberPad: 0 }
     )
     : typeof message === 'string' ? message : util.inspect(message)
