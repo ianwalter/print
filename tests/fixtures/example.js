@@ -43,4 +43,5 @@ const user = {
     return `${this.details.firstName} ${this.details.lastName}`
   }
 }
+user.boss = user
 print.warn('User not found', user)
