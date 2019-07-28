@@ -39,12 +39,18 @@
   "devDependencies": {
     "@ianwalter/bff": "^6.1.0",
     "@ianwalter/eslint-config": "^1.1.2",
+    "@ianwalter/release": "^1.1.10",
+    "@ianwalter/renovate-config": "^1.1.1",
     "common-tags": "^1.8.0",
-    "np": "^5.0.0",
     "strip-ansi": "^5.2.0"
   },
   "eslintConfig": {
     "root": true,
+    "extends": [
+      "@ianwalter"
+    ]
+  },
+  "renovate": {
     "extends": [
       "@ianwalter"
     ]
