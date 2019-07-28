@@ -4,6 +4,7 @@ const { Log } = require('@ianwalter/log')
 const chalk = require('chalk')
 const hasAnsi = require('has-ansi')
 const hasEmoji = require('has-emoji')
+const clone = require('@ianwalter/clone')
 
 // Stop chalk from disabling itself.
 chalk.enabled = true
@@ -29,7 +30,10 @@ function toStackLines (line) {
 }
 function toFmt (message, index = 0, messages) {
   message = typeof message === 'object'
-    ? '\n' + chromafi(message, { tabsToSpaces: 2, lineNumberPad: 0 })
+    ? '\n' + chromafi(
+      clone(message, { circulars: false }),
+      { tabsToSpaces: 2, lineNumberPad: 0 }
+    )
     : typeof message === 'string' ? message : util.inspect(message)
   let [newline, ...rest] = message ? message.split('\n') : []
 

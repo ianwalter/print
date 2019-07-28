@@ -82,8 +82,10 @@ exports[`print 40`] = `"    [37m[90m20[37m   [33mfullName:[37m [37mfullNam
 
 exports[`print 41`] = `"    [37m[90m21[37m     [31mreturn[37m [33m\`[36m\${[31mthis[36m.details.firstName}[33m [36m\${[31mthis[36m.details.lastName}[33m\`[37m [39m"`;
 
-exports[`print 42`] = `"    [37m[90m22[37m   }[37m                                                             [39m"`;
+exports[`print 42`] = `"    [37m[90m22[37m   }[37m,                                                            [39m"`;
 
-exports[`print 43`] = `"    [37m[90m23[37m }                                                               [39m"`;
+exports[`print 43`] = `"    [37m[90m23[37m   [33mboss:[37m [33m'[Circular]'[37m                                            [39m"`;
 
-exports[`print 44`] = `"    [37m[39m"`;
+exports[`print 44`] = `"    [37m[90m24[37m }                                                               [39m"`;
+
+exports[`print 45`] = `"    [37m[39m"`;
