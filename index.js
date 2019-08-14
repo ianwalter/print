@@ -5,13 +5,18 @@ const chalk = require('chalk')
 const hasAnsi = require('has-ansi')
 const hasEmoji = require('has-emoji')
 const clone = require('@ianwalter/clone')
+const marked = require('marked')
+const TerminalRenderer = require('marked-terminal')
 
 // Stop chalk from disabling itself.
 chalk.enabled = true
 chalk.level = chalk.level || 2
 
+// Set up marked with the TerminalRenderer.
+marked.setOptions({ renderer: new TerminalRenderer() })
+
 const defaults = {
-  types: ['debug', 'info', 'success', 'log', 'warn', 'error'],
+  types: ['debug', 'info', 'md', 'success', 'log', 'warn', 'error'],
   level: 'debug'
 }
 const atRe = /^\s+at\s(.*)/
@@ -20,6 +25,7 @@ const toPaddedLine = line => line && `    ${line}`
 const at = toPaddedLine(chalk.gray('at'))
 const byNotWhitespace = str => str && str.trim()
 const endsWithANewline = msg => msg.replace(' ', '')[msg.length - 1] === '\n'
+const md = str => marked(str).trimEnd()
 
 function toStackLines (line) {
   if (line.match(refRe)) {
@@ -54,7 +60,7 @@ function toFmt (message, index = 0, messages) {
 }
 function toSpacedString (acc, msg, idx, src) {
   if (endsWithANewline(msg)) {
-    return `${acc}${msg}`
+    return acc + msg
   } else if (idx === src.length - 1) {
     return `${acc}${msg}\n`
   }
@@ -128,6 +134,10 @@ class Print {
     const [first, ...rest] = messages
     this.write('🐛 ', chalk.magenta.bold(toFmt(first)), ...rest.map(toFmt))
   }
+
+  md (...messages) {
+    this.write(...messages.map(message => md(message)), '\n')
+  }
 }
 
-module.exports = { Print, print: new Print(), chalk }
+module.exports = { Print, print: new Print(), chalk, md }

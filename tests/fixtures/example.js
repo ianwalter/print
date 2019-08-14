@@ -1,4 +1,4 @@
-const { print, chalk } = require('../..')
+const { print, chalk, md } = require('../..')
 const { stripIndent } = require('common-tags')
 
 print.error('Environment variables not set!')
@@ -45,3 +45,8 @@ const user = {
 }
 user.boss = user
 print.warn('User not found', user)
+print.md(
+  'A new version is available **v1.1.0**!',
+  'Run `yarn add widget@latest` to upgrade.'
+)
+print.success('Success!', md('**Donezo.**'))

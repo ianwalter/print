@@ -34,7 +34,9 @@
     "chalk": "^2.4.2",
     "chromafi": "ianwalter/chromafi",
     "has-ansi": "^3.0.0",
-    "has-emoji": "^1.1.0"
+    "has-emoji": "^1.1.0",
+    "marked": "^0.7.0",
+    "marked-terminal": "^3.2.0"
   },
   "devDependencies": {
     "@ianwalter/bff": "^6.4.0",
