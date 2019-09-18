@@ -34,12 +34,18 @@ function toStackLines (line) {
     return line.replace(atRe, `${at} ${chalk.gray('$1')}`)
   }
 }
+
+function getClone (src) {
+  try {
+    return clone(src, { circulars: false })
+  } catch (err) {
+    return util.inspect(src)
+  }
+}
+
 function toFmt (message, index = 0, messages) {
   message = typeof message === 'object'
-    ? '\n' + chromafi(
-      clone(message, { circulars: false }),
-      { tabsToSpaces: 2, lineNumberPad: 0 }
-    )
+    ? '\n' + chromafi(getClone(message), { tabsToSpaces: 2, lineNumberPad: 0 })
     : typeof message === 'string' ? message : util.inspect(message)
   let [newline, ...rest] = message ? message.split('\n') : []
 
@@ -58,6 +64,7 @@ function toFmt (message, index = 0, messages) {
 
   return (newline || '') + rest.join('\n')
 }
+
 function toSpacedString (acc, msg, idx, src) {
   if (endsWithANewline(msg)) {
     return acc + msg
