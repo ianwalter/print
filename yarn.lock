@@ -580,6 +580,25 @@ chromafi@ianwalter/chromafi:
     strip-indent "^2.0.0"
     super-split "^1.1.0"
 
+chromafi@ianwalter/chromafi#trailing-space-option:
+  version "2.1.0"
+  resolved "https://codeload.github.com/ianwalter/chromafi/tar.gz/ce9d76b924a8bd0409d198e9ed40c462aa1a3dc2"
+  dependencies:
+    ansi-mark "^1.0.0"
+    ansi-regex "^3.0.0"
+    array-uniq "^1.0.3"
+    camelcase "^4.1.0"
+    chalk "^2.3.2"
+    cheerio "^1.0.0-rc.2"
+    deepmerge "^2.1.0"
+    detect-indent "^5.0.0"
+    he "^1.1.1"
+    highlight.js "^9.12.0"
+    min-indent "^1.0.0"
+    strip-ansi "^4.0.0"
+    strip-indent "^2.0.0"
+    super-split "^1.1.0"
+
 class-utils@^0.3.5:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/class-utils/-/class-utils-0.3.6.tgz#f93369ae8b9a7ce02fd41faad0ca83033190c463"

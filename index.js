@@ -19,6 +19,11 @@ const defaults = {
   types: ['debug', 'info', 'md', 'success', 'log', 'warn', 'error'],
   level: 'debug'
 }
+const chromafiOptions = {
+  trailingSpace: false,
+  tabsToSpaces: 2,
+  lineNumberPad: 0
+}
 const atRe = /^\s+at\s(.*)/
 const refRe = /^\s+at\s(.*)\s(\(.*\))$/
 const toPaddedLine = line => line && `    ${line}`
@@ -45,7 +50,7 @@ function getClone (src) {
 
 function toFmt (message, index = 0, messages) {
   message = typeof message === 'object'
-    ? '\n' + chromafi(getClone(message), { tabsToSpaces: 2, lineNumberPad: 0 })
+    ? '\n' + chromafi(getClone(message), chromafiOptions)
     : typeof message === 'string' ? message : util.inspect(message)
   let [newline, ...rest] = message ? message.split('\n') : []
 
