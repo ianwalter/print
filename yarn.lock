@@ -43,10 +43,10 @@
     p-series "^2.1.0"
     workerpool "^5.0.0"
 
-"@ianwalter/chromafi@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/chromafi/-/chromafi-1.0.0.tgz#bbb3e89132e07b52a4f3cc62941b539236fc3862"
-  integrity sha512-qo4yj9rgLhPyaEJqLIcUOsqvTVc+bsuluWm14pmw3M0o+zuNibLkbkmfD8zYdgeqrTnoEgZQ2MMsFpkr0IKsbw==
+"@ianwalter/chromafi@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@ianwalter/chromafi/-/chromafi-1.0.1.tgz#6df9f38719cbfea689e820e04c5d292da38f15ca"
+  integrity sha512-RmRCeizxlYAZYeFhApyUsNR8pwTy3lWOsS17eKINLgWW8bzb6BlrZCdftnUjcW0Lloyx3AajmS9Zk4+B1teS4A==
   dependencies:
     ansi-mark "^1.0.0"
     ansi-regex "^3.0.0"

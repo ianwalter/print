@@ -19,11 +19,7 @@ const defaults = {
   types: ['debug', 'info', 'md', 'success', 'log', 'warn', 'error'],
   level: 'debug'
 }
-const chromafiOptions = {
-  trailingSpace: false,
-  tabsToSpaces: 2,
-  lineNumberPad: 0
-}
+const chromafiOptions = { tabsToSpaces: 2, lineNumberPad: 0 }
 const atRe = /^\s+at\s(.*)/
 const refRe = /^\s+at\s(.*)\s(\(.*\))$/
 const toPaddedLine = line => line && `    ${line}`
