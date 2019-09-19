@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/print",
   "description": "Colorful Node.js logging",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "main": "index.js",
   "scripts": {
     "lint": "eslint index.js tests",
