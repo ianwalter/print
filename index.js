@@ -1,5 +1,5 @@
 const util = require('util')
-const chromafi = require('chromafi')
+const chromafi = require('@ianwalter/chromafi')
 const { Log } = require('@ianwalter/log')
 const chalk = require('chalk')
 const hasAnsi = require('has-ansi')

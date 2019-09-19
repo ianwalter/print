@@ -29,10 +29,10 @@
   },
   "homepage": "https://github.com/ianwalter/print#readme",
   "dependencies": {
+    "@ianwalter/chromafi": "^1.0.0",
     "@ianwalter/clone": "^4.1.0",
     "@ianwalter/log": "^3.0.0",
     "chalk": "^2.4.2",
-    "chromafi": "ianwalter/chromafi#trailing-space-option",
     "has-ansi": "^4.0.0",
     "has-emoji": "^1.1.0",
     "marked": "^0.7.0",

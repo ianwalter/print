@@ -43,6 +43,26 @@
     p-series "^2.1.0"
     workerpool "^5.0.0"
 
+"@ianwalter/chromafi@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/chromafi/-/chromafi-1.0.0.tgz#bbb3e89132e07b52a4f3cc62941b539236fc3862"
+  integrity sha512-qo4yj9rgLhPyaEJqLIcUOsqvTVc+bsuluWm14pmw3M0o+zuNibLkbkmfD8zYdgeqrTnoEgZQ2MMsFpkr0IKsbw==
+  dependencies:
+    ansi-mark "^1.0.0"
+    ansi-regex "^3.0.0"
+    array-uniq "^1.0.3"
+    camelcase "^4.1.0"
+    chalk "^2.3.2"
+    cheerio "^1.0.0-rc.2"
+    deepmerge "^2.1.0"
+    detect-indent "^5.0.0"
+    he "^1.1.1"
+    highlight.js "^9.12.0"
+    min-indent "^1.0.0"
+    strip-ansi "^4.0.0"
+    strip-indent "^2.0.0"
+    super-split "^1.1.0"
+
 "@ianwalter/cli@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/cli/-/cli-1.2.0.tgz#637edc5e1c9cc2f5467812123cb92a64c39b6215"
@@ -564,25 +584,6 @@ cheerio@^1.0.0-rc.2:
 chromafi@ianwalter/chromafi:
   version "2.1.0"
   resolved "https://codeload.github.com/ianwalter/chromafi/tar.gz/5fc4e4335f56501152bfa339f7e7c1f2c785959c"
-  dependencies:
-    ansi-mark "^1.0.0"
-    ansi-regex "^3.0.0"
-    array-uniq "^1.0.3"
-    camelcase "^4.1.0"
-    chalk "^2.3.2"
-    cheerio "^1.0.0-rc.2"
-    deepmerge "^2.1.0"
-    detect-indent "^5.0.0"
-    he "^1.1.1"
-    highlight.js "^9.12.0"
-    min-indent "^1.0.0"
-    strip-ansi "^4.0.0"
-    strip-indent "^2.0.0"
-    super-split "^1.1.0"
-
-chromafi@ianwalter/chromafi#trailing-space-option:
-  version "2.1.0"
-  resolved "https://codeload.github.com/ianwalter/chromafi/tar.gz/ce9d76b924a8bd0409d198e9ed40c462aa1a3dc2"
   dependencies:
     ansi-mark "^1.0.0"
     ansi-regex "^3.0.0"
