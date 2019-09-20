@@ -2,94 +2,100 @@
 
 exports[`print 1`] = `"$ node tests/fixtures/example.js"`;
 
-exports[`print 2`] = `"🚫  [31m[1mEnvironment variables not set![22m[39m"`;
+exports[`print 2`] = `"No formatting on this one."`;
 
-exports[`print 3`] = `"🚫  [31m[1mNo assertions were executed on that test.[22m[39m "`;
+exports[`print 3`] = `"🚫  [31m[1mEnvironment variables not set![22m[39m"`;
 
-exports[`print 4`] = `"🚫  [31m[1mError:[22m[39m [1mExpected something else.[22m "`;
+exports[`print 4`] = `"🚫  [31m[1mNo assertions were executed on that test.[22m[39m "`;
 
-exports[`print 5`] = `"🚫  [31m[1mTimeout reached:[22m[39m [31m[1mpromise cancelled[22m[39m "`;
+exports[`print 5`] = `"🚫  [31m[1mError:[22m[39m [1mExpected something else.[22m "`;
 
-exports[`print 6`] = `"⚠️   [33m[1mFile was overwritten:[22m[39m "`;
+exports[`print 6`] = `"🚫  [31m[1mTimeout reached:[22m[39m [31m[1mpromise cancelled[22m[39m "`;
 
-exports[`print 7`] = `"    /tmp/fakeFile.json"`;
+exports[`print 7`] = `"⚠️   [33m[1mFile was overwritten:[22m[39m "`;
 
-exports[`print 8`] = `"💁  [34m[1mDone in 0.91s.[22m[39m"`;
+exports[`print 8`] = `"    /tmp/fakeFile.json"`;
 
-exports[`print 9`] = `"🐛  [35m[1mFlaky test started.[22m[39m "`;
+exports[`print 9`] = `"💁  [34m[1mDone in 0.91s.[22m[39m"`;
 
-exports[`print 10`] = `"    Make sure you check it out."`;
+exports[`print 10`] = `"🐛  [35m[1mFlaky test started.[22m[39m "`;
 
-exports[`print 11`] = `"    Could be trouble."`;
+exports[`print 11`] = `"    Make sure you check it out."`;
 
-exports[`print 12`] = `"💬  [1mRequest made to server.[22m"`;
+exports[`print 12`] = `"    Could be trouble."`;
 
-exports[`print 13`] = `"🔑  [1m[36m$2b$12$HMJFAblrhBCGxTWv5BnIFe[39m[22m"`;
+exports[`print 13`] = `"💬  [1mRequest made to server.[22m"`;
 
-exports[`print 14`] = `"    [1mexport default () => {[22m"`;
+exports[`print 14`] = `"🔑  [1m[36m$2b$12$HMJFAblrhBCGxTWv5BnIFe[39m[22m"`;
 
-exports[`print 15`] = `"[1m      console.log('Hello World!')[22m"`;
+exports[`print 15`] = `"    [1mexport default () => {[22m"`;
 
-exports[`print 16`] = `"[1m    }[22m"`;
+exports[`print 16`] = `"[1m      console.log('Hello World!')[22m"`;
 
-exports[`print 17`] = `"[1m[22m"`;
+exports[`print 17`] = `"[1m    }[22m"`;
 
-exports[`print 18`] = `"✅  [32m[1mYou did it![22m[39m Great job."`;
+exports[`print 18`] = `"[1m[22m"`;
 
-exports[`print 19`] = `"🐛  [35m[1mTotal tests run:[22m[39m 1"`;
+exports[`print 19`] = `"✅  [32m[1mYou did it![22m[39m Great job."`;
 
-exports[`print 20`] = `"⚠️   [33m[1mUser not found[22m[39m "`;
+exports[`print 20`] = `"🐛  [35m[1mTotal tests run:[22m[39m 1"`;
 
-exports[`print 21`] = `"    [37m[90m 1[37m {[39m"`;
+exports[`print 21`] = `"⚠️   [33m[1mUser not found[22m[39m "`;
 
-exports[`print 22`] = `"    [37m[90m 2[37m   [33mid:[37m [32m321[37m,[39m"`;
+exports[`print 22`] = `"    [37m[90m 1[37m {[39m"`;
 
-exports[`print 23`] = `"    [37m[90m 3[37m   [33menabled:[37m [35mtrue[37m,[39m"`;
+exports[`print 23`] = `"    [37m[90m 2[37m   [33mid:[37m [32m321[37m,[39m"`;
 
-exports[`print 24`] = `"    [37m[90m 4[37m   [33memail:[37m [33m'jack@river.com'[37m,[39m"`;
+exports[`print 24`] = `"    [37m[90m 3[37m   [33menabled:[37m [35mtrue[37m,[39m"`;
 
-exports[`print 25`] = `"    [37m[90m 5[37m   [33mdetails:[37m {[39m"`;
+exports[`print 25`] = `"    [37m[90m 4[37m   [33memail:[37m [33m'jack@river.com'[37m,[39m"`;
 
-exports[`print 26`] = `"    [37m[90m 6[37m     [33mfirstName:[37m [33m'Jack'[37m,[39m"`;
+exports[`print 26`] = `"    [37m[90m 5[37m   [33mdetails:[37m {[39m"`;
 
-exports[`print 27`] = `"    [37m[90m 7[37m     [33mlastName:[37m [33m'River'[37m,[39m"`;
+exports[`print 27`] = `"    [37m[90m 6[37m     [33mfirstName:[37m [33m'Jack'[37m,[39m"`;
 
-exports[`print 28`] = `"    [37m[90m 8[37m     [33mregistered:[37m [33m'2019-06-21T00:13:54.246Z'[37m,[39m"`;
+exports[`print 28`] = `"    [37m[90m 7[37m     [33mlastName:[37m [33m'River'[37m,[39m"`;
 
-exports[`print 29`] = `"    [37m[90m 9[37m     [33maddress:[37m {[39m"`;
+exports[`print 29`] = `"    [37m[90m 8[37m     [33mregistered:[37m [33m'2019-06-21T00:13:54.246Z'[37m,[39m"`;
 
-exports[`print 30`] = `"    [37m[90m10[37m       [33maddress:[37m [33m'1 Test St'[37m,[39m"`;
+exports[`print 30`] = `"    [37m[90m 9[37m     [33maddress:[37m {[39m"`;
 
-exports[`print 31`] = `"    [37m[90m11[37m       [33mapt:[37m [33m'201a'[37m,[39m"`;
+exports[`print 31`] = `"    [37m[90m10[37m       [33maddress:[37m [33m'1 Test St'[37m,[39m"`;
 
-exports[`print 32`] = `"    [37m[90m12[37m       [33mcity:[37m [33m'Red Hook'[37m,[39m"`;
+exports[`print 32`] = `"    [37m[90m11[37m       [33mapt:[37m [33m'201a'[37m,[39m"`;
 
-exports[`print 33`] = `"    [37m[90m13[37m       [33mstate:[37m [33m'VI'[37m,[39m"`;
+exports[`print 33`] = `"    [37m[90m12[37m       [33mcity:[37m [33m'Red Hook'[37m,[39m"`;
 
-exports[`print 34`] = `"    [37m[90m14[37m       [33mphoneNumbers:[37m [[39m"`;
+exports[`print 34`] = `"    [37m[90m13[37m       [33mstate:[37m [33m'VI'[37m,[39m"`;
 
-exports[`print 35`] = `"    [37m[90m15[37m         [33m'617-555-5555'[37m,[39m"`;
+exports[`print 35`] = `"    [37m[90m14[37m       [33mphoneNumbers:[37m [[39m"`;
 
-exports[`print 36`] = `"    [37m[90m16[37m         [33m'860-555-5555'[37m[39m"`;
+exports[`print 36`] = `"    [37m[90m15[37m         [33m'617-555-5555'[37m,[39m"`;
 
-exports[`print 37`] = `"    [37m[90m17[37m       ][39m"`;
+exports[`print 37`] = `"    [37m[90m16[37m         [33m'860-555-5555'[37m[39m"`;
 
-exports[`print 38`] = `"    [37m[90m18[37m     }[39m"`;
+exports[`print 38`] = `"    [37m[90m17[37m       ][39m"`;
 
-exports[`print 39`] = `"    [37m[90m19[37m   },[39m"`;
+exports[`print 39`] = `"    [37m[90m18[37m     }[39m"`;
 
-exports[`print 40`] = `"    [37m[90m20[37m   [33mfullName:[37m [37mfullName () {[39m"`;
+exports[`print 40`] = `"    [37m[90m19[37m   },[39m"`;
 
-exports[`print 41`] = `"    [37m[90m21[37m     [31mreturn[37m [33m\`[36m\${[31mthis[36m.details.firstName}[33m [36m\${[31mthis[36m.details.lastName}[33m\`[37m[39m"`;
+exports[`print 41`] = `"    [37m[90m20[37m   [33mfullName:[37m [37mfullName () {[39m"`;
 
-exports[`print 42`] = `"    [37m[90m22[37m   }[37m,[39m"`;
+exports[`print 42`] = `"    [37m[90m21[37m     [31mreturn[37m [33m\`[36m\${[31mthis[36m.details.firstName}[33m [36m\${[31mthis[36m.details.lastName}[33m\`[37m[39m"`;
 
-exports[`print 43`] = `"    [37m[90m23[37m   [33mboss:[37m [33m'[Circular]'[37m[39m"`;
+exports[`print 43`] = `"    [37m[90m22[37m   }[37m,[39m"`;
 
-exports[`print 44`] = `"    [37m[90m24[37m }[39m"`;
+exports[`print 44`] = `"    [37m[90m23[37m   [33mboss:[37m [33m'[Circular]'[37m[39m"`;
 
-exports[`print 45`] = `"    [37m[39m"`;
+exports[`print 45`] = `"    [37m[90m24[37m }[39m"`;
 
-exports[`print 46`] = `"[0mA new version is available [1mv1.1.0[22m![0m [0mRun [33myarn add widget@latest[39m to upgrade.[0m "`;
+exports[`print 46`] = `"    [37m[39m"`;
 
-exports[`print 47`] = `"✅  [32m[1mSuccess![22m[39m [0m[1mDonezo.[22m[0m"`;
+exports[`print 47`] = `"    [0mA new version is available [1mv1.1.0[22m![0m [0mRun [33myarn add widget@latest[39m to upgrade.[0m "`;
+
+exports[`print 48`] = `"✅  [32m[1mSuccess![22m[39m [0m[1mDonezo.[22m[0m"`;
+
+exports[`print 49`] = `"☠️   [31m[1mThis computer is dead.[22m[39m"`;
+
+exports[`print 50`] = `"    No emojis, homies"`;

@@ -16,7 +16,18 @@ chalk.level = chalk.level || 2
 marked.setOptions({ renderer: new TerminalRenderer() })
 
 const defaults = {
-  types: ['debug', 'info', 'md', 'success', 'log', 'warn', 'error'],
+  types: [
+    'debug', // For debugging code through log statements.
+    'log', // For general log statements in which you can customize the emoji.
+    'info', // For standard log statements.
+    'success', // For log statements indicating a successful operation.
+    'warn', // Warn 'em Cassandra.
+    'error', // For normal errors.
+    'fatal', // For unrecoverable errors.
+    'md', // For log statements in Markdown format.
+    'text', // For outputting text without an emoji or
+    'write' // For writing to the log without any formatting at all.
+  ],
   level: 'debug'
 }
 const chromafiOptions = { tabsToSpaces: 2, lineNumberPad: 0 }
@@ -75,40 +86,34 @@ function toSpacedString (acc, msg, idx, src) {
   return `${acc}${msg} `
 }
 
+function toErrorMessages (acc, err, index) {
+  if (err instanceof Error) {
+    if (hasAnsi(err.message)) {
+      if (index === 0) {
+        acc.push(chalk.red.bold('Error:'))
+      }
+      acc.push(toFmt(err.message))
+    } else {
+      acc.push(chalk.red.bold(toFmt(err.message)))
+    }
+    const stackLines = err.stack.split('\n').map(toStackLines)
+    acc.push('\n' + stackLines.filter(byNotWhitespace).join('\n'))
+  } else if (index === 0) {
+    acc.push(chalk.red.bold(toFmt(err)))
+  } else {
+    acc.push(toFmt(err))
+  }
+  return acc
+}
+
 class Print {
   constructor (options = {}) {
     return new Log(Object.assign({ logger: this }, defaults, options))
   }
 
-  write (...messages) {
-    process.stdout.write(messages.reduce(toSpacedString, ''))
-  }
-
-  error (...messages) {
-    this.write('🚫 ', ...messages.reduce((acc, err, index) => {
-      if (err instanceof Error) {
-        if (hasAnsi(err.message)) {
-          if (index === 0) {
-            acc.push(chalk.red.bold('Error:'))
-          }
-          acc.push(toFmt(err.message))
-        } else {
-          acc.push(chalk.red.bold(toFmt(err.message)))
-        }
-        const stackLines = err.stack.split('\n').map(toStackLines)
-        acc.push('\n' + stackLines.filter(byNotWhitespace).join('\n'))
-      } else if (index === 0) {
-        acc.push(chalk.red.bold(toFmt(err)))
-      } else {
-        acc.push(toFmt(err))
-      }
-      return acc
-    }, []))
-  }
-
-  success (...messages) {
+  debug (...messages) {
     const [first, ...rest] = messages
-    this.write('✅ ', chalk.green.bold(toFmt(first)), ...rest.map(toFmt))
+    this.write('🐛 ', chalk.magenta.bold(toFmt(first)), ...rest.map(toFmt))
   }
 
   log (...messages) {
@@ -128,23 +133,39 @@ class Print {
     this.write(prefix, chalk.bold(toFmt(first)), ...rest.map(toFmt))
   }
 
-  warn (...messages) {
-    const [first, ...rest] = messages
-    this.write('⚠️  ', chalk.yellow.bold(toFmt(first)), ...rest.map(toFmt))
-  }
-
   info (...messages) {
     const [first, ...rest] = messages
     this.write('💁 ', chalk.blue.bold(toFmt(first)), ...rest.map(toFmt))
   }
 
-  debug (...messages) {
+  success (...messages) {
     const [first, ...rest] = messages
-    this.write('🐛 ', chalk.magenta.bold(toFmt(first)), ...rest.map(toFmt))
+    this.write('✅ ', chalk.green.bold(toFmt(first)), ...rest.map(toFmt))
+  }
+
+  warn (...messages) {
+    const [first, ...rest] = messages
+    this.write('⚠️  ', chalk.yellow.bold(toFmt(first)), ...rest.map(toFmt))
+  }
+
+  error (...messages) {
+    this.write('🚫 ', ...messages.reduce(toErrorMessages, []))
+  }
+
+  fatal (...messages) {
+    this.write('☠️  ', ...messages.reduce(toErrorMessages, []))
   }
 
   md (...messages) {
-    this.write(...messages.map(message => md(message)), '\n')
+    this.text(...messages.map(message => md(message)), '\n')
+  }
+
+  text (...messages) {
+    this.write('   ', ...messages.map(toFmt))
+  }
+
+  write (...messages) {
+    process.stdout.write(messages.reduce(toSpacedString, ''))
   }
 }
 

@@ -1,6 +1,7 @@
 const { print, chalk, md } = require('../..')
 const { stripIndent } = require('common-tags')
 
+print.write('No formatting on this one.')
 print.error('Environment variables not set!')
 print.error(new Error('No assertions were executed on that test.'))
 print.error(new Error(chalk.bold('Expected something else.')))
@@ -50,3 +51,5 @@ print.md(
   'Run `yarn add widget@latest` to upgrade.'
 )
 print.success('Success!', md('**Donezo.**'))
+print.fatal('This computer is dead.')
+print.text('No emojis, homies')
