@@ -8,10 +8,6 @@ const clone = require('@ianwalter/clone')
 const marked = require('marked')
 const TerminalRenderer = require('marked-terminal')
 
-// Stop chalk from disabling itself.
-chalk.enabled = true
-chalk.level = chalk.level || 2
-
 // Set up marked with the TerminalRenderer.
 marked.setOptions({ renderer: new TerminalRenderer() })
 
@@ -28,7 +24,10 @@ const defaults = {
     'text', // For outputting text without an emoji or
     'write' // For writing to the log without any formatting at all.
   ],
-  level: 'debug'
+  level: 'debug',
+  // Stop chalk from disabling itself.
+  chalkEnabled: true,
+  chalkLevel: chalk.level || 2
 }
 const chromafiOptions = { tabsToSpaces: 2, lineNumberPad: 0 }
 const atRe = /^\s+at\s(.*)/
@@ -108,7 +107,10 @@ function toErrorMessages (acc, err, index) {
 
 class Print {
   constructor (options = {}) {
-    return new Log(Object.assign({ logger: this }, defaults, options))
+    this.options = Object.assign({ logger: this }, defaults, options)
+    chalk.enabled = this.options.chalkEnabled
+    chalk.level = this.options.chalkLevel
+    return new Log(this.options)
   }
 
   debug (...messages) {
