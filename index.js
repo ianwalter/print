@@ -85,24 +85,26 @@ function toSpacedString (acc, msg, idx, src) {
   return `${acc}${msg} `
 }
 
-function toErrorMessages (acc, err, index) {
-  if (err instanceof Error) {
-    if (hasAnsi(err.message)) {
-      if (index === 0) {
-        acc.push(chalk.red.bold('Error:'))
+function toErrorMessages (color = 'red') {
+  return (acc, err, index) => {
+    if (err instanceof Error) {
+      if (hasAnsi(err.message)) {
+        if (index === 0) {
+          acc.push(chalk[color].bold('Error:'))
+        }
+        acc.push(toFmt(err.message))
+      } else {
+        acc.push(chalk[color].bold(toFmt(err.message)))
       }
-      acc.push(toFmt(err.message))
+      const stackLines = err.stack.split('\n').map(toStackLines)
+      acc.push('\n' + stackLines.filter(byNotWhitespace).join('\n'))
+    } else if (index === 0) {
+      acc.push(chalk[color].bold(toFmt(err)))
     } else {
-      acc.push(chalk.red.bold(toFmt(err.message)))
+      acc.push(toFmt(err))
     }
-    const stackLines = err.stack.split('\n').map(toStackLines)
-    acc.push('\n' + stackLines.filter(byNotWhitespace).join('\n'))
-  } else if (index === 0) {
-    acc.push(chalk.red.bold(toFmt(err)))
-  } else {
-    acc.push(toFmt(err))
+    return acc
   }
-  return acc
 }
 
 class Print {
@@ -146,16 +148,15 @@ class Print {
   }
 
   warn (...messages) {
-    const [first, ...rest] = messages
-    this.write('⚠️  ', chalk.yellow.bold(toFmt(first)), ...rest.map(toFmt))
+    this.write('⚠️  ', ...messages.reduce(toErrorMessages('yellow'), []))
   }
 
   error (...messages) {
-    this.write('🚫 ', ...messages.reduce(toErrorMessages, []))
+    this.write('🚫 ', ...messages.reduce(toErrorMessages(), []))
   }
 
   fatal (...messages) {
-    this.write('☠️  ', ...messages.reduce(toErrorMessages, []))
+    this.write('☠️  ', ...messages.reduce(toErrorMessages(), []))
   }
 
   md (...messages) {
