@@ -88,10 +88,10 @@ function toSpacedString (acc, msg, idx, src) {
 function toErrorMessages (color = 'red') {
   return (acc, err, index) => {
     if (err instanceof Error) {
+      if (index === 0) {
+        acc.push(chalk[color].bold(`${err.constructor.name}:`))
+      }
       if (hasAnsi(err.message)) {
-        if (index === 0) {
-          acc.push(chalk[color].bold('Error:'))
-        }
         acc.push(toFmt(err.message))
       } else {
         acc.push(chalk[color].bold(toFmt(err.message)))

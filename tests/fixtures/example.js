@@ -1,11 +1,14 @@
-const { print, chalk, md } = require('../..')
 const { stripIndent } = require('common-tags')
+const BaseError = require('@ianwalter/base-error')
+const { print, chalk, md } = require('../..')
+
+class ExampleError extends BaseError {}
 
 print.write('No formatting on this one.')
 print.error('Environment variables not set!')
 print.error(new Error('No assertions were executed on that test.'))
-print.error(new Error(chalk.bold('Expected something else.')))
-print.error('Timeout reached:', new Error('promise cancelled'))
+print.error(new ExampleError(chalk.bold('Expected something else.')))
+print.error('Timeout reached:', new ExampleError('promise cancelled'))
 print.warn('File was overwritten:', '\n', '/tmp/fakeFile.json')
 print.info('Done in 0.91s.')
 print.debug('Flaky test started.', '\n', stripIndent`
