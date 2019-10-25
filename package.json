@@ -2,13 +2,17 @@
   "name": "@ianwalter/print",
   "description": "Colorful Node.js logging",
   "version": "3.6.0",
+  "license": "SEE LICENSE IN LICENSE",
+  "author": {
+    "name": "Ian Walter",
+    "url": "https://ianwalter.dev"
+  },
   "main": "index.js",
   "scripts": {
     "lint": "eslint index.js tests",
     "example": "node tests/fixtures/example.js",
     "test": "bff"
   },
-  "license": "SEE LICENSE IN LICENSE",
   "files": [
     "index.js"
   ],
@@ -23,7 +27,6 @@
     "logger",
     "logging"
   ],
-  "author": "Ian Walter <public@iankwalter.com> (https://iankwalter.com)",
   "bugs": {
     "url": "https://github.com/ianwalter/print/issues"
   },
