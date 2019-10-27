@@ -6,15 +6,15 @@ exports[`print 2`] = `"No formatting on this one."`;
 
 exports[`print 3`] = `"🚫  [31m[1mEnvironment variables not set![22m[39m"`;
 
-exports[`print 4`] = `"🚫  [31m[1mError:[22m[39m [31m[1mNo assertions were executed on that test.[22m[39m "`;
+exports[`print 4`] = `"🚫  [31m[1mError: [22m[39m[31m[1mNo assertions were executed on that test.[22m[39m"`;
 
-exports[`print 5`] = `"🚫  [31m[1mExampleError:[22m[39m [1mExpected something else.[22m "`;
+exports[`print 5`] = `"🚫  [31m[1mExampleError: [22m[39m[1mExpected something else.[22m"`;
 
-exports[`print 6`] = `"🚫  [31m[1mTimeout reached:[22m[39m [31m[1mpromise cancelled[22m[39m "`;
+exports[`print 6`] = `"🚫  [31m[1mTimeout reached:[22m[39m [31m[1mpromise cancelled[22m[39m"`;
 
 exports[`print 7`] = `"⚠️   [33m[1mFile was overwritten:[22m[39m "`;
 
-exports[`print 8`] = `"/tmp/fakeFile.json"`;
+exports[`print 8`] = `"    /tmp/fakeFile.json"`;
 
 exports[`print 9`] = `"💁  [34m[1mDone in 0.91s.[22m[39m"`;
 
@@ -26,21 +26,21 @@ exports[`print 12`] = `"    Could be trouble."`;
 
 exports[`print 13`] = `"💬  [1mRequest made to server.[22m"`;
 
-exports[`print 14`] = `"🔑  [1m[36m$2b$12$HMJFAblrhBCGxTWv5BnIFe[39m[22m"`;
+exports[`print 14`] = `"🔑  [36m$2b$12$HMJFAblrhBCGxTWv5BnIFe[39m"`;
 
 exports[`print 15`] = `"    [1mexport default () => {[22m"`;
 
-exports[`print 16`] = `"[1m      console.log('Hello World!')[22m"`;
+exports[`print 16`] = `"    [1m  console.log('Hello World!')[22m"`;
 
-exports[`print 17`] = `"[1m    }[22m"`;
+exports[`print 17`] = `"    [1m}[22m"`;
 
-exports[`print 18`] = `"[1m[22m"`;
+exports[`print 18`] = `"    [1m[22m"`;
 
 exports[`print 19`] = `"✅  [32m[1mYou did it![22m[39m Great job."`;
 
 exports[`print 20`] = `"🐛  [35m[1mTotal tests run:[22m[39m 1"`;
 
-exports[`print 21`] = `"⚠️   [33m[1mError:[22m[39m [33m[1mUser not found[22m[39m "`;
+exports[`print 21`] = `"⚠️   [33m[1mError: [22m[39m[33m[1mUser not found[22m[39m"`;
 
 exports[`print 22`] = `"    [37m[90m 1[37m {[39m"`;
 
