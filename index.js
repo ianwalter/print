@@ -17,7 +17,7 @@ const defaults = {
     'log', // For general log statements in which you can customize the emoji.
     'info', // For standard log statements.
     'success', // For log statements indicating a successful operation.
-    'warn', // Warn 'em Cassandra.
+    'warn', // For the gray area between info and error.
     'error', // For normal errors.
     'fatal', // For unrecoverable errors.
     'md', // For log statements in Markdown format.
@@ -33,7 +33,7 @@ const chromafiOptions = { tabsToSpaces: 2, lineNumberPad: 0 }
 const atRe = /^\s+at\s(.*)/
 const refRe = /^\s+at\s(.*)\s(\(.*\))$/
 const toPaddedLine = line => line && `    ${line}`
-const at = toPaddedLine(chalk.gray('at'))
+const at = chalk.gray('at')
 const byNotWhitespace = str => str && str.trim()
 const endsWithANewline = msg => msg.replace(' ', '')[msg.length - 1] === '\n'
 const md = str => marked(str).trimEnd()
@@ -54,26 +54,69 @@ function getClone (src) {
   }
 }
 
-function toFmt (message, index = 0, messages) {
-  message = typeof message === 'object'
-    ? '\n' + chromafi(getClone(message), chromafiOptions)
-    : typeof message === 'string' ? message : util.inspect(message)
-  let [newline, ...rest] = message ? message.split('\n') : []
+function toFormattedItems (color, isFirst = false) {
+  const coloredChalk = color ? chalk[color] : chalk
+  return (item, index = 0, items) => {
+    if (item instanceof Error) {
+      let message = ''
 
-  // Handle formatting an item with newlines.
-  if (rest.length) {
-    newline = newline ? newline + '\n' : '\n'
-    rest = rest.map(toPaddedLine)
+      // Preface the log output with the error name.
+      if (isFirst) {
+        message = coloredChalk.bold(`${item.constructor.name}: `)
+      }
+
+      // Format the error message with the given color and make it bold, unless
+      // it's already formatted using ANSI escape sequences.
+      if (hasAnsi(item.message)) {
+        message += item.message
+      } else {
+        message += coloredChalk.bold(item.message)
+      }
+
+      // Format the error stacktrace.
+      const stackLines = item.stack.split('\n').map(toStackLines)
+      item = message + '\n' + stackLines.filter(byNotWhitespace).join('\n')
+    } else if (typeof item === 'object') {
+      // If the item is an object, let chromafi format it.
+      item = '\n' + chromafi(getClone(item), chromafiOptions)
+    } else {
+      // If the item is not a string, turn it into one using util.inspect.
+      if (typeof item !== 'string') {
+        item = util.inspect(item)
+      }
+
+      // If the item is the first item logged and isn't already formatted using
+      // ANSI escape sequences, format it with the given color and make it bold.
+      if (isFirst && !hasAnsi(item)) {
+        item = coloredChalk.bold(item)
+      }
+    }
+
+    // Split the item string by newlines.
+    let [newline, ...rest] = item ? item.split('\n') : []
+
+    // Handle formatting an item with newlines.
+    if (rest.length) {
+      newline = newline ? newline + '\n' : '\n'
+      rest = rest.map(toPaddedLine)
+    }
+
+    // Handle formatting an item that comes after a newline.
+    const previous = index > 0 && items[index - 1]
+    if (typeof previous === 'string' && endsWithANewline(previous)) {
+      newline = toPaddedLine(newline)
+    }
+
+    // Recombine the item string with newlines.
+    return (newline || '') + rest.join('\n')
   }
+}
 
-  // Handle formatting an item that comes after a newline.
-  const previous = index > 0 && messages[index - 1]
-  const lastIsString = typeof previous === 'string'
-  if (lastIsString && endsWithANewline(previous)) {
-    newline = toPaddedLine(newline)
-  }
-
-  return (newline || '') + rest.join('\n')
+function formatItems ([first, ...rest], color) {
+  return [
+    toFormattedItems(color, true)(first),
+    ...rest.map(toFormattedItems(color))
+  ]
 }
 
 function toSpacedString (acc, msg, idx, src) {
@@ -85,28 +128,6 @@ function toSpacedString (acc, msg, idx, src) {
   return `${acc}${msg} `
 }
 
-function toErrorMessages (color = 'red') {
-  return (acc, err, index) => {
-    if (err instanceof Error) {
-      if (index === 0) {
-        acc.push(chalk[color].bold(`${err.constructor.name}:`))
-      }
-      if (hasAnsi(err.message)) {
-        acc.push(toFmt(err.message))
-      } else {
-        acc.push(chalk[color].bold(toFmt(err.message)))
-      }
-      const stackLines = err.stack.split('\n').map(toStackLines)
-      acc.push('\n' + stackLines.filter(byNotWhitespace).join('\n'))
-    } else if (index === 0) {
-      acc.push(chalk[color].bold(toFmt(err)))
-    } else {
-      acc.push(toFmt(err))
-    }
-    return acc
-  }
-}
-
 class Print {
   constructor (options = {}) {
     this.options = Object.assign({ logger: this }, defaults, options)
@@ -115,13 +136,12 @@ class Print {
     return new Log(this.options)
   }
 
-  debug (...messages) {
-    const [first, ...rest] = messages
-    this.write('🐛 ', chalk.magenta.bold(toFmt(first)), ...rest.map(toFmt))
+  debug (...items) {
+    this.write('🐛 ', ...formatItems(items, 'magenta'))
   }
 
-  log (...messages) {
-    let [first, ...rest] = messages
+  log (...items) {
+    let [first, ...rest] = items
     let prefix = '💬 '
     const prefixIsEmoji = first && hasEmoji(first) && first.length === 2
     if (!first || prefixIsEmoji) {
@@ -134,41 +154,39 @@ class Print {
       first = actual
       rest = actualRest
     }
-    this.write(prefix, chalk.bold(toFmt(first)), ...rest.map(toFmt))
+    this.write(prefix, ...formatItems([first, ...rest]))
   }
 
-  info (...messages) {
-    const [first, ...rest] = messages
-    this.write('💁 ', chalk.blue.bold(toFmt(first)), ...rest.map(toFmt))
+  info (...items) {
+    this.write('💁 ', ...formatItems(items, 'blue'))
   }
 
-  success (...messages) {
-    const [first, ...rest] = messages
-    this.write('✅ ', chalk.green.bold(toFmt(first)), ...rest.map(toFmt))
+  success (...items) {
+    this.write('✅ ', ...formatItems(items, 'green'))
   }
 
-  warn (...messages) {
-    this.write('⚠️  ', ...messages.reduce(toErrorMessages('yellow'), []))
+  warn (...items) {
+    this.write('⚠️  ', ...formatItems(items, 'yellow'))
   }
 
-  error (...messages) {
-    this.write('🚫 ', ...messages.reduce(toErrorMessages(), []))
+  error (...items) {
+    this.write('🚫 ', ...formatItems(items, 'red'))
   }
 
-  fatal (...messages) {
-    this.write('☠️  ', ...messages.reduce(toErrorMessages(), []))
+  fatal (...items) {
+    this.write('☠️  ', ...formatItems(items, 'red'))
   }
 
-  md (...messages) {
-    this.text(...messages.map(message => md(message)), '\n')
+  md (...items) {
+    this.text(...items.map(item => md(item)), '\n')
   }
 
-  text (...messages) {
-    this.write('   ', ...messages.map(toFmt))
+  text (...items) {
+    this.write('   ', ...items.map(toFormattedItems()))
   }
 
-  write (...messages) {
-    process.stdout.write(messages.reduce(toSpacedString, ''))
+  write (...items) {
+    process.stdout.write(items.reduce(toSpacedString, ''))
   }
 }
 
