@@ -65,8 +65,8 @@ function toFormattedItems (color, isFirst = false) {
         message = coloredChalk.bold(`${item.constructor.name}: `)
       }
 
-      // If the error message already has ANSI escape sequences, don't bother
-      // adding chalk formatting.
+      // Format the error message with the given color and make it bold, unless
+      // it's already formatted using ANSI escape sequences.
       if (hasAnsi(item.message)) {
         message += item.message
       } else {
@@ -80,12 +80,13 @@ function toFormattedItems (color, isFirst = false) {
       // If the item is an object, let chromafi format it.
       item = '\n' + chromafi(getClone(item), chromafiOptions)
     } else {
-      // If the item is not a string, format it with util.inspect.
+      // If the item is not a string, turn it into one using util.inspect.
       if (typeof item !== 'string') {
         item = util.inspect(item)
       }
 
-      //
+      // If the item is the first item logged and isn't already formatted using
+      // ANSI escape sequences, format it with the given color and make it bold.
       if (isFirst && !hasAnsi(item)) {
         item = coloredChalk.bold(item)
       }
