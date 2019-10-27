@@ -49,10 +49,11 @@ const user = {
 }
 user.boss = user
 print.warn(new Error('User not found'), user)
-print.md(
-  'A new version is available **v1.1.0**!',
-  'Run `yarn add widget@latest` to upgrade.'
-)
+print.md(stripIndent`
+  A new version is available **v1.1.0**!
+  * Run \`yarn add widget@latest\` to upgrade
+  * Re-run widget
+`)
 print.success('Success!', md('**Donezo.**'))
 print.fatal('This computer is dead.')
 print.text('No emojis, homies')

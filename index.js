@@ -9,7 +9,7 @@ const marked = require('marked')
 const TerminalRenderer = require('marked-terminal')
 
 // Set up marked with the TerminalRenderer.
-marked.setOptions({ renderer: new TerminalRenderer() })
+marked.setOptions({ renderer: new TerminalRenderer({ tab: 2 }) })
 
 const defaults = {
   types: [
@@ -178,7 +178,7 @@ class Print {
   }
 
   md (...items) {
-    this.text(...items.map(item => md(item)), '\n')
+    this.text(...items.map(item => md(item)))
   }
 
   text (...items) {
