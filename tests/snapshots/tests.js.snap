@@ -98,12 +98,10 @@ exports[`print 48`] = `""`;
 
 exports[`print 49`] = `"      * [0mRun [33myarn add widget@latest[39m to upgrade[0m"`;
 
-exports[`print 50`] = `"      * [0mRe-run widget[0m  "`;
+exports[`print 50`] = `"      * [0mRe-run widget[0m"`;
 
-exports[`print 51`] = `""`;
+exports[`print 51`] = `"✅  [32m[1mSuccess![22m[39m [0m[1mDonezo.[22m[0m"`;
 
-exports[`print 52`] = `"✅  [32m[1mSuccess![22m[39m [0m[1mDonezo.[22m[0m"`;
+exports[`print 52`] = `"☠️   [31m[1mThis computer is dead.[22m[39m"`;
 
-exports[`print 53`] = `"☠️   [31m[1mThis computer is dead.[22m[39m"`;
-
-exports[`print 54`] = `"    No emojis, homies"`;
+exports[`print 53`] = `"    No emojis, homies"`;

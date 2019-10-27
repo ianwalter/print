@@ -32,7 +32,7 @@ const defaults = {
 const chromafiOptions = { tabsToSpaces: 2, lineNumberPad: 0 }
 const atRe = /^\s+at\s(.*)/
 const refRe = /^\s+at\s(.*)\s(\(.*\))$/
-const toPaddedLine = line => line && `    ${line}`
+const toPaddedLine = line => line ? `    ${line}` : line
 const at = chalk.gray('at')
 const byNotWhitespace = str => str && str.trim()
 const endsWithANewline = msg => msg.replace(' ', '')[msg.length - 1] === '\n'
