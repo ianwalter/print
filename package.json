@@ -48,7 +48,7 @@
     "@ianwalter/release": "^3.0.6",
     "@ianwalter/renovate-config": "^1.2.0",
     "common-tags": "^1.8.0",
-    "strip-ansi": "^5.2.0"
+    "strip-ansi": "^6.0.0"
   },
   "eslintConfig": {
     "root": true,
