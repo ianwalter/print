@@ -35,7 +35,8 @@ const refRe = /^\s+at\s(.*)\s(\(.*\))$/
 const toPaddedLine = line => line ? `    ${line}` : line
 const at = chalk.gray('at')
 const byNotWhitespace = str => str && str.trim()
-const endsWithANewline = msg => msg.replace(' ', '')[msg.length - 1] === '\n'
+const endsWithANewline = msg => typeof msg === 'string' &&
+  msg.replace(' ', '')[msg.length - 1] === '\n'
 const md = str => marked(str).trimEnd()
 
 function toStackLines (line) {
