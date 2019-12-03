@@ -7,6 +7,7 @@ const hasEmoji = require('has-emoji')
 const clone = require('@ianwalter/clone')
 const marked = require('marked')
 const TerminalRenderer = require('marked-terminal')
+const stripAnsi = require('strip-ansi')
 
 // Set up marked with the TerminalRenderer.
 marked.setOptions({ renderer: new TerminalRenderer({ tab: 2 }) })
@@ -183,7 +184,7 @@ class Print {
   }
 
   text (...items) {
-    this.write('   ', ...items.map(toFormattedItems()))
+    this.write('   ', ...items.map(toFormattedItems()).map(stripAnsi))
   }
 
   write (...items) {

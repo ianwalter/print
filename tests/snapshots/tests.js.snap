@@ -92,16 +92,24 @@ exports[`print 45`] = `"    [37m[90m24[37m }[39m"`;
 
 exports[`print 46`] = `"    [37m[39m"`;
 
-exports[`print 47`] = `"    [0mA new version is available [1mv1.1.0[22m![0m"`;
+exports[`print 47`] = `"    A new version is available v1.1.0!"`;
 
 exports[`print 48`] = `""`;
 
-exports[`print 49`] = `"      * [0mRun [33myarn add widget@latest[39m to upgrade[0m"`;
+exports[`print 49`] = `"      * Run yarn add widget@latest to upgrade"`;
 
-exports[`print 50`] = `"      * [0mRe-run widget[0m"`;
+exports[`print 50`] = `"      * Re-run widget"`;
 
 exports[`print 51`] = `"✅  [32m[1mSuccess![22m[39m [0m[1mDonezo.[22m[0m"`;
 
 exports[`print 52`] = `"☠️   [31m[1mThis computer is dead.[22m[39m"`;
 
-exports[`print 53`] = `"    No emojis, homies"`;
+exports[`print 53`] = `"    No emojis, homies "`;
+
+exports[`print 54`] = `"    1 {"`;
+
+exports[`print 55`] = `"    2   also: 'no ansi'"`;
+
+exports[`print 56`] = `"    3 }"`;
+
+exports[`print 57`] = `"    "`;

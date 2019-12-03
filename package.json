@@ -39,7 +39,8 @@
     "has-ansi": "^4.0.0",
     "has-emoji": "^1.1.0",
     "marked": "^0.7.0",
-    "marked-terminal": "^3.3.0"
+    "marked-terminal": "^3.3.0",
+    "strip-ansi": "^6.0.0"
   },
   "devDependencies": {
     "@ianwalter/base-error": "^6.1.0",
@@ -47,8 +48,7 @@
     "@ianwalter/eslint-config": "^3.1.0",
     "@ianwalter/release": "^3.0.6",
     "@ianwalter/renovate-config": "^1.2.0",
-    "common-tags": "^1.8.0",
-    "strip-ansi": "^6.0.0"
+    "common-tags": "^1.8.0"
   },
   "eslintConfig": {
     "root": true,
