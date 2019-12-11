@@ -25,6 +25,12 @@ const defaults = {
     'text', // For outputting text without an emoji or
     'write' // For writing to the log without any formatting at all.
   ],
+  // Write all logs to stdout by default. You can change stream.err if you
+  // would like to write errors to stderr, for example.
+  stream: {
+    out: process.stdout,
+    err: process.stdout
+  },
   level: 'debug',
   // Stop chalk from disabling itself.
   chalkEnabled: true,
@@ -139,7 +145,7 @@ class Print {
   }
 
   debug (...items) {
-    this.write('🐛 ', ...formatItems(items, 'magenta'))
+    return this.write('🐛 ', ...formatItems(items, 'magenta'))
   }
 
   log (...items) {
@@ -156,39 +162,51 @@ class Print {
       first = actual
       rest = actualRest
     }
-    this.write(prefix, ...formatItems([first, ...rest]))
+    return this.write(prefix, ...formatItems([first, ...rest]))
   }
 
   info (...items) {
-    this.write('💁 ', ...formatItems(items, 'blue'))
+    return this.write('💁 ', ...formatItems(items, 'blue'))
   }
 
   success (...items) {
-    this.write('✅ ', ...formatItems(items, 'green'))
+    return this.write('✅ ', ...formatItems(items, 'green'))
   }
 
   warn (...items) {
-    this.write('⚠️  ', ...formatItems(items, 'yellow'))
+    return this.write('⚠️  ', ...formatItems(items, 'yellow'))
   }
 
   error (...items) {
-    this.write('🚫 ', ...formatItems(items, 'red'))
+    return this.writeErr('🚫 ', ...formatItems(items, 'red'))
   }
 
   fatal (...items) {
-    this.write('☠️  ', ...formatItems(items, 'red'))
+    return this.writeErr('☠️  ', ...formatItems(items, 'red'))
   }
 
   md (...items) {
-    this.text(...items.map(item => md(item)))
+    return this.text(...items.map(item => md(item)))
   }
 
   text (...items) {
-    this.write('   ', ...items.map(toFormattedItems()).map(stripAnsi))
+    return this.write('   ', ...items.map(toFormattedItems()).map(stripAnsi))
   }
 
   write (...items) {
-    process.stdout.write(items.reduce(toSpacedString, ''))
+    const str = items.reduce(toSpacedString, '')
+    if (this.options.stream) {
+      this.options.stream.out.write(str)
+    }
+    return str
+  }
+
+  writeErr (...items) {
+    const str = items.reduce(toSpacedString, '')
+    if (this.options.stream) {
+      this.options.stream.err.write(str)
+    }
+    return str
   }
 }
 
