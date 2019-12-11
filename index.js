@@ -32,8 +32,6 @@ const defaults = {
     err: process.stdout
   },
   level: 'debug',
-  // Stop chalk from disabling itself.
-  chalkEnabled: true,
   chalkLevel: chalk.level || 2
 }
 const chromafiOptions = { tabsToSpaces: 2, lineNumberPad: 0 }
@@ -139,7 +137,6 @@ function toSpacedString (acc, msg, idx, src) {
 class Print {
   constructor (options = {}) {
     this.options = Object.assign({ logger: this }, defaults, options)
-    chalk.enabled = this.options.chalkEnabled
     chalk.level = this.options.chalkLevel
     return new Log(this.options)
   }
