@@ -22,7 +22,7 @@ const defaults = {
     'error', // For normal errors.
     'fatal', // For unrecoverable errors.
     'md', // For log statements in Markdown format.
-    'text', // For outputting text without an emoji or
+    'text', // For outputting text without an emoji or ANSI escape sequences.
     'write' // For writing to the log without any formatting at all.
   ],
   // Write all logs to stdout by default. You can change stream.err if you
