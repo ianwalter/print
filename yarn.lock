@@ -118,6 +118,11 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/log/-/log-3.1.0.tgz#e01bd09cf27e012f07d534a04b9a07c0e0d7b226"
   integrity sha512-6sROPtR86sdcE4ZW3LBqKlsDe8WLOkQqsfhYI8F9nAfFTgV0cjdYjQw6jkruafKzNb2CxPfv7ut0x55L2X7nGw==
 
+"@ianwalter/log@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/log/-/log-4.0.0.tgz#1b5b51b566cdcf9199c86c6e40c3e5e2b69cf627"
+  integrity sha512-4iwQrfDSnDZqy8RMmvNqprANs2v3MsEuUOTCpgBv+/dMVpm4dtNju55ILWw9831qQxzwWN3Or/ssUdSJjL8Mvw==
+
 "@ianwalter/merge@^5.0.0":
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/merge/-/merge-5.0.0.tgz#972b3cd668ab87416fba1af99186cd83d34d687f"

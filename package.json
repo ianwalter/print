@@ -34,7 +34,7 @@
   "dependencies": {
     "@ianwalter/chromafi": "^1.0.1",
     "@ianwalter/clone": "^4.1.0",
-    "@ianwalter/log": "^3.1.0",
+    "@ianwalter/log": "^4.0.0",
     "chalk": "^3.0.0",
     "has-ansi": "^4.0.0",
     "has-emoji": "^1.1.0",
