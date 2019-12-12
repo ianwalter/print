@@ -113,3 +113,8 @@ exports[`print 55`] = `"    2   also: 'no ansi'"`;
 exports[`print 56`] = `"    3 }"`;
 
 exports[`print 57`] = `""`;
+
+exports[`return 1`] = `
+"💁  [34m[1mEllo Guvna[22m[39m
+"
+`;

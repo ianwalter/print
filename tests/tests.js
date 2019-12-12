@@ -1,6 +1,7 @@
 const { test } = require('@ianwalter/bff')
 const execa = require('execa')
 const stripAnsi = require('strip-ansi')
+const { Print } = require('..')
 
 test('print', async ({ expect }) => {
   const { stdout } = await execa('yarn', ['example'])
@@ -10,4 +11,9 @@ test('print', async ({ expect }) => {
       expect(line).toMatchSnapshot()
     }
   })
+})
+
+test('return', ({ expect }) => {
+  const print = new Print({ stream: false })
+  expect(print.info('Ello Guvna')).toMatchSnapshot()
 })
