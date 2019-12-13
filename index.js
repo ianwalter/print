@@ -8,6 +8,7 @@ const clone = require('@ianwalter/clone')
 const marked = require('marked')
 const TerminalRenderer = require('marked-terminal')
 const stripAnsi = require('strip-ansi')
+const merge = require('@ianwalter/merge')
 
 // Set up marked with the TerminalRenderer.
 marked.setOptions({ renderer: new TerminalRenderer({ tab: 2 }) })
@@ -136,7 +137,7 @@ function toSpacedString (acc, msg, idx, src) {
 
 class Print {
   constructor (options = {}) {
-    this.options = Object.assign({ logger: this }, defaults, options)
+    this.options = merge({ logger: this }, defaults, options)
     chalk.level = this.options.chalkLevel
     return new Log(this.options)
   }
