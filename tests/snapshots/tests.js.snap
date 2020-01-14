@@ -100,7 +100,7 @@ exports[`print 49`] = `"      * Run yarn add widget@latest to upgrade"`;
 
 exports[`print 50`] = `"      * Re-run widget"`;
 
-exports[`print 51`] = `"✅  [32m[1mSuccess![22m[39m Donezo."`;
+exports[`print 51`] = `"✅  [32m[1mSuccess![22m[39m [0m[1mDonezo.[22m[0m"`;
 
 exports[`print 52`] = `"☠️   [31m[1mThis computer is dead.[22m[39m"`;
 
