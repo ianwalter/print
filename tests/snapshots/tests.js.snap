@@ -76,43 +76,53 @@ exports[`print 37`] = `"    16         '860-555-5555'"`;
 
 exports[`print 38`] = `"    17       ]"`;
 
-exports[`print 39`] = `"    18     }"`;
+exports[`print 39`] = `"    18     },"`;
 
-exports[`print 40`] = `"    19   },"`;
+exports[`print 40`] = `"    19     result: {"`;
 
-exports[`print 41`] = `"    20   fullName: fullName () {"`;
+exports[`print 41`] = `"    20       stack: 'Error: No bueno!"`;
 
-exports[`print 42`] = `"    21     return \`\${this.details.firstName} \${this.details.lastName}\`"`;
+exports[`print 42`] = `"    28       message: 'No bueno!',"`;
 
-exports[`print 43`] = `"    22   },"`;
+exports[`print 43`] = `"    29       blame: 'You'"`;
 
-exports[`print 44`] = `"    23   boss: '[Circular]'"`;
+exports[`print 44`] = `"    30     }"`;
 
-exports[`print 45`] = `"    24 }"`;
+exports[`print 45`] = `"    31   },"`;
 
-exports[`print 46`] = `""`;
+exports[`print 46`] = `"    32   fullName: fullName () {"`;
 
-exports[`print 47`] = `"    A new version is available v1.1.0!"`;
+exports[`print 47`] = `"    33     return \`\${this.details.firstName} \${this.details.lastName}\`"`;
 
-exports[`print 48`] = `""`;
+exports[`print 48`] = `"    34   },"`;
 
-exports[`print 49`] = `"      * Run yarn add widget@latest to upgrade"`;
+exports[`print 49`] = `"    35   boss: '[Circular]'"`;
 
-exports[`print 50`] = `"      * Re-run widget"`;
+exports[`print 50`] = `"    36 }"`;
 
-exports[`print 51`] = `"✅  [32m[1mSuccess![22m[39m [0m[1mDonezo.[22m[0m"`;
+exports[`print 51`] = `""`;
 
-exports[`print 52`] = `"☠️   [31m[1mThis computer is dead.[22m[39m"`;
+exports[`print 52`] = `"    A new version is available v1.1.0!"`;
 
-exports[`print 53`] = `"    No emojis, homies "`;
+exports[`print 53`] = `""`;
 
-exports[`print 54`] = `"    1 {"`;
+exports[`print 54`] = `"      * Run yarn add widget@latest to upgrade"`;
 
-exports[`print 55`] = `"    2   also: 'no ansi'"`;
+exports[`print 55`] = `"      * Re-run widget"`;
 
-exports[`print 56`] = `"    3 }"`;
+exports[`print 56`] = `"✅  [32m[1mSuccess![22m[39m [0m[1mDonezo.[22m[0m"`;
 
-exports[`print 57`] = `""`;
+exports[`print 57`] = `"☠️   [31m[1mThis computer is dead.[22m[39m"`;
+
+exports[`print 58`] = `"    No emojis, homies "`;
+
+exports[`print 59`] = `"    1 {"`;
+
+exports[`print 60`] = `"    2   also: 'no ansi'"`;
+
+exports[`print 61`] = `"    3 }"`;
+
+exports[`print 62`] = `""`;
 
 exports[`return 1`] = `
 "💁  [34m[1mEllo Guvna[22m[39m

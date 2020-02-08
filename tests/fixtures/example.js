@@ -24,6 +24,9 @@ print.log(false, `export default () => {
 print.success('You did it!', 'Great job.')
 print.debug('Total tests run:', 1)
 
+const err = new Error('No bueno!')
+err.blame = 'You'
+
 const user = {
   id: 321,
   enabled: true,
@@ -41,7 +44,8 @@ const user = {
         '617-555-5555',
         '860-555-5555'
       ]
-    }
+    },
+    result: err
   },
   fullName () {
     return `${this.details.firstName} ${this.details.lastName}`

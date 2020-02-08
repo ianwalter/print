@@ -55,7 +55,7 @@ function toStackLines (line) {
 
 function getClone (src) {
   try {
-    return clone(src, { circulars: false })
+    return clone(src, { circulars: 0 })
   } catch (err) {
     return util.inspect(src)
   }
