@@ -10,59 +10,59 @@ exports[`print 4`] = `"🚫  [31m[1mError: [22m[39m[31m[1mNo assertions we
 
 exports[`print 5`] = `"🚫  [31m[1mExampleError: [22m[39m[1mExpected something else.[22m"`;
 
-exports[`print 6`] = `"🚫  [31m[1mTimeout reached:[22m[39m [31m[1mpromise cancelled[22m[39m"`;
+exports[`print 6`] = `""`;
 
-exports[`print 7`] = `"⚠️   [33m[1mFile was overwritten:[22m[39m "`;
+exports[`print 7`] = `"🚫  [31m[1mTimeout reached:[22m[39m promise cancelled[31m[1mpromise cancelled[22m[39m"`;
 
-exports[`print 8`] = `"    /tmp/fakeFile.json"`;
+exports[`print 8`] = `""`;
 
-exports[`print 9`] = `"💁  [34m[1mDone in 0.91s.[22m[39m"`;
+exports[`print 9`] = `"⚠️   [33m[1mFile was overwritten:[22m[39m "`;
 
-exports[`print 10`] = `"🐛  [35m[1mFlaky test started.[22m[39m "`;
+exports[`print 10`] = `"    /tmp/fakeFile.json"`;
 
-exports[`print 11`] = `"    Make sure you check it out."`;
+exports[`print 11`] = `"💁  [34m[1mDone in 0.91s.[22m[39m"`;
 
-exports[`print 12`] = `"    Could be trouble."`;
+exports[`print 12`] = `"🐛  [35m[1mFlaky test started.[22m[39m "`;
 
-exports[`print 13`] = `"💬  [1mRequest made to server.[22m"`;
+exports[`print 13`] = `"    Make sure you check it out."`;
 
-exports[`print 14`] = `"🔑  [36m$2b$12$HMJFAblrhBCGxTWv5BnIFe[39m"`;
+exports[`print 14`] = `"    Could be trouble."`;
 
-exports[`print 15`] = `"    [1mexport default () => {[22m"`;
+exports[`print 15`] = `"💬  [1mRequest made to server.[22m"`;
 
-exports[`print 16`] = `"    [1m  console.log('Hello World!')[22m"`;
+exports[`print 16`] = `"🔑  [36m$2b$12$HMJFAblrhBCGxTWv5BnIFe[39m"`;
 
-exports[`print 17`] = `"    [1m}[22m"`;
+exports[`print 17`] = `"    [1mexport default () => {[22m"`;
 
-exports[`print 18`] = `"    [1m[22m"`;
+exports[`print 18`] = `"    [1m  console.log('Hello World!')[22m"`;
 
-exports[`print 19`] = `"✅  [32m[1mYou did it![22m[39m Great job."`;
+exports[`print 19`] = `"    [1m}[22m"`;
 
-exports[`print 20`] = `"🐛  [35m[1mTotal tests run:[22m[39m 1"`;
+exports[`print 20`] = `"    [1m[22m"`;
 
-exports[`print 21`] = `"⚠️   [33m[1mError: [22m[39m[33m[1mUser not found[22m[39m"`;
+exports[`print 21`] = `"✅  [32m[1mYou did it![22m[39m Great job."`;
 
-exports[`print 22`] = `"     1 {"`;
+exports[`print 22`] = `"🐛  [35m[1mTotal tests run:[22m[39m 1"`;
 
-exports[`print 23`] = `"     2   id: 321,"`;
+exports[`print 23`] = `"🚫  [31m[1mError: [22m[39m[31m[1mNo bueno![22m[39m"`;
 
-exports[`print 24`] = `"     3   enabled: true,"`;
+exports[`print 24`] = `""`;
 
-exports[`print 25`] = `"     4   email: 'jack@river.com',"`;
+exports[`print 25`] = `"⚠️   [33m[1mError: [22m[39m[33m[1mUser not found[22m[39m"`;
 
-exports[`print 26`] = `"     5   details: {"`;
+exports[`print 26`] = `"    A new version is available v1.1.0!"`;
 
-exports[`print 27`] = `"     6     firstName: 'Jack',"`;
+exports[`print 27`] = `""`;
 
-exports[`print 28`] = `"     7     lastName: 'River',"`;
+exports[`print 28`] = `"      * Run yarn add widget@latest to upgrade"`;
 
-exports[`print 29`] = `"     8     registered: '2019-06-21T00:13:54.246Z',"`;
+exports[`print 29`] = `"      * Re-run widget"`;
 
-exports[`print 30`] = `"     9     address: {"`;
+exports[`print 30`] = `"✅  [32m[1mSuccess![22m[39m [0m[1mDonezo.[22m[0m"`;
 
-exports[`print 31`] = `"    10       address: '1 Test St',"`;
+exports[`print 31`] = `"☠️   [31m[1mThis computer is dead.[22m[39m"`;
 
-exports[`print 32`] = `"    11       apt: '201a',"`;
+exports[`print 32`] = `"    No emojis, homies "`;
 
 exports[`print 33`] = `"    12       city: 'Red Hook',"`;
 

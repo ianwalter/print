@@ -65,7 +65,7 @@ function toFormattedItems (color, isFirst = false) {
   const coloredChalk = color ? chalk[color] : chalk
   return (item, index = 0, items) => {
     if (item instanceof Error) {
-      let message = ''
+      let { message = '', stack, ...rest } = item
 
       // Preface the log output with the error name.
       if (isFirst) {
@@ -82,10 +82,18 @@ function toFormattedItems (color, isFirst = false) {
 
       // Format the error stacktrace.
       const stackLines = item.stack.split('\n').map(toStackLines)
+
       item = message + '\n' + stackLines.filter(byNotWhitespace).join('\n')
+      if (Object.keys(rest).length) {
+        const restStr = chromafi(getClone(rest), chromafiOptions)
+        const end = restStr.lastIndexOf('\n\u001b[37m\u001b[39m')
+        item += '\n' + restStr.substring(0, end)
+      }
     } else if (typeof item === 'object') {
       // If the item is an object, let chromafi format it.
-      item = '\n' + chromafi(getClone(item), chromafiOptions)
+      const restStr = chromafi(getClone(item), chromafiOptions)
+      const end = restStr.lastIndexOf('\n\u001b[37m\u001b[39m')
+      item = '\n' + restStr.substring(0, end)
     } else {
       // If the item is not a string, turn it into one using util.inspect.
       if (typeof item !== 'string') {

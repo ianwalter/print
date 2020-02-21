@@ -26,6 +26,7 @@ print.debug('Total tests run:', 1)
 
 const err = new Error('No bueno!')
 err.blame = 'You'
+print.error(err)
 
 const user = {
   id: 321,
