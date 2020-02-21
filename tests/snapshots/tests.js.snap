@@ -10,119 +10,161 @@ exports[`print 4`] = `"🚫  [31m[1mError: [22m[39m[31m[1mNo assertions we
 
 exports[`print 5`] = `"🚫  [31m[1mExampleError: [22m[39m[1mExpected something else.[22m"`;
 
-exports[`print 6`] = `""`;
+exports[`print 6`] = `"    1 {"`;
 
-exports[`print 7`] = `"🚫  [31m[1mTimeout reached:[22m[39m [31m[1mpromise cancelled[22m[39m"`;
+exports[`print 7`] = `"    2   name: 'ExampleError'"`;
 
-exports[`print 8`] = `""`;
+exports[`print 8`] = `"    3 }"`;
 
-exports[`print 9`] = `"⚠️   [33m[1mFile was overwritten:[22m[39m "`;
+exports[`print 9`] = `""`;
 
-exports[`print 10`] = `"    /tmp/fakeFile.json"`;
+exports[`print 10`] = `"🚫  [31m[1mTimeout reached:[22m[39m [31m[1mpromise cancelled[22m[39m"`;
 
-exports[`print 11`] = `"💁  [34m[1mDone in 0.91s.[22m[39m"`;
+exports[`print 11`] = `"    1 {"`;
 
-exports[`print 12`] = `"🐛  [35m[1mFlaky test started.[22m[39m "`;
+exports[`print 12`] = `"    2   name: 'ExampleError'"`;
 
-exports[`print 13`] = `"    Make sure you check it out."`;
+exports[`print 13`] = `"    3 }"`;
 
-exports[`print 14`] = `"    Could be trouble."`;
+exports[`print 14`] = `""`;
 
-exports[`print 15`] = `"💬  [1mRequest made to server.[22m"`;
+exports[`print 15`] = `"⚠️   [33m[1mFile was overwritten:[22m[39m "`;
 
-exports[`print 16`] = `"🔑  [36m$2b$12$HMJFAblrhBCGxTWv5BnIFe[39m"`;
+exports[`print 16`] = `"    /tmp/fakeFile.json"`;
 
-exports[`print 17`] = `"    [1mexport default () => {[22m"`;
+exports[`print 17`] = `"💁  [34m[1mDone in 0.91s.[22m[39m"`;
 
-exports[`print 18`] = `"    [1m  console.log('Hello World!')[22m"`;
+exports[`print 18`] = `"🐛  [35m[1mFlaky test started.[22m[39m "`;
 
-exports[`print 19`] = `"    [1m}[22m"`;
+exports[`print 19`] = `"    Make sure you check it out."`;
 
-exports[`print 20`] = `"    [1m[22m"`;
+exports[`print 20`] = `"    Could be trouble."`;
 
-exports[`print 21`] = `"✅  [32m[1mYou did it![22m[39m Great job."`;
+exports[`print 21`] = `"💬  [1mRequest made to server.[22m"`;
 
-exports[`print 22`] = `"🐛  [35m[1mTotal tests run:[22m[39m 1"`;
+exports[`print 22`] = `"🔑  [36m$2b$12$HMJFAblrhBCGxTWv5BnIFe[39m"`;
 
-exports[`print 23`] = `"🚫  [31m[1mError: [22m[39m[31m[1mNo bueno![22m[39m"`;
+exports[`print 23`] = `"    [1mexport default () => {[22m"`;
 
-exports[`print 24`] = `""`;
+exports[`print 24`] = `"    [1m  console.log('Hello World!')[22m"`;
 
-exports[`print 25`] = `"⚠️   [33m[1mError: [22m[39m[33m[1mUser not found[22m[39m"`;
+exports[`print 25`] = `"    [1m}[22m"`;
 
-exports[`print 26`] = `"    A new version is available v1.1.0!"`;
+exports[`print 26`] = `"    [1m[22m"`;
 
-exports[`print 27`] = `""`;
+exports[`print 27`] = `"✅  [32m[1mYou did it![22m[39m Great job."`;
 
-exports[`print 28`] = `"      * Run yarn add widget@latest to upgrade"`;
+exports[`print 28`] = `"🐛  [35m[1mTotal tests run:[22m[39m 1"`;
 
-exports[`print 29`] = `"      * Re-run widget"`;
+exports[`print 29`] = `"🚫  [31m[1mError: [22m[39m[31m[1mNo bueno![22m[39m"`;
 
-exports[`print 30`] = `"✅  [32m[1mSuccess![22m[39m [0m[1mDonezo.[22m[0m"`;
+exports[`print 30`] = `"    1 {"`;
 
-exports[`print 31`] = `"☠️   [31m[1mThis computer is dead.[22m[39m"`;
+exports[`print 31`] = `"    2   blame: 'You'"`;
 
-exports[`print 32`] = `"    No emojis, homies "`;
+exports[`print 32`] = `"    3 }"`;
 
-exports[`print 33`] = `"    12       city: 'Red Hook',"`;
+exports[`print 33`] = `""`;
 
-exports[`print 34`] = `"    13       state: 'VI',"`;
+exports[`print 34`] = `"⚠️   [33m[1mError: [22m[39m[33m[1mUser not found[22m[39m"`;
 
-exports[`print 35`] = `"    14       phoneNumbers: ["`;
+exports[`print 35`] = `"     1 {"`;
 
-exports[`print 36`] = `"    15         '617-555-5555',"`;
+exports[`print 36`] = `"     2   id: 321,"`;
 
-exports[`print 37`] = `"    16         '860-555-5555'"`;
+exports[`print 37`] = `"     3   enabled: true,"`;
 
-exports[`print 38`] = `"    17       ]"`;
+exports[`print 38`] = `"     4   email: 'jack@river.com',"`;
 
-exports[`print 39`] = `"    18     },"`;
+exports[`print 39`] = `"     5   details: {"`;
 
-exports[`print 40`] = `"    19     result: {"`;
+exports[`print 40`] = `"     6     firstName: 'Jack',"`;
 
-exports[`print 41`] = `"    20       stack: 'Error: No bueno!"`;
+exports[`print 41`] = `"     7     lastName: 'River',"`;
 
-exports[`print 42`] = `"    28       message: 'No bueno!',"`;
+exports[`print 42`] = `"     8     registered: '2019-06-21T00:13:54.246Z',"`;
 
-exports[`print 43`] = `"    29       blame: 'You'"`;
+exports[`print 43`] = `"     9     address: {"`;
 
-exports[`print 44`] = `"    30     }"`;
+exports[`print 44`] = `"    10       address: '1 Test St',"`;
 
-exports[`print 45`] = `"    31   },"`;
+exports[`print 45`] = `"    11       apt: '201a',"`;
 
-exports[`print 46`] = `"    32   fullName: fullName () {"`;
+exports[`print 46`] = `"    12       city: 'Red Hook',"`;
 
-exports[`print 47`] = `"    33     return \`\${this.details.firstName} \${this.details.lastName}\`"`;
+exports[`print 47`] = `"    13       state: 'VI',"`;
 
-exports[`print 48`] = `"    34   },"`;
+exports[`print 48`] = `"    14       phoneNumbers: ["`;
 
-exports[`print 49`] = `"    35   boss: '[Circular]'"`;
+exports[`print 49`] = `"    15         '617-555-5555',"`;
 
-exports[`print 50`] = `"    36 }"`;
+exports[`print 50`] = `"    16         '860-555-5555'"`;
 
-exports[`print 51`] = `""`;
+exports[`print 51`] = `"    17       ]"`;
 
-exports[`print 52`] = `"    A new version is available v1.1.0!"`;
+exports[`print 52`] = `"    18     },"`;
 
-exports[`print 53`] = `""`;
+exports[`print 53`] = `"    19     result: {"`;
 
-exports[`print 54`] = `"      * Run yarn add widget@latest to upgrade"`;
+exports[`print 54`] = `"    20       stack: 'Error: No bueno!"`;
 
-exports[`print 55`] = `"      * Re-run widget"`;
+exports[`print 55`] = `"    28       message: 'No bueno!',"`;
 
-exports[`print 56`] = `"✅  [32m[1mSuccess![22m[39m [0m[1mDonezo.[22m[0m"`;
+exports[`print 56`] = `"    29       blame: 'You'"`;
 
-exports[`print 57`] = `"☠️   [31m[1mThis computer is dead.[22m[39m"`;
+exports[`print 57`] = `"    30     }"`;
 
-exports[`print 58`] = `"    No emojis, homies "`;
+exports[`print 58`] = `"    31   },"`;
 
-exports[`print 59`] = `"    1 {"`;
+exports[`print 59`] = `"    32   fullName: fullName () {"`;
 
-exports[`print 60`] = `"    2   also: 'no ansi'"`;
+exports[`print 60`] = `"    33     return \`\${this.details.firstName} \${this.details.lastName}\`"`;
 
-exports[`print 61`] = `"    3 }"`;
+exports[`print 61`] = `"    34   },"`;
 
-exports[`print 62`] = `""`;
+exports[`print 62`] = `"    35   boss: '[Circular]'"`;
+
+exports[`print 63`] = `"    36 }"`;
+
+exports[`print 64`] = `""`;
+
+exports[`print 65`] = `"🐛  [35m[1mCalling...[22m[39m "`;
+
+exports[`print 66`] = `"    1 {"`;
+
+exports[`print 67`] = `"    2   phoneNumbers: ["`;
+
+exports[`print 68`] = `"    3     '617-555-5555',"`;
+
+exports[`print 69`] = `"    4     '860-555-5555'"`;
+
+exports[`print 70`] = `"    5   ]"`;
+
+exports[`print 71`] = `"    6 }"`;
+
+exports[`print 72`] = `""`;
+
+exports[`print 73`] = `"    A new version is available v1.1.0!"`;
+
+exports[`print 74`] = `""`;
+
+exports[`print 75`] = `"      * Run yarn add widget@latest to upgrade"`;
+
+exports[`print 76`] = `"      * Re-run widget"`;
+
+exports[`print 77`] = `"✅  [32m[1mSuccess![22m[39m [0m[1mDonezo.[22m[0m"`;
+
+exports[`print 78`] = `"☠️   [31m[1mThis computer is dead.[22m[39m"`;
+
+exports[`print 79`] = `"    No emojis, homies "`;
+
+exports[`print 80`] = `"    1 {"`;
+
+exports[`print 81`] = `"    2   also: 'no ansi'"`;
+
+exports[`print 82`] = `"    3 }"`;
+
+exports[`print 83`] = `""`;
 
 exports[`return 1`] = `
 "💁  [34m[1mEllo Guvna[22m[39m
