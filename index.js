@@ -65,25 +65,27 @@ function toFormattedItems (color, isFirst = false) {
   const coloredChalk = color ? chalk[color] : chalk
   return (item, index = 0, items) => {
     if (item instanceof Error) {
-      let { message = '', stack, ...rest } = item
+      const { message, stack, ...rest } = item
 
       // Preface the log output with the error name.
+      let str = ''
       if (isFirst) {
-        message = coloredChalk.bold(`${item.constructor.name}: `)
+        str = coloredChalk.bold(`${item.constructor.name}: `)
       }
 
       // Format the error message with the given color and make it bold, unless
       // it's already formatted using ANSI escape sequences.
-      if (hasAnsi(item.message)) {
-        message += item.message
+      if (hasAnsi(message)) {
+        str += message
       } else {
-        message += coloredChalk.bold(item.message)
+        str += coloredChalk.bold(message)
       }
 
       // Format the error stacktrace.
-      const stackLines = item.stack.split('\n').map(toStackLines)
+      const stackLines = stack.split('\n').map(toStackLines)
+      item = str + '\n' + stackLines.filter(byNotWhitespace).join('\n')
 
-      item = message + '\n' + stackLines.filter(byNotWhitespace).join('\n')
+      // Add the rest of the Error properties to the item
       if (Object.keys(rest).length) {
         const restStr = chromafi(getClone(rest), chromafiOptions)
         const end = restStr.lastIndexOf('\n\u001b[37m\u001b[39m')
@@ -91,9 +93,9 @@ function toFormattedItems (color, isFirst = false) {
       }
     } else if (typeof item === 'object') {
       // If the item is an object, let chromafi format it.
-      const restStr = chromafi(getClone(item), chromafiOptions)
-      const end = restStr.lastIndexOf('\n\u001b[37m\u001b[39m')
-      item = '\n' + restStr.substring(0, end)
+      const str = chromafi(getClone(item), chromafiOptions)
+      const end = str.lastIndexOf('\n\u001b[37m\u001b[39m')
+      item = '\n' + str.substring(0, end)
     } else {
       // If the item is not a string, turn it into one using util.inspect.
       if (typeof item !== 'string') {
