@@ -12,7 +12,7 @@ exports[`print 5`] = `"🚫  [31m[1mExampleError: [22m[39m[1mExpected somet
 
 exports[`print 6`] = `""`;
 
-exports[`print 7`] = `"🚫  [31m[1mTimeout reached:[22m[39m promise cancelled[31m[1mpromise cancelled[22m[39m"`;
+exports[`print 7`] = `"🚫  [31m[1mTimeout reached:[22m[39m [31m[1mpromise cancelled[22m[39m"`;
 
 exports[`print 8`] = `""`;
 
