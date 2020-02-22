@@ -16,143 +16,143 @@ exports[`print 7`] = `"    2   name: 'ExampleError'"`;
 
 exports[`print 8`] = `"    3 }"`;
 
-exports[`print 9`] = `""`;
+exports[`print 9`] = `"🚫  [31m[1mTimeout reached:[22m[39m [31m[1mpromise cancelled[22m[39m"`;
 
-exports[`print 10`] = `"🚫  [31m[1mTimeout reached:[22m[39m [31m[1mpromise cancelled[22m[39m"`;
+exports[`print 10`] = `"    1 {"`;
 
-exports[`print 11`] = `"    1 {"`;
+exports[`print 11`] = `"    2   name: 'ExampleError'"`;
 
-exports[`print 12`] = `"    2   name: 'ExampleError'"`;
+exports[`print 12`] = `"    3 }"`;
 
-exports[`print 13`] = `"    3 }"`;
+exports[`print 13`] = `"⚠️   [33m[1mFile was overwritten:[22m[39m "`;
 
-exports[`print 14`] = `""`;
+exports[`print 14`] = `"    /tmp/fakeFile.json"`;
 
-exports[`print 15`] = `"⚠️   [33m[1mFile was overwritten:[22m[39m "`;
+exports[`print 15`] = `"💁  [34m[1mDone in 0.91s.[22m[39m"`;
 
-exports[`print 16`] = `"    /tmp/fakeFile.json"`;
+exports[`print 16`] = `"🐛  [35m[1mFlaky test started.[22m[39m "`;
 
-exports[`print 17`] = `"💁  [34m[1mDone in 0.91s.[22m[39m"`;
+exports[`print 17`] = `"    Make sure you check it out."`;
 
-exports[`print 18`] = `"🐛  [35m[1mFlaky test started.[22m[39m "`;
+exports[`print 18`] = `"    Could be trouble."`;
 
-exports[`print 19`] = `"    Make sure you check it out."`;
+exports[`print 19`] = `"💬  [1mRequest made to server.[22m"`;
 
-exports[`print 20`] = `"    Could be trouble."`;
+exports[`print 20`] = `"🔑  [36m$2b$12$HMJFAblrhBCGxTWv5BnIFe[39m"`;
 
-exports[`print 21`] = `"💬  [1mRequest made to server.[22m"`;
+exports[`print 21`] = `"    [1mexport default () => {[22m"`;
 
-exports[`print 22`] = `"🔑  [36m$2b$12$HMJFAblrhBCGxTWv5BnIFe[39m"`;
+exports[`print 22`] = `"    [1m  console.log('Hello World!')[22m"`;
 
-exports[`print 23`] = `"    [1mexport default () => {[22m"`;
+exports[`print 23`] = `"    [1m}[22m"`;
 
-exports[`print 24`] = `"    [1m  console.log('Hello World!')[22m"`;
+exports[`print 24`] = `"    [1m[22m"`;
 
-exports[`print 25`] = `"    [1m}[22m"`;
+exports[`print 25`] = `"✅  [32m[1mYou did it![22m[39m Great job."`;
 
-exports[`print 26`] = `"    [1m[22m"`;
+exports[`print 26`] = `"🐛  [35m[1mTotal tests run:[22m[39m 1"`;
 
-exports[`print 27`] = `"✅  [32m[1mYou did it![22m[39m Great job."`;
+exports[`print 27`] = `"🚫  [31m[1mError: [22m[39m[31m[1mNo bueno![22m[39m"`;
 
-exports[`print 28`] = `"🐛  [35m[1mTotal tests run:[22m[39m 1"`;
+exports[`print 28`] = `"    1 {"`;
 
-exports[`print 29`] = `"🚫  [31m[1mError: [22m[39m[31m[1mNo bueno![22m[39m"`;
+exports[`print 29`] = `"    2   blame: 'You'"`;
 
-exports[`print 30`] = `"    1 {"`;
+exports[`print 30`] = `"    3 }"`;
 
-exports[`print 31`] = `"    2   blame: 'You'"`;
+exports[`print 31`] = `"⚠️   [33m[1mError: [22m[39m[33m[1mUser not found[22m[39m"`;
 
-exports[`print 32`] = `"    3 }"`;
+exports[`print 32`] = `"     1 {"`;
 
-exports[`print 33`] = `""`;
+exports[`print 33`] = `"     2   id: 321,"`;
 
-exports[`print 34`] = `"⚠️   [33m[1mError: [22m[39m[33m[1mUser not found[22m[39m"`;
+exports[`print 34`] = `"     3   enabled: true,"`;
 
-exports[`print 35`] = `"     1 {"`;
+exports[`print 35`] = `"     4   email: 'jack@river.com',"`;
 
-exports[`print 36`] = `"     2   id: 321,"`;
+exports[`print 36`] = `"     5   details: {"`;
 
-exports[`print 37`] = `"     3   enabled: true,"`;
+exports[`print 37`] = `"     6     firstName: 'Jack',"`;
 
-exports[`print 38`] = `"     4   email: 'jack@river.com',"`;
+exports[`print 38`] = `"     7     lastName: 'River',"`;
 
-exports[`print 39`] = `"     5   details: {"`;
+exports[`print 39`] = `"     8     registered: '2019-06-21T00:13:54.246Z',"`;
 
-exports[`print 40`] = `"     6     firstName: 'Jack',"`;
+exports[`print 40`] = `"     9     address: {"`;
 
-exports[`print 41`] = `"     7     lastName: 'River',"`;
+exports[`print 41`] = `"    10       address: '1 Test St',"`;
 
-exports[`print 42`] = `"     8     registered: '2019-06-21T00:13:54.246Z',"`;
+exports[`print 42`] = `"    11       apt: '201a',"`;
 
-exports[`print 43`] = `"     9     address: {"`;
+exports[`print 43`] = `"    12       city: 'Red Hook',"`;
 
-exports[`print 44`] = `"    10       address: '1 Test St',"`;
+exports[`print 44`] = `"    13       state: 'VI',"`;
 
-exports[`print 45`] = `"    11       apt: '201a',"`;
+exports[`print 45`] = `"    14       phoneNumbers: ["`;
 
-exports[`print 46`] = `"    12       city: 'Red Hook',"`;
+exports[`print 46`] = `"    15         '617-555-5555',"`;
 
-exports[`print 47`] = `"    13       state: 'VI',"`;
+exports[`print 47`] = `"    16         '860-555-5555'"`;
 
-exports[`print 48`] = `"    14       phoneNumbers: ["`;
+exports[`print 48`] = `"    17       ]"`;
 
-exports[`print 49`] = `"    15         '617-555-5555',"`;
+exports[`print 49`] = `"    18     },"`;
 
-exports[`print 50`] = `"    16         '860-555-5555'"`;
+exports[`print 50`] = `"    19     result: {"`;
 
-exports[`print 51`] = `"    17       ]"`;
+exports[`print 51`] = `"    20       stack: 'Error: No bueno!"`;
 
-exports[`print 52`] = `"    18     },"`;
+exports[`print 52`] = `"    28       message: 'No bueno!',"`;
 
-exports[`print 53`] = `"    19     result: {"`;
+exports[`print 53`] = `"    29       blame: 'You'"`;
 
-exports[`print 54`] = `"    20       stack: 'Error: No bueno!"`;
+exports[`print 54`] = `"    30     }"`;
 
-exports[`print 55`] = `"    28       message: 'No bueno!',"`;
+exports[`print 55`] = `"    31   },"`;
 
-exports[`print 56`] = `"    29       blame: 'You'"`;
+exports[`print 56`] = `"    32   fullName: fullName () {"`;
 
-exports[`print 57`] = `"    30     }"`;
+exports[`print 57`] = `"    33     return \`\${this.details.firstName} \${this.details.lastName}\`"`;
 
-exports[`print 58`] = `"    31   },"`;
+exports[`print 58`] = `"    34   },"`;
 
-exports[`print 59`] = `"    32   fullName: fullName () {"`;
+exports[`print 59`] = `"    35   boss: '[Circular]'"`;
 
-exports[`print 60`] = `"    33     return \`\${this.details.firstName} \${this.details.lastName}\`"`;
+exports[`print 60`] = `"    36 }"`;
 
-exports[`print 61`] = `"    34   },"`;
+exports[`print 61`] = `"🐛  [35m[1mCalling...[22m[39m "`;
 
-exports[`print 62`] = `"    35   boss: '[Circular]'"`;
+exports[`print 62`] = `"    1 {"`;
 
-exports[`print 63`] = `"    36 }"`;
+exports[`print 63`] = `"    2   phoneNumbers: ["`;
 
-exports[`print 64`] = `""`;
+exports[`print 64`] = `"    3     '617-555-5555',"`;
 
-exports[`print 65`] = `"🐛  [35m[1mCalling...[22m[39m "`;
+exports[`print 65`] = `"    4     '860-555-5555'"`;
 
-exports[`print 66`] = `"    1 {"`;
+exports[`print 66`] = `"    5   ]"`;
 
-exports[`print 67`] = `"    2   phoneNumbers: ["`;
+exports[`print 67`] = `"    6 }"`;
 
-exports[`print 68`] = `"    3     '617-555-5555',"`;
+exports[`print 68`] = `"    A new version is available v1.1.0!"`;
 
-exports[`print 69`] = `"    4     '860-555-5555'"`;
+exports[`print 69`] = `""`;
 
-exports[`print 70`] = `"    5   ]"`;
+exports[`print 70`] = `"      * Run yarn add widget@latest to upgrade"`;
 
-exports[`print 71`] = `"    6 }"`;
+exports[`print 71`] = `"      * Re-run widget"`;
 
-exports[`print 72`] = `""`;
+exports[`print 72`] = `"✅  [32m[1mSuccess![22m[39m [0m[1mDonezo.[22m[0m"`;
 
-exports[`print 73`] = `"    A new version is available v1.1.0!"`;
+exports[`print 73`] = `"☠️   [31m[1mThis computer is dead.[22m[39m"`;
 
-exports[`print 74`] = `""`;
+exports[`print 74`] = `"    No emojis, homies "`;
 
-exports[`print 75`] = `"      * Run yarn add widget@latest to upgrade"`;
+exports[`print 75`] = `"    1 {"`;
 
-exports[`print 76`] = `"      * Re-run widget"`;
+exports[`print 76`] = `"    2   also: 'no ansi'"`;
 
-exports[`print 77`] = `"✅  [32m[1mSuccess![22m[39m [0m[1mDonezo.[22m[0m"`;
+exports[`print 77`] = `"    3 }"`;
 
 exports[`print 78`] = `"☠️   [31m[1mThis computer is dead.[22m[39m"`;
 
