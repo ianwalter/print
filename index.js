@@ -29,8 +29,8 @@ const defaults = {
   // Write all logs to stdout by default. You can change stream.err if you
   // would like to write errors to stderr, for example.
   stream: {
-    out: process.stdout,
-    err: process.stdout
+    out: process.stdout.write.bind(process.stdout),
+    err: process.stdout.write.bind(process.stdout)
   },
   level: 'debug',
   chalkLevel: chalk.level || 2
@@ -204,7 +204,7 @@ class Print {
   write (...items) {
     const str = items.reduce(toSpacedString, '')
     if (this.options.stream) {
-      this.options.stream.out.write(str)
+      this.options.stream.out(str)
     }
     return str
   }
@@ -212,7 +212,7 @@ class Print {
   writeErr (...items) {
     const str = items.reduce(toSpacedString, '')
     if (this.options.stream) {
-      this.options.stream.err.write(str)
+      this.options.stream.err(str)
     }
     return str
   }
