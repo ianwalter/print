@@ -33,7 +33,7 @@
   "homepage": "https://github.com/ianwalter/print#readme",
   "dependencies": {
     "@ianwalter/chromafi": "^1.0.1",
-    "@ianwalter/clone": "^5.0.0",
+    "@ianwalter/clone": "^6.0.1",
     "@ianwalter/log": "^4.0.0",
     "@ianwalter/merge": "^7.0.0",
     "chalk": "^3.0.0",
