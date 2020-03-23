@@ -39,7 +39,7 @@
     "chalk": "^3.0.0",
     "has-ansi": "^4.0.0",
     "has-emoji": "^1.1.0",
-    "marked": "^0.8.1",
+    "marked": "^0.8.2",
     "marked-terminal": "^4.0.0",
     "strip-ansi": "^6.0.0"
   },
