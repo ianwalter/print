@@ -9,7 +9,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "lint": "eslint index.js tests",
+    "lint": "eslint .",
     "example": "node tests/fixtures/example.js",
     "test": "bff"
   },

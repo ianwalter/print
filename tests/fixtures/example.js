@@ -17,10 +17,11 @@ print.debug('Flaky test started.', '\n', stripIndent`
 `)
 print.log('Request made to server.')
 print.log('🔑', chalk.cyan('$2b$12$HMJFAblrhBCGxTWv5BnIFe'))
-print.log(false, `export default () => {
+print.log(`export default () => {
   console.log('Hello World!')
 }
 `)
+print.log('⏱️', 'Timing you!')
 print.success('You did it!', 'Great job.')
 print.debug('Total tests run:', 1)
 

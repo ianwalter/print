@@ -158,14 +158,12 @@ class Print {
 
   log (...items) {
     let [first, ...rest] = items
-    let prefix = '💬 '
-    const prefixIsEmoji = first && hasEmoji(first) && first.length === 2
-    if (!first || prefixIsEmoji) {
+    let prefix = '   '
+    const prefixIsEmoji = typeof first === 'string' && hasEmoji(first)
+    if (prefixIsEmoji) {
       const [actual, ...actualRest] = rest
-      if (!first) {
-        prefix = '   '
-      } else if (prefixIsEmoji) {
-        prefix = `${first} `
+      if (prefixIsEmoji) {
+        prefix = first.padEnd(2 + [...first].length)
       }
       first = actual
       rest = actualRest
@@ -190,7 +188,7 @@ class Print {
   }
 
   fatal (...items) {
-    return this.writeErr('☠️  ', ...formatItems(items, 'red'))
+    return this.writeErr('💀 ', ...formatItems(items, 'red'))
   }
 
   md (...items) {
