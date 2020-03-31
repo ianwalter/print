@@ -26,9 +26,9 @@ const defaults = {
     'text', // For outputting text without an emoji or ANSI escape sequences.
     'write' // For writing to the log without any formatting at all.
   ],
-  // Write all logs to stdout by default. You can change stream.err if you
-  // would like to write errors to stderr, for example.
-  stream: {
+  // Write all logs to stdout by default. You can change std.err if you would
+  // like to write errors to stderr, for example.
+  std: {
     out: process.stdout.write.bind(process.stdout),
     err: process.stdout.write.bind(process.stdout)
   },
@@ -201,16 +201,16 @@ class Print {
 
   write (...items) {
     const str = items.reduce(toSpacedString, '')
-    if (this.options.stream) {
-      this.options.stream.out(str)
+    if (this.options.std) {
+      this.options.std.out(str)
     }
     return str
   }
 
   writeErr (...items) {
     const str = items.reduce(toSpacedString, '')
-    if (this.options.stream) {
-      this.options.stream.err(str)
+    if (this.options.std) {
+      this.options.std.err(str)
     }
     return str
   }

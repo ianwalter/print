@@ -14,6 +14,6 @@ test('print', async ({ expect }) => {
 })
 
 test('return', ({ expect }) => {
-  const print = new Print({ stream: false })
+  const print = new Print({ std: false })
   expect(print.info('Ello Guvna')).toMatchSnapshot()
 })
