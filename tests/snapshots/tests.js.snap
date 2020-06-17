@@ -102,65 +102,65 @@ exports[`print 50`] = `"    18     },"`;
 
 exports[`print 51`] = `"    19     result: {"`;
 
-exports[`print 52`] = `"    20       blame: 'You'"`;
+exports[`print 52`] = `"    20       stack: 'Error: No bueno!"`;
 
-exports[`print 53`] = `"    21     }"`;
+exports[`print 53`] = `"    28       message: 'No bueno!',"`;
 
-exports[`print 54`] = `"    22   },"`;
+exports[`print 54`] = `"    29       blame: 'You'"`;
 
-exports[`print 55`] = `"    23   fullName: fullName () {"`;
+exports[`print 55`] = `"    30     }"`;
 
-exports[`print 56`] = `"    24     return \`\${this.details.firstName} \${this.details.lastName}\`"`;
+exports[`print 56`] = `"    31   },"`;
 
-exports[`print 57`] = `"    25   }"`;
+exports[`print 57`] = `"    32   boss: {"`;
 
-exports[`print 58`] = `"    26 }"`;
+exports[`print 58`] = `"    33     id: 321,"`;
 
-exports[`print 59`] = `"🐛  [35m[1mCalling...[22m[39m "`;
+exports[`print 59`] = `"    34     enabled: true,"`;
 
-exports[`print 60`] = `"    1 {"`;
+exports[`print 60`] = `"    35     email: 'jack@river.com',"`;
 
-exports[`print 61`] = `"    2   phoneNumbers: ["`;
+exports[`print 61`] = `"    36     details: 'details',"`;
 
-exports[`print 62`] = `"    3     '617-555-5555',"`;
+exports[`print 62`] = `"    37     boss: 'boss'"`;
 
-exports[`print 63`] = `"    4     '860-555-5555'"`;
+exports[`print 63`] = `"    38   }"`;
 
-exports[`print 64`] = `"    5   ]"`;
+exports[`print 64`] = `"    39 }"`;
 
-exports[`print 65`] = `"    6 }"`;
+exports[`print 65`] = `"🐛  [35m[1mCalling...[22m[39m "`;
 
-exports[`print 66`] = `"    A new version is available v1.1.0!"`;
+exports[`print 66`] = `"    1 {"`;
 
-exports[`print 67`] = `"    "`;
+exports[`print 67`] = `"    2   phoneNumbers: ["`;
 
-exports[`print 68`] = `"      * Run yarn add widget@latest to upgrade"`;
+exports[`print 68`] = `"    3     '617-555-5555',"`;
 
-exports[`print 69`] = `"      * Re-run widget"`;
+exports[`print 69`] = `"    4     '860-555-5555'"`;
 
-exports[`print 70`] = `"✅  [32m[1mSuccess![22m[39m Donezo."`;
+exports[`print 70`] = `"    5   ]"`;
 
-exports[`print 71`] = `"💀  [31m[1mThis computer is dead.[22m[39m"`;
+exports[`print 71`] = `"    6 }"`;
 
-exports[`print 72`] = `"    No emojis, homies "`;
+exports[`print 72`] = `"    A new version is available v1.1.0!"`;
 
-exports[`print 73`] = `"    1 {"`;
+exports[`print 73`] = `"    "`;
 
-exports[`print 74`] = `"    2   also: 'no ansi'"`;
+exports[`print 74`] = `"      * Run yarn add widget@latest to upgrade"`;
 
-exports[`print 75`] = `"    3 }"`;
+exports[`print 75`] = `"      * Re-run widget"`;
 
-exports[`print 76`] = `"    1 {"`;
+exports[`print 76`] = `"✅  [32m[1mSuccess![22m[39m Donezo."`;
 
-exports[`print 77`] = `"    2   also: 'no ansi'"`;
+exports[`print 77`] = `"💀  [31m[1mThis computer is dead.[22m[39m"`;
 
-exports[`print 78`] = `"    3 }"`;
+exports[`print 78`] = `"    No emojis, homies "`;
 
-exports[`print 79`] = `"    No emojis, homies "`;
+exports[`print 79`] = `"    1 {"`;
 
-exports[`print 80`] = `"    1 {"`;
+exports[`print 80`] = `"    2   also: 'no ansi'"`;
 
-exports[`print 81`] = `"    2   also: 'no ansi'"`;
+exports[`print 81`] = `"    3 }"`;
 
 exports[`print 82`] = `"    3 }"`;
 

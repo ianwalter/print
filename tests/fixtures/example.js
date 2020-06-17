@@ -27,6 +27,7 @@ print.debug('Total tests run:', 1)
 
 const err = new Error('No bueno!')
 err.blame = 'You'
+err.test = () => 'This should not be printed'
 print.error(err)
 
 const user = {

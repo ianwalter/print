@@ -9,6 +9,7 @@ const marked = require('marked')
 const TerminalRenderer = require('marked-terminal')
 const stripAnsi = require('strip-ansi')
 const merge = require('@ianwalter/merge')
+const cloneable = require('@ianwalter/cloneable')
 
 // Set up marked with the TerminalRenderer.
 marked.setOptions({ renderer: new TerminalRenderer({ tab: 2 }) })
@@ -58,7 +59,7 @@ function toStackLines (line) {
 
 function getClone (src) {
   try {
-    return clone(src, { circulars: 0 })
+    return clone(cloneable(src), { circulars: 0 })
   } catch (err) {
     return util.inspect(src)
   }
