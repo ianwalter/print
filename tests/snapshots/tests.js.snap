@@ -130,15 +130,15 @@ exports[`print 64`] = `"    5   ]"`;
 
 exports[`print 65`] = `"    6 }"`;
 
-exports[`print 66`] = `"    [0mA new version is available [1mv1.1.0[22m![0m"`;
+exports[`print 66`] = `"    A new version is available v1.1.0!"`;
 
 exports[`print 67`] = `"    "`;
 
-exports[`print 68`] = `"      * [0mRun [33myarn add widget@latest[39m to upgrade[0m"`;
+exports[`print 68`] = `"      * Run yarn add widget@latest to upgrade"`;
 
-exports[`print 69`] = `"      * [0mRe-run widget[0m"`;
+exports[`print 69`] = `"      * Re-run widget"`;
 
-exports[`print 70`] = `"✅  [32m[1mSuccess![22m[39m [0m[1mDonezo.[22m[0m"`;
+exports[`print 70`] = `"✅  [32m[1mSuccess![22m[39m Donezo."`;
 
 exports[`print 71`] = `"💀  [31m[1mThis computer is dead.[22m[39m"`;
 
