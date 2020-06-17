@@ -65,7 +65,7 @@ function getClone (src) {
   }
 }
 
-function toFormattedItems (color, isFirst = false) {
+function toFormattedItems (color, isFirst = false, style) {
   const coloredChalk = color ? chalk[color] : chalk
   return (item, index = 0, items) => {
     if (item instanceof Error) {
@@ -104,7 +104,9 @@ function toFormattedItems (color, isFirst = false) {
 
       // If the item is the first item logged and isn't already formatted using
       // ANSI escape sequences, format it with the given color and make it bold.
-      if (isFirst && !hasAnsi(item)) item = coloredChalk.bold(item)
+      if (isFirst && !hasAnsi(item)) {
+        item = style ? coloredChalk[style](item) : coloredChalk(item)
+      }
     }
 
     // Split the item string by newlines.
@@ -127,9 +129,9 @@ function toFormattedItems (color, isFirst = false) {
   }
 }
 
-function formatItems ([first, ...rest], color) {
+function formatItems ([first, ...rest], color, style) {
   return [
-    toFormattedItems(color, true)(first),
+    toFormattedItems(color, true, style)(first),
     ...rest.map(toFormattedItems(color))
   ]
 }
@@ -168,23 +170,23 @@ class Print {
   }
 
   info (...items) {
-    return this.write('💁 ', ...formatItems(items, 'blue'))
+    return this.write('💁 ', ...formatItems(items, 'blue', 'bold'))
   }
 
   success (...items) {
-    return this.write('✅ ', ...formatItems(items, 'green'))
+    return this.write('✅ ', ...formatItems(items, 'green', 'bold'))
   }
 
   warn (...items) {
-    return this.write('⚠️  ', ...formatItems(items, 'yellow'))
+    return this.write('⚠️  ', ...formatItems(items, 'yellow', 'bold'))
   }
 
   error (...items) {
-    return this.writeErr('🚫 ', ...formatItems(items, 'red'))
+    return this.writeErr('🚫 ', ...formatItems(items, 'red', 'bold'))
   }
 
   fatal (...items) {
-    return this.writeErr('💀 ', ...formatItems(items, 'red'))
+    return this.writeErr('💀 ', ...formatItems(items, 'red', 'bold'))
   }
 
   md (...items) {

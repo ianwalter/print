@@ -30,29 +30,29 @@ exports[`print 14`] = `"    /tmp/fakeFile.json"`;
 
 exports[`print 15`] = `"💁  [34m[1mDone in 0.91s.[22m[39m"`;
 
-exports[`print 16`] = `"🐛  [35m[1mFlaky test started.[22m[39m "`;
+exports[`print 16`] = `"🐛  [35mFlaky test started.[39m "`;
 
 exports[`print 17`] = `"    Make sure you check it out."`;
 
 exports[`print 18`] = `"    Could be trouble."`;
 
-exports[`print 19`] = `"    [1mRequest made to server.[22m"`;
+exports[`print 19`] = `"    Request made to server."`;
 
 exports[`print 20`] = `"🔑  [36m$2b$12$HMJFAblrhBCGxTWv5BnIFe[39m"`;
 
-exports[`print 21`] = `"    [1mexport default () => {[22m"`;
+exports[`print 21`] = `"    export default () => {"`;
 
-exports[`print 22`] = `"    [1m  console.log('Hello World!')[22m"`;
+exports[`print 22`] = `"      console.log('Hello World!')"`;
 
-exports[`print 23`] = `"    [1m}[22m"`;
+exports[`print 23`] = `"    }"`;
 
-exports[`print 24`] = `"    [1m[22m"`;
+exports[`print 24`] = `""`;
 
-exports[`print 25`] = `"⏱️   [1mTiming you![22m"`;
+exports[`print 25`] = `"⏱️   Timing you!"`;
 
 exports[`print 26`] = `"✅  [32m[1mYou did it![22m[39m Great job."`;
 
-exports[`print 27`] = `"🐛  [35m[1mTotal tests run:[22m[39m 1"`;
+exports[`print 27`] = `"🐛  [35mTotal tests run:[39m 1"`;
 
 exports[`print 28`] = `"🚫  [31m[1mError: [22m[39m[31m[1mNo bueno![22m[39m"`;
 
@@ -128,7 +128,7 @@ exports[`print 63`] = `"    38   }"`;
 
 exports[`print 64`] = `"    39 }"`;
 
-exports[`print 65`] = `"🐛  [35m[1mCalling...[22m[39m "`;
+exports[`print 65`] = `"🐛  [35mCalling...[39m "`;
 
 exports[`print 66`] = `"    1 {"`;
 
