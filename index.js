@@ -38,9 +38,12 @@ const defaults = {
 const chromafiOptions = { tabsToSpaces: 2, lineNumberPad: 0 }
 const atRe = /^\s+at\s(.*)/
 const refRe = /^\s+at\s(.*)\s(\(.*\))$/
-const toPaddedLine = line => line ? `    ${line}` : line
+const toPaddedString = s => `    ${s}`
+const toPaddedLine = line => line ? toPaddedString(line) : line
 const at = chalk.gray('at')
 const byNotWhitespace = str => str && str.trim()
+const startsWithANewline = msg => typeof msg === 'string' &&
+  msg.replace(' ', '')[0] === '\n'
 const endsWithANewline = msg => typeof msg === 'string' &&
   msg.replace(' ', '')[msg.length - 1] === '\n'
 const md = str => marked(str).trimEnd()
@@ -184,7 +187,10 @@ class Print {
   }
 
   md (...items) {
-    return this.plain(...items.map(item => md(item)))
+    return this.write(...items.map(i => {
+      const item = md(i).split('\n').map(toPaddedString).join('\n')
+      return startsWithANewline(i) ? '\n' + item : item
+    }))
   }
 
   plain (...items) {
