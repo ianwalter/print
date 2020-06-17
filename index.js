@@ -69,9 +69,7 @@ function toFormattedItems (color, isFirst = false) {
 
       // Preface the log output with the error name.
       let str = ''
-      if (isFirst) {
-        str = coloredChalk.bold(`${item.constructor.name}: `)
-      }
+      if (isFirst) str = coloredChalk.bold(`${item.constructor.name}: `)
 
       // Format the error message with the given color and make it bold, unless
       // it's already formatted using ANSI escape sequences.
@@ -98,15 +96,11 @@ function toFormattedItems (color, isFirst = false) {
       item = '\n' + (end > 0 ? str.substring(0, end) : str.trimEnd())
     } else {
       // If the item is not a string, turn it into one using util.inspect.
-      if (typeof item !== 'string') {
-        item = util.inspect(item)
-      }
+      if (typeof item !== 'string') item = util.inspect(item)
 
       // If the item is the first item logged and isn't already formatted using
       // ANSI escape sequences, format it with the given color and make it bold.
-      if (isFirst && !hasAnsi(item)) {
-        item = coloredChalk.bold(item)
-      }
+      if (isFirst && !hasAnsi(item)) item = coloredChalk.bold(item)
     }
 
     // Split the item string by newlines.
@@ -162,9 +156,7 @@ class Print {
     const prefixIsEmoji = typeof first === 'string' && hasEmoji(first)
     if (prefixIsEmoji) {
       const [actual, ...actualRest] = rest
-      if (prefixIsEmoji) {
-        prefix = first.padEnd(2 + [...first].length)
-      }
+      if (prefixIsEmoji) prefix = first.padEnd(2 + [...first].length)
       first = actual
       rest = actualRest
     }
@@ -201,17 +193,13 @@ class Print {
 
   write (...items) {
     const str = items.reduce(toSpacedString, '')
-    if (this.options.std) {
-      this.options.std.out(str)
-    }
+    if (this.options.std) this.options.std.out(str)
     return str
   }
 
   writeErr (...items) {
     const str = items.reduce(toSpacedString, '')
-    if (this.options.std) {
-      this.options.std.err(str)
-    }
+    if (this.options.std) this.options.std.err(str)
     return str
   }
 }
