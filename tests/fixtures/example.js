@@ -63,4 +63,4 @@ print.md(stripIndent`
 `)
 print.success('Success!', md('**Donezo.**'))
 print.fatal('This computer is dead.')
-print.text('No emojis, homies', { also: 'no ansi' })
+print.plain('No emojis, homies', { also: 'no ansi' })

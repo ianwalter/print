@@ -23,7 +23,7 @@ const defaults = {
     'error', // For normal errors.
     'fatal', // For unrecoverable errors.
     'md', // For log statements in Markdown format.
-    'text', // For outputting text without an emoji or ANSI escape sequences.
+    'plain', // For plain text without an emoji or ANSI escape sequences.
     'write' // For writing to the log without any formatting at all.
   ],
   // Write all logs to stdout by default. You can change std.err if you would
@@ -184,10 +184,10 @@ class Print {
   }
 
   md (...items) {
-    return this.text(...items.map(item => md(item)))
+    return this.plain(...items.map(item => md(item)))
   }
 
-  text (...items) {
+  plain (...items) {
     return this.write('   ', ...items.map(toFormattedItems()).map(stripAnsi))
   }
 
