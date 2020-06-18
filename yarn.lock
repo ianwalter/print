@@ -247,15 +247,31 @@
     marked-terminal "^4.0.0"
     strip-ansi "^6.0.0"
 
-"@ianwalter/release@^5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@ianwalter/release/-/release-5.0.1.tgz#23117632679afe6ba30f7aa0fdc2900d76e979d3"
-  integrity sha512-9/UMH1Nykb01rMib8ABH6bV1LdvrLS5Xtj+iULhCGaWqnQvSo7GlfUxn2VBmW633gxIfFnwCKioaM5lKqnsMQw==
+"@ianwalter/print@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-7.0.0.tgz#fc19edec666817ebb67a5fd1d4500c076c3746c0"
+  integrity sha512-AXE7sZgEISpP0cGJY8DN/rI3G+wcDz1EL4KLEVFv2wvZwPaUQaH9qGGoacer1N9xVOGp1D8VSRJc3tJdHTu1MQ==
+  dependencies:
+    "@ianwalter/chromafi" "^1.0.1"
+    "@ianwalter/clone" "^6.0.1"
+    "@ianwalter/log" "^4.0.0"
+    "@ianwalter/merge" "^9.0.1"
+    chalk "^4.1.0"
+    has-ansi "^4.0.0"
+    has-emoji "^1.1.0"
+    marked "^1.1.0"
+    marked-terminal "^4.1.0"
+    strip-ansi "^6.0.0"
+
+"@ianwalter/release@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@ianwalter/release/-/release-5.0.2.tgz#122502cdc652fd6cadb83d2812a3a2828dd56fc7"
+  integrity sha512-KummxGkI57AiSRdU1frjRZSzoCKFB+RyI1XlKiVvPd38XRr6lk0IfO/VQNtu6a7H/aooAGhRfb4Sm3soOaIUBQ==
   dependencies:
     "@ianwalter/base-error" "^6.1.0"
     "@ianwalter/cli" "^4.1.0"
     "@ianwalter/commits" "^1.0.1"
-    "@ianwalter/print" "^6.0.0"
+    "@ianwalter/print" "^7.0.0"
     "@ianwalter/update-package" "^0.0.2"
     common-tags "^1.8.0"
     execa "^4.0.2"
