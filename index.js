@@ -1,6 +1,6 @@
 const util = require('util')
 const chromafi = require('@ianwalter/chromafi')
-const { Log } = require('@ianwalter/log')
+const log = require('@ianwalter/log')
 const chalk = require('chalk')
 const hasAnsi = require('has-ansi')
 const hasEmoji = require('has-emoji')
@@ -149,7 +149,7 @@ class Print {
   constructor (options = {}) {
     this.options = merge({ logger: this }, defaults, options)
     chalk.level = this.options.chalkLevel
-    return new Log(this.options)
+    return log.create(this.options)
   }
 
   debug (...items) {
