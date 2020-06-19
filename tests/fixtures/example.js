@@ -65,3 +65,5 @@ print.md(stripIndent`
 print.success('Success!', md('**Donezo.**'))
 print.fatal('This computer is dead.')
 print.plain('No emojis, homies', { also: 'no ansi' })
+const infoPrint = print.create({ level: 'info' })
+infoPrint.ns('app.server').debug('Using random port')

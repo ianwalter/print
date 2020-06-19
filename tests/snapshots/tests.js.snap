@@ -162,7 +162,7 @@ exports[`print 80`] = `"    2   also: 'no ansi'"`;
 
 exports[`print 81`] = `"    3 }"`;
 
-exports[`print 82`] = `"    3 }"`;
+exports[`print 82`] = `"🐛  [47m[30m[1m app.server [22m[39m[49m [35mUsing random port[39m"`;
 
 exports[`print 83`] = `""`;
 
