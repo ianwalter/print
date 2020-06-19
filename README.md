@@ -10,6 +10,34 @@
 yarn add @ianwalter/print
 ```
 
+## Usage
+
+Basic usage:
+
+```js
+const { print } = require('@ianwalter/print')
+
+print.info('Done in 0.91s.') // => 💁  Done in 0.91s.
+```
+
+Using debug / namespacing:
+
+```console
+export DEBUG="app.*"
+```
+
+```js
+const { print } = require('@ianwalter/print')
+
+const log = print.create({ level: info })
+
+// Will not be printed:
+log.debug('Hello!')
+
+// Will be printed:
+log.ns('app.test').debug('Flaky test started.') // => 🐛  Flaky test started.
+``
+
 ## Related
 
 [@ianwlater/log][logUrl]
