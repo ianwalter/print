@@ -35,7 +35,8 @@ const defaults = {
   },
   level: 'debug',
   unrestricted: process.env.DEBUG,
-  chalkLevel: chalk.level || 2
+  chalkLevel: chalk.level || 2,
+  ndjson: false
 }
 const chromafiOptions = { tabsToSpaces: 2, lineNumberPad: 0 }
 const atRe = /^\s+at\s(.*)/
@@ -49,6 +50,7 @@ const startsWithANewline = msg => typeof msg === 'string' &&
 const endsWithANewline = msg => typeof msg === 'string' &&
   msg.replace(' ', '')[msg.length - 1] === '\n'
 const md = str => marked(str).trimEnd()
+const isObj = i => i && typeof i === 'object' && !Array.isArray(i)
 
 function toStackLines (line) {
   if (line.match(refRe)) {
@@ -130,13 +132,6 @@ function toFormattedItems (color, isFirst = false, style) {
   }
 }
 
-function formatItems ([first, ...rest], color, style) {
-  return [
-    toFormattedItems(color, true, style)(first),
-    ...rest.map(toFormattedItems(color))
-  ]
-}
-
 function toSpacedString (acc, msg, idx, src) {
   if (endsWithANewline(msg)) {
     return acc + msg
@@ -154,12 +149,31 @@ function createPrint (options = {}) {
     ? chalk.bgWhite.black.bold(' ' + options.namespace + ' ')
     : ''
 
-  function createOutputString (prefix, items) {
-    return [
-      ...prefix ? [prefix] : [],
-      ...ns ? [ns] : [],
-      ...items
-    ].reduce(toSpacedString, '')
+  function createOutputString ({ level, prefix, items }) {
+    if (options.ndjson) {
+      const obj = { ...items, level, message: items.message.trim() }
+      return JSON.stringify(obj) + '\n'
+    }
+    items = [...prefix ? [prefix] : [], ...ns ? [ns] : [], ...items]
+    return items.reduce(toSpacedString, '')
+  }
+
+  function formatItems ([first, ...rest], color, style) {
+    if (options.ndjson) {
+      return [first, ...rest].reduce(
+        (acc, msg, idx, src) => {
+          if (isObj(msg)) {
+            acc.data = merge(acc.data || {}, msg)
+          } else if (typeof msg === 'string') {
+            acc.message = toSpacedString(acc.message || '', msg, idx, src)
+          }
+          return acc
+        },
+        {}
+      )
+    }
+    const items = [toFormattedItems(color, true, style)(first)]
+    return items.concat(rest.map(toFormattedItems(color)))
   }
 
   const logger = {
@@ -167,57 +181,87 @@ function createPrint (options = {}) {
       return createPrint(options)
     },
     debug (...items) {
-      return this.writeOut('🐛 ', ...formatItems(items, 'magenta'))
+      return this.writeOut({
+        level: 'debug',
+        prefix: '🐛 ',
+        items: formatItems(items, 'magenta')
+      })
     },
-    log (...items) {
-      let [first, ...rest] = items
+    log (first, ...rest) {
       let prefix = '   '
-      const prefixIsEmoji = typeof first === 'string' && hasEmoji(first)
-      if (prefixIsEmoji) {
+      if (typeof first === 'string' && hasEmoji(first)) {
         const [actual, ...actualRest] = rest
-        if (prefixIsEmoji) prefix = first.padEnd(2 + [...first].length)
+        prefix = first.padEnd(2 + [...first].length) // Emoji length trick!
         first = actual
         rest = actualRest
       }
-      return this.writeOut(prefix, ...formatItems([first, ...rest]))
+      return this.writeOut({
+        level: 'info',
+        prefix,
+        items: formatItems([first, ...rest])
+      })
     },
     info (...items) {
-      return this.writeOut('💁 ', ...formatItems(items, 'blue', 'bold'))
+      return this.writeOut({
+        level: 'info',
+        prefix: '💁 ',
+        items: formatItems(items, 'blue', 'bold')
+      })
     },
     success (...items) {
-      return this.writeOut('✅ ', ...formatItems(items, 'green', 'bold'))
+      return this.writeOut({
+        level: 'info',
+        prefix: '✅ ',
+        items: formatItems(items, 'green', 'bold')
+      })
     },
     warn (...items) {
-      return this.writeOut('⚠️  ', ...formatItems(items, 'yellow', 'bold'))
+      return this.writeOut({
+        level: 'warn',
+        prefix: '⚠️  ',
+        items: formatItems(items, 'yellow', 'bold')
+      })
     },
     error (...items) {
-      return this.writeErr('🚫 ', ...formatItems(items, 'red', 'bold'))
+      return this.writeErr({
+        level: 'error',
+        prefix: '🚫 ',
+        items: formatItems(items, 'red', 'bold')
+      })
     },
     fatal (...items) {
-      return this.writeErr('💀 ', ...formatItems(items, 'red', 'bold'))
+      return this.writeErr({
+        level: 'fatal',
+        prefix: '💀 ',
+        items: formatItems(items, 'red', 'bold')
+      })
     },
     md (...items) {
-      return this.writeOut('', ...items.map(i => {
-        const item = md(i).split('\n').map(toPaddedString).join('\n')
-        return startsWithANewline(i) ? '\n' + item : item
-      }))
+      return this.writeOut({
+        level: 'info',
+        items: items.map(i => {
+          const item = md(i).split('\n').map(toPaddedString).join('\n')
+          return startsWithANewline(i) ? '\n' + item : item
+        })
+      })
     },
     plain (...items) {
-      return this.writeOut(
-        '   ',
-        ...items.map(toFormattedItems()).map(stripAnsi)
-      )
+      return this.writeOut({
+        level: 'info',
+        prefix: '   ',
+        items: items.map(toFormattedItems()).map(stripAnsi)
+      })
     },
     write (...items) {
-      return this.writeOut('', ...items)
+      return this.writeOut({ level: 'info', items })
     },
-    writeOut (prefix, ...items) {
-      const str = createOutputString(prefix, items)
+    writeOut (log) {
+      const str = createOutputString(log)
       if (options.std) options.std.out(str)
       return str
     },
-    writeErr (prefix, ...items) {
-      const str = createOutputString(prefix, items)
+    writeErr (log) {
+      const str = createOutputString(log)
       if (options.std) options.std.err(str)
       return str
     }

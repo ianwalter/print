@@ -164,7 +164,7 @@ exports[`print 81`] = `"    3 }"`;
 
 exports[`print 82`] = `"🐛  [47m[30m[1m app.server [22m[39m[49m [35mUsing random port[39m"`;
 
-exports[`print 83`] = `""`;
+exports[`print 83`] = `"{\\"message\\":\\"SWAPI Response\\",\\"data\\":{\\"statusCode\\":200,\\"body\\":\\"Lando!\\",\\"params\\":{\\"q\\":\\"one\\"}},\\"level\\":\\"info\\"}"`;
 
 exports[`return 1`] = `
 "💁  [34m[1mEllo Guvna[22m[39m

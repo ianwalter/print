@@ -67,3 +67,9 @@ print.fatal('This computer is dead.')
 print.plain('No emojis, homies', { also: 'no ansi' })
 const infoPrint = print.create({ level: 'info' })
 infoPrint.ns('app.server').debug('Using random port')
+const jsonPrint = infoPrint.create({ ndjson: true })
+jsonPrint.info(
+  'SWAPI Response',
+  { statusCode: 200, body: 'Lando!' },
+  { params: { q: 'one' } }
+)
