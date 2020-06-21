@@ -100,7 +100,8 @@ function toFormattedItems (color, isFirst = false, style) {
       // If the item is an object, let chromafi format it.
       const str = chromafi(getClone(item), chromafiOptions)
       const end = str.lastIndexOf('\n\u001b[37m\u001b[39m')
-      item = '\n' + (end > 0 ? str.substring(0, end) : str.trimEnd())
+      item = isFirst ? '' : '\n'
+      item += (end > 0 ? str.substring(0, end) : str.trimEnd())
     } else {
       // If the item is not a string, turn it into one using util.inspect.
       if (typeof item !== 'string') item = util.inspect(item)
