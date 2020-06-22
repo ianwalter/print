@@ -36,7 +36,20 @@ const defaults = {
   level: 'debug',
   unrestricted: process.env.DEBUG,
   chalkLevel: chalk.level || 2,
-  ndjson: false
+  ndjson: false,
+  collectItems ({ ndjson, namespace }, { type, level, prefix, items }) {
+    if (ndjson) {
+      return {
+        ...items,
+        ...namespace ? { namespace } : {},
+        ...type ? { type } : {},
+        level,
+        message: items.message.trim()
+      }
+    }
+    const ns = namespace ? chalk.bgWhite.black.bold(' ' + namespace + ' ') : ''
+    return [...prefix ? [prefix] : [], ...ns ? [ns] : [], ...items]
+  }
 }
 const chromafiOptions = { tabsToSpaces: 2, lineNumberPad: 0 }
 const atRe = /^\s+at\s(.*)/
@@ -146,16 +159,9 @@ function createPrint (options = {}) {
   options = merge({}, defaults, options)
   chalk.level = options.chalkLevel
 
-  const ns = options.namespace
-    ? chalk.bgWhite.black.bold(' ' + options.namespace + ' ')
-    : ''
-
-  function createOutputString ({ level, prefix, items }) {
-    if (options.ndjson) {
-      const obj = { ...items, level, message: items.message.trim() }
-      return JSON.stringify(obj) + '\n'
-    }
-    items = [...prefix ? [prefix] : [], ...ns ? [ns] : [], ...items]
+  function createOutputString (log) {
+    const items = options.collectItems(options, log)
+    if (options.ndjson) return JSON.stringify(items) + '\n'
     return items.reduce(toSpacedString, '')
   }
 
@@ -197,6 +203,7 @@ function createPrint (options = {}) {
         rest = actualRest
       }
       return this.writeOut({
+        type: 'log',
         level: 'info',
         prefix,
         items: formatItems([first, ...rest])
@@ -211,6 +218,7 @@ function createPrint (options = {}) {
     },
     success (...items) {
       return this.writeOut({
+        type: 'success',
         level: 'info',
         prefix: '✅ ',
         items: formatItems(items, 'green', 'bold')
@@ -239,6 +247,7 @@ function createPrint (options = {}) {
     },
     md (...items) {
       return this.writeOut({
+        type: 'md',
         level: 'info',
         items: items.map(i => {
           const item = md(i).split('\n').map(toPaddedString).join('\n')
@@ -248,13 +257,14 @@ function createPrint (options = {}) {
     },
     plain (...items) {
       return this.writeOut({
+        type: 'plain',
         level: 'info',
         prefix: '   ',
         items: items.map(toFormattedItems()).map(stripAnsi)
       })
     },
     write (...items) {
-      return this.writeOut({ level: 'info', items })
+      return this.writeOut({ type: 'write', level: 'info', items })
     },
     writeOut (log) {
       const str = createOutputString(log)

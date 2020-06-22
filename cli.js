@@ -3,9 +3,7 @@
 const cli = require('@ianwalter/cli')
 const { print } = require('.')
 
-const config = cli({
-  name: 'print'
-})
+const config = cli({ name: '@ianwalter/print' })
 
 const log = print.create(config)
 
@@ -20,9 +18,9 @@ function prettifier (line) {
     }
   }
 
-  const { message, level = 'info', ...rest } = obj
+  const { message, type = obj.level || 'log', ...rest } = obj
   const hasRest = Object.keys(rest).length
-  log[level](...[...message ? [message] : [], ...hasRest ? [rest] : []])
+  log[type](...[...message ? [message] : [], ...hasRest ? [rest] : []])
 }
 
 if (config.help) {

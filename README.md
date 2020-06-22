@@ -36,7 +36,7 @@ log.debug('Hello!')
 
 // Will be printed:
 log.ns('app.test').debug('Flaky test started.') // => 🐛  Flaky test started.
-``
+```
 
 ## Related
 
