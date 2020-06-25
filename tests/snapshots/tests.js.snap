@@ -28,7 +28,7 @@ exports[`print 13`] = `"⚠️   [33m[1mFile was overwritten:[22m[39m "`;
 
 exports[`print 14`] = `"    /tmp/fakeFile.json"`;
 
-exports[`print 15`] = `"💁  [34m[1mDone in 0.91s.[22m[39m"`;
+exports[`print 15`] = `"💁  [36m[1mDone in 0.91s.[22m[39m"`;
 
 exports[`print 16`] = `"🐛  [35mFlaky test started.[39m "`;
 
@@ -36,11 +36,11 @@ exports[`print 17`] = `"    Make sure you check it out."`;
 
 exports[`print 18`] = `"    Could be trouble."`;
 
-exports[`print 19`] = `"    Request made to server."`;
+exports[`print 19`] = `"　  Request made to server."`;
 
 exports[`print 20`] = `"🔑  [36m$2b$12$HMJFAblrhBCGxTWv5BnIFe[39m"`;
 
-exports[`print 21`] = `"    export default () => {"`;
+exports[`print 21`] = `"　  export default () => {"`;
 
 exports[`print 22`] = `"      console.log('Hello World!')"`;
 
@@ -154,7 +154,7 @@ exports[`print 76`] = `"✅  [32m[1mSuccess![22m[39m Donezo."`;
 
 exports[`print 77`] = `"💀  [31m[1mThis computer is dead.[22m[39m"`;
 
-exports[`print 78`] = `"    No emojis, homies "`;
+exports[`print 78`] = `"　  No emojis, homies "`;
 
 exports[`print 79`] = `"    1 {"`;
 
@@ -162,11 +162,11 @@ exports[`print 80`] = `"    2   also: 'no ansi'"`;
 
 exports[`print 81`] = `"    3 }"`;
 
-exports[`print 82`] = `"🐛  [47m[30m[1m app.server [22m[39m[49m [35mUsing random port[39m"`;
+exports[`print 82`] = `"🐛  [34m[1mapp.server[22m[39m • [35mUsing random port[39m"`;
 
-exports[`print 83`] = `"{\\"message\\":\\"SWAPI Response\\",\\"data\\":{\\"statusCode\\":200,\\"body\\":\\"Lando!\\",\\"params\\":{\\"q\\":\\"one\\"}},\\"level\\":\\"info\\"}"`;
+exports[`print 83`] = `"{\\"message\\":\\"SWAPI Response\\",\\"data\\":{\\"statusCode\\":200,\\"body\\":\\"Lando!\\",\\"params\\":{\\"q\\":\\"one\\"}},\\"level\\":\\"info\\",\\"type\\":\\"info\\"}"`;
 
 exports[`return 1`] = `
-"💁  [34m[1mEllo Guvna[22m[39m
+"💁  [36m[1mEllo Guvna[22m[39m
 "
 `;

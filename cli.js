@@ -7,7 +7,7 @@ const config = cli({ name: '@ianwalter/print' })
 
 const log = print.create(config)
 
-function prettifier (line) {
+function prettify (line) {
   let obj
   if (typeof line === 'string') {
     try {
@@ -20,7 +20,11 @@ function prettifier (line) {
 
   const { message, type = obj.level || 'log', ...rest } = obj
   const hasRest = Object.keys(rest).length
-  log[type](...[...message ? [message] : [], ...hasRest ? [rest] : []])
+  log[type](...[...message ? [message] : ['•'], ...hasRest ? [rest] : []])
+}
+
+function prettifier (lines) {
+  for (const line of lines.split('\n')) prettify(line)
 }
 
 if (config.help) {
