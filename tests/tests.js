@@ -4,7 +4,7 @@ const stripAnsi = require('strip-ansi')
 const { createPrint } = require('..')
 
 test('print', async t => {
-  const env = { DEBUG: 'app.*' }
+  const env = { DEBUG: 'app.*', FORCE_COLOR: '2' }
   const { stdout } = await execa('yarn', ['example'], { env })
   stdout.split('\n').forEach(line => {
     // Don't assert stacktrace lines.
