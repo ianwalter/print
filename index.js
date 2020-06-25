@@ -211,13 +211,14 @@ function createPrint (config = {}) {
     }
   }
 
-  //
+  // Create the options Object by combinging defaults with the passed config.
   const options = merge({}, defaults, config)
 
-  //
+  // Set the chalk level if configured.
   if (options.chalkLevel) chalk.level = options.chalkLevel
 
-  // FIXME: comment
+  // Determine the position of the type with the configured log level so that
+  // print can determine if future logs should be logged or not.
   const levelIndex = options.types.findIndex(t => t.type === options.level)
 
   const print = {
@@ -250,19 +251,22 @@ function createPrint (config = {}) {
       // Determine if the log item should be logged based on level.
       log.shouldLog = !type.level || options.types.indexOf(type) >= levelIndex
 
-      //
+      // Determine if the log item should be logged because it's namespace
+      // matches a value in the "unrestricted" list.
       for (const namespace of options.unrestricted?.split() || []) {
         log.unrestricted = namespace && match(namespace, options.namespace)
         if (log.unrestricted) break
       }
 
-      //
+      // Format and output the log if it has a high enough log level or has been
+      // marked as unrestriected by the namespace functionality.
       if (log.shouldLog || log.unrestricted) {
         // If prefix is a function, get the prefix by calling the function with
         // the log items.
         if (typeof log.prefix === 'function') merge(log, log.prefix(log))
 
-        //
+        // Determine how many spaces should pad the prefix to separate it from
+        // the log item. This is tricky because of weird emoji lengths.
         const pad = log.prefix?.length + [...log.prefix || []].length
         log.prefix = log.prefix?.padEnd(pad)
 
@@ -287,8 +291,10 @@ function createPrint (config = {}) {
     }
   }
 
+  // Add the log types to the print object.
   addTypes(print)
 
+  // Return the print object for use.
   return print
 }
 
