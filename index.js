@@ -18,17 +18,16 @@ const atRe = /^\s+at\s(.*)/
 const refRe = /^\s+at\s(.*)\s(\(.*\))$/
 const toPaddedString = s => `    ${s}`
 const toPaddedLine = line => line ? toPaddedString(line) : line
+const toPaddedItems = (a, i) => a.concat(['\n', ...i ? [toPaddedLine(i)] : []])
+const toMarkdownItems = i => md(i).split('\n').map(toPaddedString).join('\n')
 const at = chalk.gray('at')
 const byNotWhitespace = str => str && str.trim()
-const startsWithANewline = msg => typeof msg === 'string' &&
-  msg.replace(' ', '')[0] === '\n'
-const endsWithANewline = msg => typeof msg === 'string' &&
-  msg.replace(' ', '')[msg.length - 1] === '\n'
+const isANewLine = msg => typeof msg === 'string' && msg === '\n'
 const md = str => marked(str).trimEnd()
 const isObj = i => i && typeof i === 'object' && !Array.isArray(i)
 
 function extractLogPrefix ({ items: [first, ...rest] }) {
-  let prefix = '　'
+  let prefix = ' '
   if (typeof first === 'string' && hasEmoji(first)) {
     const [actual, ...actualRest] = rest
     prefix = first
@@ -39,10 +38,7 @@ function extractLogPrefix ({ items: [first, ...rest] }) {
 }
 
 function formatMarkdown (log) {
-  log.items = log.items.map(item => {
-    const formatted = md(item).split('\n').map(toPaddedString).join('\n')
-    return startsWithANewline(item) ? '\n' + formatted : formatted
-  })
+  log.items = log.items.map(toMarkdownItems)
 }
 
 function toStackLines (line) {
@@ -72,16 +68,10 @@ function createPrint (config = {}) {
   }
 
   function toOutputString (acc = '', msg, idx, src) {
-    if (!msg) {
-      return acc
-    } else if (isObj(msg)) {
-      return `${JSON.stringify(msg)}\n`
-    } else if (endsWithANewline(msg)) {
-      return acc + msg
-    } else if (idx === src.length - 1) {
-      return `${acc}${msg}\n`
-    }
-    return `${acc}${msg} `
+    if (isObj(msg)) return `${JSON.stringify(msg)}\n`
+    const space = acc && !isANewLine(acc[acc.length - 1]) && !isANewLine(msg)
+    const newline = idx === src.length - 1
+    return acc + (msg ? (space ? ` ${msg}` : msg) : '') + (newline ? '\n' : '')
   }
 
   function toNdjson (acc, msg, idx, src) {
@@ -97,64 +87,58 @@ function createPrint (config = {}) {
   function format (log) {
     const styled = get(chalk, log.style?.join('.'))
 
-    log.items = log.items.map((item, index, items) => {
-      const isFirst = index === 0
+    log.items = log.items.reduce(
+      (acc, item, index) => {
+        const isFirst = index === 0
+        const isString = typeof item === 'string'
 
-      if (item instanceof Error) {
-        const { message, stack, ...rest } = item
-
-        // Preface the log output with the error name.
-        let str = ''
-        if (isFirst) str = styled(`${item.constructor.name}: `)
-
-        // Format the error message with the given color and make it bold,
-        // unless it's already formatted using ANSI escape sequences.
-        str += hasAnsi(message) ? message : styled(message)
-
-        // Format the error stacktrace.
-        const stackLines = stack.split('\n').map(toStackLines)
-        item = str + '\n' + stackLines.filter(byNotWhitespace).join('\n')
-
-        // Add the rest of the Error properties to the item
-        if (Object.keys(rest).length) {
-          str = chromafi(getClone(rest), options.chromafi)
-          const end = str.lastIndexOf('\n\u001b[37m\u001b[39m')
-          item += '\n' + (end > 0 ? str.substring(0, end) : str.trimEnd())
+        // Split the item by newlines so the first item and rest can be
+        // formatted differently.
+        let rest = []
+        if (isString) {
+          rest = item.split('\n')
+          item = rest.shift()
         }
-      } else if (typeof item === 'object') {
-        // If the item is an object, let chromafi format it.
-        const str = chromafi(getClone(item), options.chromafi)
-        const end = str.lastIndexOf('\n\u001b[37m\u001b[39m')
-        item = isFirst ? '' : '\n'
-        item += end > 0 ? str.substring(0, end) : str.trimEnd()
-      } else {
-        // If the item is not a string, turn it into one using util.inspect.
-        if (typeof item !== 'string') item = util.inspect(item)
 
-        // If the item is the first item logged and isn't already formatted
-        // using ANSI escape sequences, format it with the given color and make
-        // it bold.
-        if (isFirst && !hasAnsi(item)) item = styled(item)
-      }
+        if (item instanceof Error) {
+          const { message, stack, ...err } = item
 
-      // Split the item string by newlines.
-      let [newline, ...rest] = item ? item.split('\n') : []
+          // Format the error message with the given color and make it bold,
+          // unless it's already formatted using ANSI escape sequences.
+          item = styled(`${item.constructor.name}: `)
+          item += hasAnsi(message) ? message : styled(message)
 
-      // Handle formatting an item with newlines.
-      if (rest.length) {
-        newline = newline ? newline + '\n' : '\n'
-        rest = rest.map(toPaddedLine)
-      }
+          // Format the error stacktrace.
+          const stackLines = stack.split('\n').map(toStackLines)
+          rest = rest.concat(stackLines.filter(byNotWhitespace))
 
-      // Handle formatting an item that comes after a newline.
-      const previous = !isFirst && items[index - 1]
-      if (typeof previous === 'string' && endsWithANewline(previous)) {
-        newline = toPaddedLine(newline)
-      }
+          // Add the rest of the Error properties as a new item.
+          if (Object.keys(err).length) {
+            const items = chromafi(getClone(err), options.chromafi).split('\n')
+            rest = rest.concat(items.slice(0, items.length - 1))
+          }
+        } else if (typeof item === 'object') {
+          // If the item is an object, let chromafi format it.
+          const items = chromafi(getClone(item), options.chromafi).split('\n')
+          item = isFirst ? items.shift() : ''
+          rest = rest.concat(items.slice(0, items.length - 1))
+        } else {
+          // If the item is not a string, turn it into one using util.inspect.
+          if (!isString) item = util.inspect(item)
 
-      // Recombine the item string with newlines.
-      return (newline || '') + rest.join('\n')
-    })
+          // If the item is the first item logged and isn't already formatted
+          // using ANSI escape sequences, format it with the log style.
+          if (isFirst && !hasAnsi(item)) item = styled(item)
+        }
+
+        // Handle formatting an item that comes after a newline.
+        if (isANewLine(acc[acc.length - 1])) item = toPaddedLine(item)
+
+        // Add all the items back into the accumulator and return it.
+        return acc.concat([item, ...rest.reduce(toPaddedItems, [])])
+      },
+      []
+    )
   }
 
   function formatPlain (log) {
@@ -181,7 +165,7 @@ function createPrint (config = {}) {
       // For log statements in Markdown format.
       { type: 'md', format: formatMarkdown },
       // For plain text without an emoji or ANSI escape sequences.
-      { type: 'plain', prefix: '　', format: formatPlain },
+      { type: 'plain', prefix: ' ', format: formatPlain },
       // For writing to the log without any formatting at all.
       { type: 'write', format: false }
     ],
@@ -268,7 +252,7 @@ function createPrint (config = {}) {
         // Determine how many spaces should pad the prefix to separate it from
         // the log item. This is tricky because of weird emoji lengths.
         const pad = log.prefix?.length + [...log.prefix || []].length
-        log.prefix = log.prefix?.padEnd(pad)
+        log.prefix = log.prefix?.padEnd(pad + log.prefix.split(' ').length - 1)
 
         // Format the log items.
         if (options.ndjson) {
