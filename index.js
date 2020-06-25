@@ -72,16 +72,10 @@ function createPrint (config = {}) {
   }
 
   function toOutputString (acc = '', msg, idx, src) {
-    if (!msg) {
-      return acc
-    } else if (isObj(msg)) {
-      return `${JSON.stringify(msg)}\n`
-    } else if (endsWithANewline(msg)) {
-      return acc + msg
-    } else if (idx === src.length - 1) {
-      return `${acc}${msg}\n`
-    }
-    return `${acc}${msg} `
+    if (isObj(msg)) return `${JSON.stringify(msg)}\n`
+    const space = acc && acc[acc.length - 1] !== '\n'
+    const newline = idx === src.length - 1 && !endsWithANewline(msg)
+    return acc + (msg ? (space ? ` ${msg}` : msg) : '') + (newline ? '\n' : '')
   }
 
   function toNdjson (acc, msg, idx, src) {
