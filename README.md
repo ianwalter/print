@@ -32,10 +32,10 @@ const { createPrint } = require('@ianwalter/print')
 const print = createPrint({ level: info })
 
 // Will not be printed:
-log.debug('Hello!')
+print.debug('Hello!')
 
 // Will be printed:
-log.ns('app.test').debug('Flaky test started.') // => 🐛  Flaky test started.
+print.ns('app.test').debug('Flaky test started.') // => 🐛  Flaky test started.
 ```
 
 ## License
