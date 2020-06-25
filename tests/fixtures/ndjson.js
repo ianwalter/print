@@ -1,13 +1,11 @@
-const { print } = require('../..')
+const { createPrint } = require('../..')
 
-// TODO: print.update({ ndjson: true })
+const print = createPrint({ ndjson: true })
 
-const log = print.create({ ndjson: true })
-
-log.info('Request to /')
+print.info('Request to /')
 
 console.log('Testing...')
 
-log.warn('User not found', { userId: 123 })
+print.warn('User not found', { userId: 123 })
 
 console.log(JSON.stringify({ testing: 'No Message', response: { ok: true } }))

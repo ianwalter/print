@@ -1,7 +1,7 @@
 const { test } = require('@ianwalter/bff')
 const execa = require('execa')
 const stripAnsi = require('strip-ansi')
-const { print } = require('..')
+const { createPrint } = require('..')
 
 test('print', async t => {
   const env = { DEBUG: 'app.*' }
@@ -15,6 +15,6 @@ test('print', async t => {
 })
 
 test('return', t => {
-  const noStdout = print.create({ std: false })
-  t.expect(noStdout.info('Ello Guvna')).toMatchSnapshot()
+  const print = createPrint({ io: false })
+  t.expect(print.info('Ello Guvna')).toMatchSnapshot()
 })
