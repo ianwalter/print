@@ -27,9 +27,9 @@ export DEBUG="app.*"
 ```
 
 ```js
-const { print } = require('@ianwalter/print')
+const { createPrint } = require('@ianwalter/print')
 
-const log = print.create({ level: info })
+const print = createPrint({ level: info })
 
 // Will not be printed:
 log.debug('Hello!')
@@ -37,10 +37,6 @@ log.debug('Hello!')
 // Will be printed:
 log.ns('app.test').debug('Flaky test started.') // => 🐛  Flaky test started.
 ```
-
-## Related
-
-[@ianwlater/log][logUrl]
 
 ## License
 
@@ -54,5 +50,4 @@ Created by [Ian Walter](https://ianwalter.dev)
 [npmUrl]: https://www.npmjs.com/package/@ianwalter/print
 [ciImage]: https://github.com/ianwalter/print/workflows/CI/badge.svg
 [ciUrl]: https://github.com/ianwalter/print/actions
-[logUrl]: https://github.com/ianwalter/log
 [licenseUrl]: https://github.com/ianwalter/print/blob/master/LICENSE
