@@ -11,7 +11,7 @@ print.error(new ExampleError(chalk.bold('Expected something else.')))
 print.error('Timeout reached:', new ExampleError('promise cancelled'))
 print.warn('File was overwritten:', '\n', '/tmp/fakeFile.json')
 print.info('Done in 0.91s.', '')
-print.debug('Flaky test started.', '\n', stripIndent`
+print.debug('Flaky test started.\n', stripIndent`
   Make sure you check it out.
   Could be trouble.
 `)

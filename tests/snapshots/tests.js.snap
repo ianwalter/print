@@ -16,7 +16,7 @@ exports[`print 7`] = `"    2   name: 'ExampleError'"`;
 
 exports[`print 8`] = `"    3 }"`;
 
-exports[`print 9`] = `"🚫  [31m[1mTimeout reached:[22m[39m [31m[1mpromise cancelled[22m[39m"`;
+exports[`print 9`] = `"🚫  [31m[1mTimeout reached:[22m[39m [31m[1mExampleError: [22m[39m[31m[1mpromise cancelled[22m[39m"`;
 
 exports[`print 10`] = `"    1 {"`;
 
@@ -24,23 +24,23 @@ exports[`print 11`] = `"    2   name: 'ExampleError'"`;
 
 exports[`print 12`] = `"    3 }"`;
 
-exports[`print 13`] = `"⚠️   [33m[1mFile was overwritten:[22m[39m "`;
+exports[`print 13`] = `"⚠️   [33m[1mFile was overwritten:[22m[39m"`;
 
 exports[`print 14`] = `"    /tmp/fakeFile.json"`;
 
 exports[`print 15`] = `"💁  [36m[1mDone in 0.91s.[22m[39m"`;
 
-exports[`print 16`] = `"🐛  [35mFlaky test started.[39m "`;
+exports[`print 16`] = `"🐛  [35mFlaky test started.[39m"`;
 
 exports[`print 17`] = `"    Make sure you check it out."`;
 
 exports[`print 18`] = `"    Could be trouble."`;
 
-exports[`print 19`] = `"　  Request made to server."`;
+exports[`print 19`] = `"    Request made to server."`;
 
 exports[`print 20`] = `"🔑  [36m$2b$12$HMJFAblrhBCGxTWv5BnIFe[39m"`;
 
-exports[`print 21`] = `"　  export default () => {"`;
+exports[`print 21`] = `"    export default () => {"`;
 
 exports[`print 22`] = `"      console.log('Hello World!')"`;
 
@@ -128,7 +128,7 @@ exports[`print 63`] = `"    38   }"`;
 
 exports[`print 64`] = `"    39 }"`;
 
-exports[`print 65`] = `"🐛  [35mCalling...[39m "`;
+exports[`print 65`] = `"🐛  [35mCalling...[39m"`;
 
 exports[`print 66`] = `"    1 {"`;
 
@@ -154,7 +154,7 @@ exports[`print 76`] = `"✅  [32m[1mSuccess![22m[39m [0m[1mDonezo.[22m[0
 
 exports[`print 77`] = `"💀  [31m[1mThis computer is dead.[22m[39m"`;
 
-exports[`print 78`] = `"　  No emojis, homies "`;
+exports[`print 78`] = `"    No emojis, homies"`;
 
 exports[`print 79`] = `"    1 {"`;
 
