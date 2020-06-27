@@ -237,8 +237,8 @@ function createPrint (config = {}) {
 
       // Determine if the log item should be logged because it's namespace
       // matches a value in the "unrestricted" list.
-      for (const namespace of options.unrestricted?.split() || []) {
-        log.unrestricted = namespace && match(namespace, options.namespace)
+      for (const ns of options.unrestricted?.split(',') || []) {
+        log.unrestricted = ns && match(ns.trim(), options.namespace)
         if (log.unrestricted) break
       }
 
