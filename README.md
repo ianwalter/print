@@ -29,7 +29,7 @@ export DEBUG="app.*"
 ```js
 const { createPrint } = require('@ianwalter/print')
 
-const print = createPrint({ level: info })
+const print = createPrint({ level: 'info' })
 
 // Will not be printed:
 print.debug('Hello!')
