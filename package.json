@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/print",
   "description": "Colorful Node.js logging",
-  "version": "8.0.4",
+  "version": "8.0.5",
   "license": "SEE LICENSE IN LICENSE",
   "author": {
     "name": "Ian Walter",
