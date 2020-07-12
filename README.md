@@ -7,7 +7,7 @@
 ## Installation
 
 ```console
-yarn add @ianwalter/print
+pnpm add @ianwalter/print
 ```
 
 ## Usage

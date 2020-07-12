@@ -59,7 +59,7 @@ print.warn(new Error('User not found'), user)
 print.debug('Calling...', { phoneNumbers: user.details.address.phoneNumbers })
 print.md(stripIndent`
   A new version is available **v1.1.0**!
-  * Run \`yarn add widget@latest\` to upgrade
+  * Run \`pnpm add widget@latest\` to upgrade
   * Re-run widget
 `)
 print.success('Success!', md('**Donezo.**'))
