@@ -10,6 +10,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Changeset
-        uses: ianwalter/add-changeset@v1.0.6
+        uses: ianwalter/add-changeset@master
         env:
           DEBUG: true
