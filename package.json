@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/print",
   "description": "Colorful Node.js logging",
-  "version": "8.0.5",
+  "version": "8.0.6",
   "license": "SEE LICENSE IN LICENSE",
   "author": {
     "name": "Ian Walter",
@@ -47,7 +47,7 @@
     "chalk": "^4.1.0",
     "has-ansi": "^4.0.0",
     "has-emoji": "^1.1.0",
-    "marked": "^1.1.0",
+    "marked": "^1.1.1",
     "marked-terminal": "^4.1.0",
     "strip-ansi": "^6.0.0"
   },
