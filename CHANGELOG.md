@@ -1,5 +1,11 @@
 # @ianwalter/print
 
+## 8.1.0
+
+### Minor Changes
+
+- 2151c55: Add #137: ansi option for cli
+
 ## 8.0.6
 
 ### Patch Changes
