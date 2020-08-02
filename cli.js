@@ -3,7 +3,12 @@
 const cli = require('@ianwalter/cli')
 const { print } = require('.')
 
-const config = cli({ name: '@ianwalter/print' })
+const config = cli({
+  name: '@ianwalter/print',
+  options: {
+    ansi: { default: true }
+  }
+})
 
 const log = print.create(config)
 
@@ -18,9 +23,12 @@ function prettify (line) {
     }
   }
 
-  const { message, type = obj.level || 'log', ...rest } = obj
+  let { message, ...rest } = obj
+  const type = obj.type || obj.level || 'log'
+  const logger = config.ansi ? type : 'plain'
   const hasRest = Object.keys(rest).length
-  log[type](...[...message ? [message] : ['•'], ...hasRest ? [rest] : []])
+  message = message || `${type[0].toUpperCase()}${type.substring(1)}`
+  log[logger](...[message, ...hasRest ? [rest] : []])
 }
 
 function prettifier (lines) {
