@@ -16,7 +16,7 @@ devDependencies:
   '@ianwalter/base-error': 6.1.0
   '@ianwalter/bff': 9.11.0
   '@ianwalter/eslint-config': 5.4.0
-  '@ianwalter/renovate-config': 1.4.0
+  '@ianwalter/renovate-config': 1.4.1
   common-tags: 1.8.0
 lockfileVersion: 5.1
 packages:
@@ -375,10 +375,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-XizAXpyo7kyhGZ/PdeGF2oNqlnWmhGuI+2e5ofNOZlwn6+yuAX4Ph1Wor0dxyNi41N0ERBZcJG5slV+nNaeETw==
-  /@ianwalter/renovate-config/1.4.0:
+  /@ianwalter/renovate-config/1.4.1:
     dev: true
     resolution:
-      integrity: sha512-zmHUJ06LbexUu1ARDxf9bnZuFCBsHiC+VVOFOy4G2TR9svg8YTP9m4dm+EYr9EXca/eqgwWHpLRxspYkxthfAw==
+      integrity: sha512-i0see4GuHnUZDfcgzskNu8iYBvMNGXJYR96Q5zPVVqrkCkeVuGA46NHIwggw8VTvYwwEJhZAFoWsH7t6sAZL/A==
   /@ianwalter/sleep/0.0.1:
     dev: true
     resolution:
@@ -4138,7 +4138,7 @@ specifiers:
   '@ianwalter/dot': ^1.0.4
   '@ianwalter/eslint-config': ^5.4.0
   '@ianwalter/merge': ^9.0.1
-  '@ianwalter/renovate-config': ^1.4.0
+  '@ianwalter/renovate-config': ^1.4.1
   chalk: ^4.1.0
   common-tags: ^1.8.0
   has-ansi: ^4.0.0
