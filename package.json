@@ -56,7 +56,7 @@
     "@ianwalter/base-error": "^6.1.0",
     "@ianwalter/bff": "^9.12.1",
     "@ianwalter/eslint-config": "^5.4.0",
-    "@ianwalter/renovate-config": "^1.4.1",
+    "@ianwalter/renovate-config": "^1.4.2",
     "common-tags": "^1.8.0"
   },
   "eslintConfig": {
