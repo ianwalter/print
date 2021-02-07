@@ -8,8 +8,8 @@ dependencies:
   chalk: 4.1.0
   has-ansi: 4.0.0
   has-emoji: 1.1.0
-  marked: 1.1.1
-  marked-terminal: 4.1.0_marked@1.1.1
+  marked: 2.0.0
+  marked-terminal: 4.1.0_marked@2.0.0
   strip-ansi: 6.0.0
 devDependencies:
   '@changesets/cli': 2.14.1
@@ -3043,6 +3043,21 @@ packages:
       marked: 1.1.1
       node-emoji: 1.10.0
       supports-hyperlinks: 2.1.0
+    dev: true
+    peerDependencies:
+      marked: '>=0.4.0 <2.0.0'
+    resolution:
+      integrity: sha512-5KllfAOW02WS6hLRQ7cNvGOxvKW1BKuXELH4EtbWfyWgxQhROoMxEvuQ/3fTgkNjledR0J48F4HbapvYp1zWkQ==
+  /marked-terminal/4.1.0_marked@2.0.0:
+    dependencies:
+      ansi-escapes: 4.3.1
+      cardinal: 2.1.1
+      chalk: 4.1.0
+      cli-table: 0.3.1
+      marked: 2.0.0
+      node-emoji: 1.10.0
+      supports-hyperlinks: 2.1.0
+    dev: false
     peerDependencies:
       marked: '>=0.4.0 <2.0.0'
     resolution:
@@ -3054,11 +3069,19 @@ packages:
     resolution:
       integrity: sha512-EGwzEeCcLniFX51DhTpmTom+dSA/MG/OBUDjnWtHbEnjAH180VzUeAw+oE4+Zv+CoYBWyRlYOTR0N8SO9R1PVw==
   /marked/1.1.1:
+    dev: true
     engines:
       node: '>= 8.16.2'
     hasBin: true
     resolution:
       integrity: sha512-mJzT8D2yPxoPh7h0UXkB+dBj4FykPJ2OIfxAWeIHrvoHDkFxukV/29QxoFQoPM6RLEwhIFdJpmKBlqVM3s2ZIw==
+  /marked/2.0.0:
+    dev: false
+    engines:
+      node: '>= 8.16.2'
+    hasBin: true
+    resolution:
+      integrity: sha512-NqRSh2+LlN2NInpqTQnS614Y/3NkVMFFU6sJlRFEpxJ/LHuK/qJECH7/fXZjk4VZstPW/Pevjil/VtSONsLc7Q==
   /meow/6.1.1:
     dependencies:
       '@types/minimist': 1.2.0
@@ -4661,6 +4684,6 @@ specifiers:
   common-tags: ^1.8.0
   has-ansi: ^4.0.0
   has-emoji: ^1.1.0
-  marked: ^1.1.1
+  marked: ^2.0.0
   marked-terminal: ^4.1.0
   strip-ansi: ^6.0.0
