@@ -16,7 +16,7 @@ devDependencies:
   '@ianwalter/base-error': 6.1.0
   '@ianwalter/bff': 9.13.0
   '@ianwalter/eslint-config': 6.2.0
-  '@ianwalter/renovate-config': 1.4.3
+  '@ianwalter/renovate-config': 1.4.4
   common-tags: 1.8.0
 lockfileVersion: 5.2
 packages:
@@ -584,10 +584,10 @@ packages:
       strip-ansi: 6.0.0
     resolution:
       integrity: sha512-YkkUv/Bnwzu0qNqj3BCo1ZP19wk2kkYXYhFvgKGZqVpELRHEwOzo5pD4KszwhjvMUNiBOLYqOZO8C3OCx5+cXA==
-  /@ianwalter/renovate-config/1.4.3:
+  /@ianwalter/renovate-config/1.4.4:
     dev: true
     resolution:
-      integrity: sha512-61InLaz89GLb3iTcRSL2Z+WtYnEIfzWJ7gy+R8ascdsRpARU8qwkBqmq6euw8OPxfHNbqtqEAiG1ljckFjVwsQ==
+      integrity: sha512-LJRn/jAwIrUWfH5gwibOsUVQeXJVnPhoML0Yybx4xKvowyIKY2nwzvXvR1xPa2zK4EH+EW7WeQ/+Z1vctp67XA==
   /@ianwalter/rollup-plugin-hashbang/1.3.0:
     dependencies:
       magic-string: 0.25.7
@@ -4656,7 +4656,7 @@ specifiers:
   '@ianwalter/dot': ^1.0.4
   '@ianwalter/eslint-config': ^6.2.0
   '@ianwalter/merge': ^9.0.1
-  '@ianwalter/renovate-config': ^1.4.3
+  '@ianwalter/renovate-config': ^1.4.4
   chalk: ^4.1.0
   common-tags: ^1.8.0
   has-ansi: ^4.0.0
