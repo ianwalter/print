@@ -9,7 +9,7 @@ dependencies:
   has-ansi: 4.0.0
   has-emoji: 1.1.0
   marked: 1.1.1
-  marked-terminal: 4.1.0_marked@1.1.1
+  marked-terminal: 4.1.1_marked@1.1.1
   strip-ansi: 6.0.0
 devDependencies:
   '@changesets/cli': 2.14.1
@@ -3043,10 +3043,25 @@ packages:
       marked: 1.1.1
       node-emoji: 1.10.0
       supports-hyperlinks: 2.1.0
+    dev: true
     peerDependencies:
       marked: '>=0.4.0 <2.0.0'
     resolution:
       integrity: sha512-5KllfAOW02WS6hLRQ7cNvGOxvKW1BKuXELH4EtbWfyWgxQhROoMxEvuQ/3fTgkNjledR0J48F4HbapvYp1zWkQ==
+  /marked-terminal/4.1.1_marked@1.1.1:
+    dependencies:
+      ansi-escapes: 4.3.1
+      cardinal: 2.1.1
+      chalk: 4.1.0
+      cli-table: 0.3.1
+      marked: 1.1.1
+      node-emoji: 1.10.0
+      supports-hyperlinks: 2.1.0
+    dev: false
+    peerDependencies:
+      marked: ^1.0.0 || ^2.0.0
+    resolution:
+      integrity: sha512-t7Mdf6T3PvOEyN01c3tYxDzhyKZ8xnkp8Rs6Fohno63L/0pFTJ5Qtwto2AQVuDtbQiWzD+4E5AAu1Z2iLc8miQ==
   /marked/0.8.2:
     engines:
       node: '>= 8.16.2'
@@ -4662,5 +4677,5 @@ specifiers:
   has-ansi: ^4.0.0
   has-emoji: ^1.1.0
   marked: ^1.1.1
-  marked-terminal: ^4.1.0
+  marked-terminal: ^4.1.1
   strip-ansi: ^6.0.0
