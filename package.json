@@ -46,7 +46,7 @@
     "@ianwalter/merge": "^9.0.1",
     "chalk": "^4.1.0",
     "has-ansi": "^4.0.0",
-    "has-emoji": "^1.1.0",
+    "has-emoji": "^2.0.0",
     "marked": "^1.1.1",
     "marked-terminal": "^4.1.0",
     "strip-ansi": "^6.0.0"
