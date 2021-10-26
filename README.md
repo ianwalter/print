@@ -4,6 +4,10 @@
 [![npm page][npmImage]][npmUrl]
 [![CI][ciImage]][ciUrl]
 
+## Deprecated
+
+**Use [@generates/logger](https://github.com/generates/generates/tree/main/packages/logger) instead.**
+
 ## Installation
 
 ```console
