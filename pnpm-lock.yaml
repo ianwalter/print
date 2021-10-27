@@ -6,7 +6,7 @@ dependencies:
   '@ianwalter/dot': 1.0.4
   '@ianwalter/merge': 9.0.1
   chalk: 4.1.0
-  has-ansi: 4.0.0
+  has-ansi: 4.0.1
   has-emoji: 1.1.0
   marked: 1.1.1
   marked-terminal: 4.1.0_marked@1.1.1
@@ -2256,6 +2256,14 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-VvDupLMvFX9yyed3h1DajPUYQZv82EL2h9I9Jy0ays9gYRJ30hbmGapTiam5cISr42ZCuC3nRgyVBM/YZbpi9A==
+  /has-ansi/4.0.1:
+    dependencies:
+      ansi-regex: 4.1.0
+    dev: false
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-Qr4RtTm30xvEdqUXbSBVWDu+PrTokJOwe/FU+VdfJPk+MXAPoeOzKpRyrDTnZIJwAkQ4oBLTU53nu0HrkF/Z2A==
   /has-emoji/1.1.0:
     dependencies:
       emoji-regex: 8.0.0
@@ -4659,7 +4667,7 @@ specifiers:
   '@ianwalter/renovate-config': ^1.4.3
   chalk: ^4.1.0
   common-tags: ^1.8.0
-  has-ansi: ^4.0.0
+  has-ansi: ^4.0.1
   has-emoji: ^1.1.0
   marked: ^1.1.1
   marked-terminal: ^4.1.0
