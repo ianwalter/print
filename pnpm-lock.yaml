@@ -3,7 +3,7 @@ dependencies:
   '@ianwalter/cli': 4.1.0
   '@ianwalter/clone': 6.0.1
   '@ianwalter/cloneable': 2.0.0
-  '@ianwalter/dot': 1.0.4
+  '@ianwalter/dot': 1.0.5
   '@ianwalter/merge': 9.0.1
   chalk: 4.1.0
   has-ansi: 4.0.0
@@ -531,8 +531,13 @@ packages:
     resolution:
       integrity: sha512-lUyMuaxO3bMjqS5yJMfjOIVVqBFCwkAdHCvF3NUkln/Hanz2kBEVhgeBrm50ni5AryjuxGwk3czQB89IHBV13A==
   /@ianwalter/dot/1.0.4:
+    dev: true
     resolution:
       integrity: sha512-bq6q4ZXWzQfBbE29i6trTwAtmmRzSWU0D/fSPhA/tDNbxhSlXDYUxfITtq1cctqi+s4BV4PgYIjxNkLeePK1mQ==
+  /@ianwalter/dot/1.0.5:
+    dev: false
+    resolution:
+      integrity: sha512-xOtXmoeKrLudrNF5noqJPXJkMtm33A/Hhy/UPV0z5pWCtPa8pN1b5NFgrsFZsA/UsUN47MKWjLazPuZIO77ljw==
   /@ianwalter/eslint-config/6.2.0:
     dependencies:
       eslint: 7.16.0
@@ -4653,7 +4658,7 @@ specifiers:
   '@ianwalter/cli': ^4.1.0
   '@ianwalter/clone': ^6.0.1
   '@ianwalter/cloneable': ^2.0.0
-  '@ianwalter/dot': ^1.0.4
+  '@ianwalter/dot': ^1.0.5
   '@ianwalter/eslint-config': ^6.2.0
   '@ianwalter/merge': ^9.0.1
   '@ianwalter/renovate-config': ^1.4.3
